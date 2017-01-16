@@ -9,9 +9,9 @@ Outline of the Game
 
 Playable Races:
   
-  Namekian
-  Saiyan
-  Heran (race of Bojack)
+  1. Namekian
+  2. Saiyan
+  3. Heran (race of Bojack)
   
   
 GamePlay:
