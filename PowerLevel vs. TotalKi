@@ -1,0 +1,37 @@
+Difference Between Power Level and Total Ki
+===========================================
+
+
+In Dragonball Z, fighters can manipulate their power levels, which is essentially controlling how much output they are using.
+This is not saying that they are getting stronger, but rather unleashing the full power they already possess. Alternatively, 
+powering down means that they are using less power, and are more vulnerable, but not weaker instrinsically.
+
+
+An Explanation By Example:
+
+During the Majin Buu saga, we know that Goku has the ability to turn Super Saiyan 3. This means, when he powers up to SSJ3, 
+he is at max potential. His attacks, defense are at max and every hit is incredibly strong. However, when he powers down to base
+form, he cannot use attacks at SSJ3 level, but that doesn't mean the power doesn't still reside inside him. He just can't use it 
+until he opens up his body by powering up. This also means, that while in SSJ3 form he can withstand a punch from Majin Buu,
+if he was in base form, the punch would kill him, even though he had power within him to withstand it while powered up.
+
+This creates the distinct difference between Power Level and Total Ki.
+
+Total Ki is the amount of raw power that always resides within the fighter, his true potential. Power Level represents how much
+of the power he is able to access currently. Imagine a water pump... the reservoir of water is the Total Ki, but the pipeline and 
+the pressure of water coming out is the Power Level.
+
+In representing these values, Total Ki is very much like mana, and can be represented simply as a large number that diminishes
+over time through using it up. Power Level is represented as Ki usage/ second (DPS).
+
+
+Total KI
+    586,000 / 1,000,000
+    
+ 
+ 
+ Power Level
+    4.86
+    
+    The working concept for representing power level is using a base of 10 for the BASE number and then a percentage for the SPREAD
+    number.
