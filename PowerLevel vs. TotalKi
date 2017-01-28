@@ -109,16 +109,44 @@ Total KI
     
     An example follows:
     
-    If you look at a typical Dragonball Z battle, it can go on for at least 20 minutes. This involves using up ki, getting tired, 
-    rethinking an attack, powering up more ki and attacking again. Let's say we have all three races equally at 1 million Ki pool.
+    Given that a Namekian, a Saiyan and a Heran are all at 1 million ki pool.
     
-    A Big Bang attack would probably consume about 300,000 ki. So our character would hardly use that very often. What they do is charge 
-    up themselves with some power to play with. So let's say 100,000.
+    A Namekian regenerates their ki and grows ki after training at about 30% greater than Saiyans.
     
-    Their melee attacks will consume half that of an attack ball or attack beam (to make the gameplay last longer and more fun). This means
-    that every attack ball does 35,000 ki damage, every attack beam does 35,000/sec while channeled, and melee attacks do 35,000/sec while only
-    consuming 17,500 ki per second. This would allow for about 2 attack balls or 2 seconds of attack beam, or 4 seconds of melee. This is 
-    hardly enough. So they would lower the number because they dont want to exhaust themselves too fast.
+    Saiyans regenerate their Ki and grow stronger at normal rate.
+    
+    Herans regenerate and grow their base ki (fromtraining alone, ) very slowly... -40%.
+    
+    A Namekian can only access about 70% of their total ki pool in the largest attack possible. This means that even something like 
+    Piccolo's Beam attack which is charged to max can only use up 70% of his total ki pool.
+    
+    A Saiyan can use about 80% naturally, and up to 90% if enraged.
+    
+    A Heran can use 90 easily and up to 100% with a longer charging time.
+    
+    
+    Herans are PowerLevel-Centric. This means that they experience growth by getting their bodies used to more power. While the Namekian
+    and Saiyan may gain 2% of their total ki when training in a session, Herans work differently. THey must power up to a high power level,
+    and once rested, their bodies grow a percentage of their total powered up level.
+    
+    This means that while Namekians and Saiyans can train at any arbitrary level, and expereince a growth in ki pool, Herans must push their
+    bodies to maximum and beyond in order to expereince any growth.
+    
+    The current algorithm is ((powerlevel percentage) * 3 / factor of 10)
+    
+    so a heran that powers up to 50% of their total power would see:
+    
+    50 * 3 = 150 
+    50% above maximum / 10 = 5
+    so it would become 105%
+    
+    So a 1,000,000 ki pool heran training at 50% would only receive 5% of 500,000 which is 25,000, which is 2.5%
+    The full power transformation is a 3x boost.
+    
+    So 300 * 3 = 900
+    900 / 10 = 90
+    so it would be 190%
+    which is 90% of 100% total ki.. 1,000,000 -> 1,900,000...
     
     
 
