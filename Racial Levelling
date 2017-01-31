@@ -30,6 +30,24 @@ Highest Power Level Threshold:
 
 Total Ki Growth Algorithm (Total Ki Centric):
 
+  For every point of Ki expended during training or meditating, it grows back at 102%.
+  This means that a Namekian can power up to 20% of their total Ki and spend hours meditating and pulsing energy.
+  They can use Ki regen dynamics to increase their training. Also they will not experience battle fatigue or injury.
+  
+  Example:
+  
+  A Namekian has 1,000,000 Total Ki.
+  20% PowerLevel puts thems at 200,000
+  
+  Melee Battle Power is 200,000 / 3 mins -> 1,111 Ki / Second (without Bulking charging)
+  Attack Balls = 1,111 Per Ball (without charging time)
+  Attack Beam = 1,111 Per Second (without charging time)
+  
+  This equates to a Namekian meditating and exerting 1,111 Ki per second for 1000 seconds (16 mins), including the Ki regen power,
+  which is 15% of 1M (150,000), 5 times in 16 mins ( 5 x 150,000 = 750,000)... 750,000 /1,111, which is about another 11 minutes.
+  So in 27 minutes, they have exerted all of their power. 
+  
+  They will regenerate in 12 mins and have a base Ki pool of 1,010,000.
 
 Saiyan
 ======
