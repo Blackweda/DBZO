@@ -9,12 +9,24 @@ Namekians
   Gero and Android 19 after 3 extra years of training, which took Vegeta and Goku fighting in Super Saiyan to beat. This means that 
   Piccolo would have been able to defeat Frieza at this point, which means his base is at Goku Super Saiyan level (during Namek fight). 
   After a   certain point, Piccolo falls out of range of the Saiyans, only because their SSJ2 and SSJ3 power jumps are so huge, he can't 
-  keep up in base form, although I'd argue that Piccolo fighting GOku or Vegeta in base form would be a different story! ]
+  keep up in base form, although I'd argue that Piccolo fighting GOku or Vegeta in base form would be a different story! 
+  
+  With this analysis, I'm giving a favourable advantage to Namekians for growing their Ki pool, which raises their base form at a much faster
+  rate than Saiyans or Herans.  ]
 =========
 
 Total Ki Regen (during combat):
 
+  15% untrained every 3 mins
+  25% trained every 3 mins
+
 Total Ki Regen (after combat):
+
+  30% every 3 mins
+
+Highest Power Level Threshold:
+
+  70 - 77.5 % of Total Ki
 
 Total Ki Growth Algorithm (Total Ki Centric):
 
@@ -26,6 +38,10 @@ Total Ki Regen (during combat):
 
 Total Ki Regen (after combat):
 
+Highest Power Level Threshold:
+
+  75 - 82.5 % of Total Ki
+
 Total Ki Growth Algorithm (Balanced):
 
 
@@ -35,5 +51,9 @@ Heran
 Total Ki Regen (during combat):
 
 Total Ki Regen (after combat):
+
+Highest Power Level Threshold:
+
+  80 - 87.5 % of Total Ki
 
 Total Ki Growth Algorithm (Power Level Centric):
