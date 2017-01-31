@@ -9,11 +9,10 @@ powering down means that they are using less power, and are more vulnerable, but
 
 An Explanation By Example:
 
-During the Majin Buu saga, we know that Goku has the ability to turn Super Saiyan 3. This means, when he powers up to SSJ3, 
-he is at max potential. His attacks, defense are at max and every hit is incredibly strong. However, when he powers down to base
-form, he cannot use attacks at SSJ3 level, but that doesn't mean the power doesn't still reside inside him. He just can't use it 
-until he opens up his body by powering up. This also means, that while in SSJ3 form he can withstand a punch from Majin Buu,
-if he was in base form, the punch would kill him, even though he had power within him to withstand it while powered up.
+Anytime a fighter is powered up to maximum, they can throw extremely hard hits and also receive hard hits too. However, when they 
+power down, receiving that same blow would kill them. This does not mean that they no longer have the power inside them, but they
+are not utilizing it for defense and offensive purposes. It's similar to flexing your muscles. If you try to lift up a heavy
+piece of substance without flexing, you can't do it, however the power is still there if you were to actually exert yourself.
 
 This creates the distinct difference between Power Level and Total Ki.
 
@@ -22,131 +21,39 @@ of the power he is able to access currently. Imagine a water pump... the reservo
 the pressure of water coming out is the Power Level.
 
 In representing these values, Total Ki is very much like mana, and can be represented simply as a large number that diminishes
-over time through using it up. Power Level is represented as Ki usage/ second (DPS).
+over time through using it up. Power Level is represented as Ki usage/second (similar to Damage-Per-Second), but in this case
+it would be called KPS. Its the equivalent to levelling-games, where every level is a new power level and we can allow our 
+fighters to go up and down in level freely. However, the speed at which we power up will cause a drain of ki, so powering up 
+slowly conserves more excess energy than a burst. This will be important for managing power in long fights.
 
 
-Total KI
-    586,000 / 1,000,000
+Total KI:
+    586,000 / 1,000,000 
     
- 
- 
- Power Level
-    4.85
+Power Level Representation:
+    5.651
     
     The working concept for representing power level is using a base of 10 for the BASE number and then a percentage for the SPREAD
     number.
     
-    10^0 = 0 (how many zeroes)          ->      0 - 9
+    10^0 = 0 (how many zeroes)          ->      0 - 9 KI
     10^1 = 1                            ->      10 - 99
     10^2 = 2                            ->      100 - 999
     10^3 = 3                            ->      1,000 - 9,999
     10^4 = 4                            ->      10,000 - 99,999
+    10^5 = 5                            ->      100,000 - 999,999 KI
     
-    Therefore, 4.86 means that the base power level or output is between 10,000 and 99,999 Ki/sec.
-    The .86 means 86% of the range between 10000 and 99999.
+    Therefore, 5.651 means that the base power level or output (5) is between 100,000 and 999,999 Ki/sec.
+    The .651 means 65.1% of the range between 100,000 and 999,999.
     
     Calculation:
     
-    99,999 - 10,000 = 89,999
+    999,999 - 100,000 = 899,999
     
-    89,999 * 0.85 = 76,499  (76,500)
-    
-    10,000 + 76,500 = 86,500 -> Actual DPS
-    
-    CHECK MATH:
-    
-    89,999 * 0.80 = 72,000
-    89,999 * 0.90 = 81,000
-    
-    81 - 72 = 9,000
-    9,000 / 2 = 4,500
-    
-    81,000 - 4,500 = 76,500
-    72,000 + 4,500 = 76,500
-    
-    -----------------------------------------------------------------------------
-    
-    Racial Training
-    ===============
-    
-    We will start out with 3 races: Namekians - Saiyans - Herans
-    
-    The races will have different training styles and racial advantages as explained:
-    
-    During the anime show, we have consistently seen that Piccolo always keeps within reach of the Saiyans (in their base form). 
-    Even when they surpass him in order to defeat a major boss, he catches up to that same power level within a few years time.
-    
-    Interesting to note that Saiyans receive Zenkai boosts fairly often, so that would give them a significant jump in power. So I
-    believe for the game we can safely assume that Namekians can grow their base power level just as fast as Saiyans or perhaps even
-    faster (PIccolo is actually younger than GOku as well).
-
-    For the game we will make Namekians KI-Centric.
-    
-    This means that Namekians have the greatest edge when it comes to growing their base ki pool (since they don't have transformations).
-    
-    We will use Saiyans as the intermediary racial group, therefore if the ki regeneration rate and ki growth rate of Saiyans was 1:1,
-    we could probably give Namekians a 1:1.3 or 30% greater efficency.
-
-    In practice, this means that if both a Saiyan and Namekian had 100,000 ki pool, once a battle is done, a Saiyan might receive a growth 
-    of 2,000 ki (about 2%), which would leave them at 102,000 total ki after a long day of training. The Namekian doing the same training 
-    have gained approximately 2,600 ki (2.6%) ki after the training. We would give this boost to ki training so that while a Namekian will
-    still be left behind when the Saiyans and Herans discover their transformations, in terms of base power, the Namekian can still hold 
-    his own. Without a transformation, the growth rate of the Namkian will be left behind initially in the gameplay until they can access
-    special abilities taught by grandmasters (such as Kaio-Ken boosts or God form). Keep in mind that often these special attacks and 
-    techniques are derived from the base power foremost. This edge will keep the Namekian in the game and relevant.
-    
-    The Saiyans will have an intermediate relationship between Ki-centric and PowerLevel-centric training. What this means is that while a
-    character can have massive amounts of ki pool, the power level they can rise up to (ki per second output) will be dependent on how 
-    much training they have. In other words, we don't want a character with 1 million ki to power up all his ki into one massive attack 
-    that does 1M damage. That would be unrealistic to the actual fighting strategy of the show and make the game boring. Rather it would be 
-    prefereable that a character with 1 million ki can only raise his power level to 35,000 ki per second damage. This would mean that all
-    his attack balls and attack beams have 35,000 ki per ball or per second. In terms of a Kamehameha battle, a 35k/sec attack could last 
-    for roughly 28 seconds. This causes more room for changing strategy and also more anticipation because who knows who will run out of 
-    juice first??
-    
-    So, a powerlevel-centric characters (like Herans) will have the ability to easily access higher powerlevels (exert their ki in bigger
-    chunks) than Saiyans could, who could access their ki in bigger chunks than Namkeians could...
-    
-    An example follows:
-    
-    Given that a Namekian, a Saiyan and a Heran are all at 1 million ki pool.
-    
-    A Namekian regenerates their ki and grows ki after training at about 30% greater than Saiyans.
-    
-    Saiyans regenerate their Ki and grow stronger at normal rate.
-    
-    Herans regenerate and grow their base ki (fromtraining alone, ) very slowly... -40%.
-    
-    A Namekian can only access about 70% of their total ki pool in the largest attack possible. This means that even something like 
-    Piccolo's Beam attack which is charged to max can only use up 70% of his total ki pool.
-    
-    A Saiyan can use about 80% naturally, and up to 90% if enraged.
-    
-    A Heran can use 90 easily and up to 100% with a longer charging time.
+    899,999 * 0.651 = 585,899  (round that to 585,900 roughly)
+       
     
     
-    Herans are PowerLevel-Centric. This means that they experience growth by getting their bodies used to more power. While the Namekian
-    and Saiyan may gain 2% of their total ki when training in a session, Herans work differently. THey must power up to a high power level,
-    and once rested, their bodies grow a percentage of their total powered up level.
-    
-    This means that while Namekians and Saiyans can train at any arbitrary level, and expereince a growth in ki pool, Herans must push their
-    bodies to maximum and beyond in order to expereince any growth.
-    
-    The current algorithm is ((powerlevel percentage) * 3 / factor of 10)
-    
-    so a heran that powers up to 50% of their total power would see:
-    
-    50 * 3 = 150 
-    50% above maximum / 10 = 5
-    so it would become 105%
-    
-    So a 1,000,000 ki pool heran training at 50% would only receive 5% of 500,000 which is 25,000, which is 2.5%
-    The full power transformation is a 3x boost.
-    
-    So 300 * 3 = 900
-    900 / 10 = 90
-    so it would be 190%
-    which is 90% of 100% total ki.. 1,000,000 -> 1,900,000...
+   
     
     
-
