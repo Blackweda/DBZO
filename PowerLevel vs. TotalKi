@@ -52,6 +52,29 @@ Power Level Representation:
     
     899,999 * 0.651 = 585,899  (round that to 585,900 roughly)
        
+    Battle Power:
+    
+    The Power Level is used to represent Ki in a format that is useful for making calculations concerning difference in strength. For 
+    example, you have two fighters with slightly different power levels... but both having a ki pool of 100,000.
+    
+    GOKU      -> 3.45         4,050 ki output
+    GOHAN     -> 3.30         2,700 ki output
+    
+    This power level rating is describing how much output the fighter is capable of doing currently. Often at the beginning of a fight, 
+    you will see a fighter start to power up, with a aura around them and the ground beginning to shake. This is increasing their 
+    output potential and their power levels are rising. Then they stop raising it. At this point, they have gathered up a reserve of 
+    power and have raised the Battle Power. Battle Power is actual damage-per-second ratings. Typically whatever reserve power they have
+    gathered will be divided into 3 mins worth of melee fighting.  Therefore, a power level of 3.45 means that Goku has a reserve of 4,050
+    ki gathered up. His battle power would be 4,050 / 180 seconds = 22.5 damage-per-second. Of course, Goku could charge his Battle Power
+    so that his hits are harder, but this would drain his reserve ki faster. In battles, you will often see that when the aura comes on,
+    they aren't necessarily raising the power levels, but sometimes they are refilling the reserve ki on hand from their total ki pool. 
+    When the aura is surrounding them but the environment is not being affected, or if they are tired looking and then the aura is coming
+    on, it probably means they are storing up more power from their overall store of power.
+    
+    Therefore, Power Level represents the amount of max Battle Power a fighter can access at any given point. This is best understood when
+    you see two strategies happening during a fight. Either a fighter will wear you down over time, or they charge up one big attack ball.
+    This attack ball can only be as strong as the power level they are at, and once they use it, they are exhausted. They must charge up
+    their RESERVE ki again (not increase Power Levels).
     
     
    
