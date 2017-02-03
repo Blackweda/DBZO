@@ -1,0 +1,182 @@
+Definitions of Character Stats
+==============================
+
+
+In Dragonball Z, fighters can manipulate their power levels, which is essentially controlling how much output they are using.
+This is not saying that they are getting stronger, but rather unleashing the full power they already possess. Alternatively, 
+powering down means that they are using less power, and are more vulnerable, but not weaker instrinsically.
+
+
+An Explanation By Example:
+
+Anytime a fighter is powered up to maximum, they can throw extremely hard hits and also receive hard hits too. However, when they 
+power down, receiving that same blow would kill them. This does not mean that they no longer have the power inside them, but they
+are not utilizing it for defense and offensive purposes. It's similar to flexing your muscles. If you try to lift up a heavy
+piece of substance without flexing, you can't do it, however the power is still there if you were to actually exert yourself.
+
+This creates the distinct difference between Power Level, Battle Power, Total Ki and Current Ki.
+
+Total Ki is the amount of raw power that always resides within the fighter, his true potential. Power Level represents how much
+of the power he is able to put on reserve and access currently. Imagine a water pump... the reservoir of water is the Total Ki, 
+but the pipeline and the pressure of water coming out is the Power Level.
+
+In representing these values, Total Ki is very much like mana, and can be represented simply as a large number that diminishes
+over time through using it up. Power Level is represented as the potential or capacity of strength a fighter has charged up. Its the 
+equivalent to levelling-games, where every level is a new power level and we can allow our fighters to go up and down in level freely. 
+However, the speed at which we power up will cause a drain of ki, so powering up slowly conserves more excess energy than a burst. 
+This will be important for managing power in long fights.
+
+Once a fighter has stored up a reserve amount of energy (Current Ki), that energy will be consumed over time during a fight. 
+The amount of damage per second that the fighter unleashes is their Battle Power. The usage of ki over time will consume the Current Ki 
+that has already been put on reserve. 
+
+The definitions on their own are confusing, so a set of examples will help demonstrate them --->
+
+(For reference, see:          http://dragonball.wikia.com/wiki/List_of_power_levels)
+
+Frieza Saga
+===========
+
+Goku	                                 3,000,000	                             Daizenshuu 7
+
+Goku (x10 Kaioken)	                 30,000,000	                             Calculated
+
+Goku (x20 Kaioken)	                 60,000,000	                             Calculated
+
+Goku (Super Saiyan)	                150,000,000	                             Daizenshuu 7
+
+Krillin	                               75,000	                             V-Jump
+
+Gohan	                              200,000 (and more when mad)	         V-Jump
+
+Frieza (first form)	                    530,000	                             Vol. 24, #286
+
+Frieza (second form)	        Over 1,000,000	                             Vol. 25, #296
+
+Frieza (final form; 50%)	            60,000,000	                             Daizenshuu 7
+
+Frieza (final form; 100%)	      120,000,000	                             Daizenshuu 7
+
+--------------------------------------------------------------------------------------------
+
+
+Total Ki 
+     [ The raw amount of ki a fighter innately possesses (similar to MANA bar in other games. ]:
+
+    Frieza in his final form at 100% has a total capacity for 120 million Ki damage. Therefore, his total Ki prior to fight is:
+    
+    120,000,000 / 120,000,000
+
+
+Power Level Representation
+     [ A number that represents the percentage of Ki potential being used. The number is itself is not a percentage (like 50%), but
+      represents the power of what the fighter's 50% potential is. ]:
+      
+    When Frieza is at 50% capacity, his Power Level is 60 million Ki damage. This means that if he were to put all his energy into one
+    single punch or one single energy ball, the most power he could use up is 60 million, and you would see that he is exhausted. This
+    would result even though we know he still has another 60 million left in his body. The power level represents the self-imposed cap 
+    on energy usage.
+    
+    Frieza's power level at 50% could be represented in two ways:
+    
+    1)         60,000,000
+    2)         7.67
+    
+    We can choose which option is more convenient to display, although using #1 might confuse us with Total Ki.
+    
+    
+    The working concept for representing power levels in #2 is using a base of 10 for the BASE number and then a percentage for the 
+    SPREAD number.
+    
+    10^0 = 0 (how many zeroes)          ->      0 - 9 KI
+    10^1 = 1                            ->      10 - 99
+    10^2 = 2                            ->      100 - 999
+    10^3 = 3                            ->      1,000 - 9,999
+    10^4 = 4                            ->      10,000 - 99,999
+    10^5 = 5                            ->      100,000 - 999,999 
+    10^6 = 6                            ->      1,000,000 - 9,999,999
+    10^7 = 7                            ->      10,000,000 - 99,999,999
+    10^8 = 8                            ->      100,000,000 - 999,999,999
+    
+    Therefore, 7.67 means that the base power level or output (7) is between 10,000,000 and 99,999,999 Ki.
+    The .67 means 67% of the range between 10,000,000 and 99,999,999.
+    
+    Calculation:
+    
+    99,999,999 - 10,000,000 = 89,999,999
+    
+    89,999,999 * 0.67 = 60,299,999
+    
+    
+    
+    Battle Power and Current Ki
+    [ When Frieza has powered up to 50% capacity, that doesn't mean that he punches 60 million damage every attack. This would 
+    erroneously mean that he can only perform two attacks then he is wiped out of power. Every fighter paces themselves, and the 
+    amount of damage that they perform per second is Battle Power. This is why you can see them have melee fights that last several
+    minute before they have to stop and charge up their Current Ki]:
+    
+    
+    For an estimation, let's assume that during any given point in a battle, a fighter will stop and charge up his energy every 3 - 5
+    minutes. This is based on both concepts of Current Ki and Battle Power. 
+    
+    Often when a fighter is raising their power level, it has an effect on the environment. The ground begins to break up and shake, 
+    the wind kicks up and a force seems to push back everything around the fighter. This is strictly a result of powering up, or 
+    raising the Ki potential usage. This is Frieza powering up from 1% potential to 50% potential. Once Frieza has reached 50%, his 
+    reserve of Current Ki is only a fraction of that 60 million potential. Let's say 20% or 12 million. If after a few minutes of fighting,
+    he becomes exhausted, its because he has used up his Current Ki reserve. He will begin to refresh his store of Current Ki. The purple
+    aura will become visible again, but the effects on the environment aren't present. This is because he is not raising the bar (which 
+    results in a lot of volatile ki waste), but is simply refreshing his Current Ki with more latent power in his body.
+    
+    Now, the fact that Frieza can battle for a few minutes using only 12 million ki means that he is pacing himself over those few minutes.
+    Let's say 3 minutes. This means that his Battle Power is his actual damage-per-second (DPS).
+    
+    3 minutes is 180 seconds:
+    
+    12,000,000 / 180 = 66,666 BP
+    
+    This implies that during his battle with Goku, every single punch is using 66,670 damage per second. Every single volley of ki attacks
+    are using 66,670 ki. Yet when he charges an attack, he is taking time to put more power into a large attack ball, say 1,000,000 ki. This
+    large attack ball is worth 14 seconds of DPS. Since his Current Ki at max holds about 12 million, he can only do a few of these large
+    attacks combined with a couple of minutes of melee and quick volleys before he gets tired. Once he gets tired, he must charge up his
+    Current Ki again, which diminishes another 12 million ki from his Total Ki (mana pool).
+    
+    
+    Now, once again, the Power Level does not represent how much Ki a fighter can access. Frieza at 50% capacity does not mean that Frieza
+    can only use 60 million ki and not the full 120 million during a fight. The Power Level is simply a way to represent how much potential
+    the fighter is using, which helps to determine their Current Ki and Battle Power ratings.
+    
+    The Current Ki reserve is not limited to 20%. The Battle Power is not limited to Current Ki / 3 minutes. These values are determined by
+    the fighter themselves, and the extent to which they can manipulate those values is a result of training and special skills. In reality,
+    when Frieza is 50% capacity, he could charge up his Battle Power so that he can only attack for 1 minute before getting exhausted. He 
+    could also at the same time raise his Current Ki reserve to 40% of his Power Level rating. Here is what that would look like:
+    
+    60,000,000 x 40% = 24,000,000 Current Ki Reserve
+    
+    24,000,000 / 1 minute = 400,000 Battle Power
+    
+    In this scenario, Frieza would most likely be using a bulking up technique, similar to Ultra Super Saiyan Trunks form. This technique
+    would cause serious strength increases, but severely affect speed. But for the sake of the example, the fight would look like this:
+    
+    Every single punch from Frieza hits for 400,000 damage. Every volley hits for 400,000 damage. A bigger charged attack may hit for 5 
+    million, which would take out 12.5 seconds worth of melee attack time. So Frieza could only fight for about 45 seconds of melee with one
+    large attack, and then become exhausted. He would need to recharge his Current Ki and refresh another 24 million of ki taken from his 
+    Total Ki. This means that his entire battle with Goku could only last at most about 5 minutes or less before COMPLETELY 
+    exhausting his Total Ki. This strategy is POSSIBLE with training endurance (Current Ki % Potential) and also with learning the 
+    Bulking Up technique (raise Battle Power to favor harder hits, with slower speed and less pacing), although it is very dangerous to 
+    perform (lots of wasted energy and possibility of not being fast enough to hit the target).
+    
+    
+    A typical strategy in Dragon Ball Z is to pace oneself in a fight against another opponent. The goal is to find a way to get the 
+    opponent to use up most of their Current Ki reserve, and leave enough of your own Current Ki reserve so that before they can charge
+    up more, you overpower their remaining Current Ki reserve AND their Defense Ki reserve, in order to kill them. An explanation of 
+    Defense Ki and battle tactics is explained in the document called  *** Defense Ki: The Hidden Reserve ***.
+    
+    
+    
+
+    
+    
+    
+   
+    
+    
