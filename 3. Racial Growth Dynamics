@@ -1,0 +1,116 @@
+Namekians
+
+[ The Namekian race does not have transformations like Super Saiyan or Full Power. However, I believe that the base form growth rate of 
+  Namekians are on par or perhaps even greater than Saiyans. This assumption comes from the fact that Piccolo is younger than Goku and 
+  Vegeta, and while Goku learned Kaio-Ken for Saiyan saga and Super Saiyan for Freiza saga, Piccolo was always able to grow in power enough 
+  to beat those opponents a few years later, only in his base form. Piccolo was able to easily defeat Saibamen (Raditz power level) with 
+  incredible ease after only one year of training (rather meditating while training Gohan actually). He did not train at 10x gravity on 
+  King Kai planet like Goku, nor did he have a multiplier technique to use. During the Android saga, Piccolo could easily defeat the Dr.
+  Gero and Android 19 after 3 extra years of training, which took Vegeta and Goku fighting in Super Saiyan to beat. This means that 
+  Piccolo would have been able to defeat Frieza at this point, which means his base is at Goku Super Saiyan level (during Namek fight). 
+  After a   certain point, Piccolo falls out of range of the Saiyans, only because their SSJ2 and SSJ3 power jumps are so huge, he can't 
+  keep up in base form, although I'd argue that Piccolo fighting GOku or Vegeta in base form would be a different story! 
+  
+  With this analysis, I'm giving a favourable advantage to Namekians for growing their Ki pool, which raises their base form at a much faster
+  rate than Saiyans or Herans.  ]
+=========
+
+Total Ki Regen (during combat):
+
+  15% untrained every 3 mins        -> Only 75% can be regen of total Ki every training session or fight. Afterwards fighter must stop.
+  25% trained every 3 mins
+
+Total Ki Regen (after combat):
+
+  30% every 3 mins
+
+Highest Power Level Threshold:
+
+  70 - 77.5 % of Total Ki
+
+Total Ki Growth Algorithm (Total Ki Centric):
+
+  For every point of Ki expended during training or meditating, it grows back at 102%.
+  This means that a Namekian can power up to 20% of their total Ki and spend hours meditating and pulsing energy.
+  They can use Ki regen dynamics to increase their training. Also they will not experience battle fatigue or injury.
+  
+  Example:
+  
+  A Namekian has 1,000,000 Total Ki.
+  20% PowerLevel puts thems at 200,000
+  
+  Melee Battle Power is 200,000 / 3 mins -> 1,111 Ki / Second (without Bulking charging)
+  Attack Balls = 1,111 Per Ball (without charging time)
+  Attack Beam = 1,111 Per Second (without charging time)
+  
+  This equates to a Namekian meditating and exerting 1,111 Ki per second for 1000 seconds (16 mins), including the Ki regen power,
+  which is 15% of 1M (150,000), 5 times(max 75%) ( 5 x 150,000 = 750,000)... 750,000 /1,111, which is about another 11 minutes.
+  So in 27 minutes, they have exerted all of their power. 
+  
+  They will regenerate in 9+ mins and have a base Ki pool of 1,020,000 (102%), but the rest period must be followed afterwards. 
+  Consecutive training should be prohibited. Allow interval of [ 5 ] hours between training sessions. [ We never see Piccolo or any 
+  Namekians sleeping! ]
+
+Saiyan
+[ The Saiyan race relies heavily on Transformations (Oozaru, SSJ forms) as well as their racial ability of Zenkai boosts. While the 
+Namekian's strategy will be to consume their Ki in whatever fashion, as fast and as often as possible, the Saiyans will rely heavily
+on receiving Zenkai boosts from near death battles or training that damages their body from 88% - 99%. This will happen if they receive 
+attacks that overpower their battle power, wiping out their defensive ki, and directly hitting them without any ki defenses. The other
+way that they grow is from actual battles or training that offers offers resistance against their own Ki. The best way to describe it 
+would be to use the analogy of weightlifting.A Namekian could stand there and flex their muscles, and this alone would cause them to 
+grow stronger. The saiyan would need to actually flex his muscles because he is lifting actual weight. The straining of his power 
+causes growth. Theredfore a saiyan needs to be using his ji to attack, defend against attacks, or be resistigg the effects of 
+gravity for example ( which is sort of liie pushing back against the ground - giving gravity a ki drain/second value that simulates 
+holding back an attack beam)
+
+
+***
+Previous Version:
+a combination of ( excessive Ki usage + Pushing their Power Level ), with Zenkai boosts as a exceptional increase to power with the 
+risk of death. Saiyans cannot simply waste Ki like Namekians. They must exert power against an opposing force or pressure (such as 
+another fighter, ki energy, or gravity).***
+======
+
+Total Ki Regen (during combat):
+
+Total Ki Regen (after combat):
+
+Highest Power Level Threshold:
+
+  75 - 82.5 % of Total Ki
+
+Total Ki Growth Algorithm (Balanced):
+
+
+Heran
+[ There is little information concerning how the transformation of Herans works or how they get stronger. Therefore we can this 
+opportunity to play with creating a training regiment that fits on the other spectrum of Namekian's ki-centric training style. 
+So we have a race that will be BattlePower-centric. This means that Herans will have great adaptability with manipulating their 
+Battle Powers (BP), and this will determine their ki growth.. for Herans, we will determine that their Full Transformation is a simple 
+3-5x multiplier of whatever Battle Power they are at. This means if they are in base form with a power level of 200,000 they do
+1.111 damage/sec. With full power, their power level increases temporarily to 600,000 now or 3,333/sec battle power. The full power
+will stack in top of any boosts. Kaioken will boost base power by 10x... But full power stacks on anything. A hran using 
+kaioken x 10,will have 200,000 x 10 = 2,000,000 x 3 = 6,000,000 -> which translayes to 33,333 damage/sec.   What this also means is 
+that temoorarily every point of ki is overexerting so a muktiplier in ki pool rwsults. A 3x multiplier in battle power gives a 
+3x ki pool to match. Namekiand and Saiyans do not receive ki pool multipkiers. The saiyan boosts of super saiyan gives a static amount 
+of extra ki, not a multiplier. Once a heran end his fight, his body severely feels the effects like kaioken. His rest time is worse the 
+bigger the boost. His ki growth is a percentage of the power he experienced in full power or some other boost.. So lets say his ki pool 
+was 1,000,000. He battle powered to 200,000. His dps is 1,111/sec. He fullpowered, resulting in 3,333 /sec and his bp is now 600,000 and 
+his ki pool is 3,000000. Once he powers down he experienced 400,000 in extra bp. He experienced 2,000,000 in extra ki. Now when he regens 
+much later, we can say he receives a percentage growth to his ki pool. The saiyan in a ssj transformato. Receices a huge ki pool boost, 
+allowing them to raise their powerlevek and create a higher BP. The heran raises his BP, which multiplies his ki pool. Not his oowerlevel.
+This means tht the saiyan can raise and kower their bp and plat willbut the heran can only choose once in a battle to FP and that is what 
+they must use to fight with unless they go out of FP and raise their base form powerlrvel. This is their weakness because anybody sensing 
+ki knows in general what their FP WILL BE BASED ON CURRENT BP.
+]
+=====
+
+Total Ki Regen (during combat):
+
+Total Ki Regen (after combat):
+
+Highest Power Level Threshold:
+
+  80 - 87.5 % of Total Ki
+
+Total Ki Growth Algorithm (Power Level Centric):
