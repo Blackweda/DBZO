@@ -21,31 +21,43 @@ of the power he is able to put on reserve and access currently. Imagine a water 
 but the pipeline and the pressure of water coming out is the Power Level.
 
 In representing these values, Total Ki is very much like mana, and can be represented simply as a large number that diminishes
-over time through using it up. Power Level is represented as the store of reserve ki a fighter has charged up. Its the equivalent to 
-levelling-games, where every level is a new power level and we can allow our fighters to go up and down in level freely. However, the 
-speed at which we power up will cause a drain of ki, so powering up slowly conserves more excess energy than a burst. This will be 
-important for managing power in long fights.
+over time through using it up. Power Level is represented as the potential or capacity of strength a fighter has charged up. Its the 
+equivalent to levelling-games, where every level is a new power level and we can allow our fighters to go up and down in level freely. 
+However, the speed at which we power up will cause a drain of ki, so powering up slowly conserves more excess energy than a burst. 
+This will be important for managing power in long fights.
 
-Once a fighter has stored up a reserve amount of energy, that energy will be consumed over time during a fight. The amount of damage
-per second that the fighter unleashes is their Battle Power. The usage of ki over time will consume the Current Ki that has already been
-put on reserve. 
+Once a fighter has stored up a reserve amount of energy (Current Ki), that energy will be consumed over time during a fight. 
+The amount of damage per second that the fighter unleashes is their Battle Power. The usage of ki over time will consume the Current Ki 
+that has already been put on reserve. 
 
 The definitions on their own are confusing, so a set of examples will help demonstrate them --->
 
 (For reference, see:          http://dragonball.wikia.com/wiki/List_of_power_levels)
 
-Frieza Saga		
+Frieza Saga
+===========
 
 Goku	                                 3,000,000	                             Daizenshuu 7
+
 Goku (x10 Kaioken)	                 30,000,000	                             Calculated
+
 Goku (x20 Kaioken)	                 60,000,000	                             Calculated
+
 Goku (Super Saiyan)	                150,000,000	                             Daizenshuu 7
+
 Krillin	                               75,000	                             V-Jump
+
 Gohan	                              200,000 (and more when mad)	         V-Jump
+
 Frieza (first form)	                    530,000	                             Vol. 24, #286
+
 Frieza (second form)	        Over 1,000,000	                             Vol. 25, #296
+
 Frieza (final form; 50%)	            60,000,000	                             Daizenshuu 7
+
 Frieza (final form; 100%)	      120,000,000	                             Daizenshuu 7
+
+--------------------------------------------------------------------------------------------
 
 
 Total Ki 
@@ -152,6 +164,12 @@ Power Level Representation
     exhausting his Total Ki. This strategy is POSSIBLE with training endurance (Current Ki % Potential) and also with learning the 
     Bulking Up technique (raise Battle Power to favor harder hits, with slower speed and less pacing), although it is very dangerous to 
     perform (lots of wasted energy and possibility of not being fast enough to hit the target).
+    
+    
+    A typical strategy in Dragon Ball Z is to pace oneself in a fight against another opponent. The goal is to find a way to get the 
+    opponent to use up most of their Current Ki reserve, and leave enough of your own Current Ki reserve so that before they can charge
+    up more, you overpower their remaining Current Ki reserve AND their Defense Ki reserve, in order to kill them. An explanation of 
+    Defense Ki and battle tactics is explained in the document called  *** Defense Ki: The Hidden Reserve ***.
     
     
     
