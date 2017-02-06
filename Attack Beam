@@ -2,9 +2,9 @@ Code Requirements:
 
 Attack Beam represents sustained attacks like Final Flash or Kamehameha. 
 For the initial version, the representatiin will be a sphere object trailed by a visual stream. 
-All tht matters is the sphere head of the beam.
+All that matters is the sphere head of the beam.
 The sphere will originate in front of the fighter where their arms extend (at chest/upper abdomen level). 
-The act of starting a beam will angle the body of the fighter towards the fronyal chest upper abdomen of the other fighter.
+The act of starting a beam will angle the front body of the fighter towards the frontal chest upper abdomen of the other fighter.
 Next the visual ball is created and the attack beam is targeted at the transform of the other fighter. 
-The attack beam is charged and once releasedwikl lock on to the other fighter as long as yhey remain 
-within the 30 degree frontal view of iur fighter if he has maintained the direction after the initial lock on.
+The attack beam is charged and once released will lock on to the other fighter as long as they remain 
+within the 30 degree frontal view of our fighter if he has maintained the camera direction after the initial lock on.
