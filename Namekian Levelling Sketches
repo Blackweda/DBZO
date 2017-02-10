@@ -39,3 +39,9 @@ Day	     Starting Ki		1st Period	2nd Period	3rd Period
 363.          14,446,245		14,605,154	14,765,810	14,928,234
 364.          14,928,234		15,092,445	15,258,462	15,426,305
 365.          15,426,305		15,595,994	15,767,550	15,940,993
+
+Analysis:
+  It's exceptionally important to train every day in the beginning, as the increases in Ki get bigger and bigger the stronger 
+  the Namekian gets. The compound effect will significantly give the Namekian ki growth advantages after a couple years. It is
+  obviously necessary to implement some plateaus or growth caps somewhere along the way, until special training opens up further
+  growth.
