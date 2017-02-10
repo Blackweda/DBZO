@@ -36,7 +36,7 @@ B) Ki Sense
 
 Using Triggers, we will use ki as a force field of sorts. The avatar must use his ki to create a force around himself. The bigger his power level, the further in distance that force extends. When two forces across space collide, it 'pushes and invades' the scope of force field of an avatar and they can sense the ki and how strong it is.
 
-C) PowerLevel vs. TotalKi
+C) Raising PowerLevel and BattlePower
 =========================
 
 
