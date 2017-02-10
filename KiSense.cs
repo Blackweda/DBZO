@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class kiSense : MonoBehaviour {
+public class KiSense : MonoBehaviour {
 
 	/*
 	This collider should have no rigidbody, and be 'is trigger' = true;
@@ -25,7 +25,7 @@ public class kiSense : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if(kiSense == true){
+		if(kiSenseOn == true){
 		
 			if(powerLevelKi > 0){
 				i = (uint)powerLevelKi / 2;
