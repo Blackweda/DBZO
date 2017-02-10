@@ -8,3 +8,14 @@ The act of starting a beam will angle the front body of the fighter towards the 
 Next the visual ball is created and the attack beam is targeted at the transform of the other fighter. 
 The attack beam is charged and once released will lock on to the other fighter as long as they remain 
 within the 30 degree frontal view of our fighter if he has maintained the camera direction after the initial lock on.
+
+
+From experience in testing the code, creating Attack Spheres that are rigidbodies and moving by AddForce will NOT work. The balls, even 
+when perfectly aimed at each other, will become increasingly volatile as they try to push through one another. The visual is very glitchy
+loooking and eventually they fling off in random directions, out of control.
+
+By creating balls that are character-controlled, they move very smoothly by velocity. So you will see two balls touch each other and simply
+stop if their velocities are equal. One ball will move forward while the other will move backwards if one of the velocities are higher.
+While this action looks very clean and controlled, it lacks the sort of volatiliity that the first version had, both in visual and in 
+physics after-effects. A method to make the balls gittery while pushing each other is ideal, while maintaining the perfectness of where
+they are supposed to end up.
