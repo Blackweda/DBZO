@@ -1,0 +1,33 @@
+The way that Ki Sensing works in Dragon Ball Z is through feeling with one's own ki.
+Even though the Z fighters are incredibly strong, whenever they power up, the other humans are not aware of it, because they are not
+actively being open to sensing it. This means that powering up and releasing your own ki is not enough for others to 'feel' it.
+
+The only way that a person can sense ki is if they are exerting their own ki, creating a ki force field around themselves. Then, once 
+somebody else is powering up, that person's force field gets bigger the higher the power level is. Given enough proximity between the two
+people, eventually the force field of one person's ki will reach and move into the space of the other's ki force field. That act of moving
+into the space, or pushing against ki, is what alerts the other person of the powerful ki, because they can feel the quality of the ki in 
+comparison to their own ki.
+
+To replicate this in the Unity Game, we will need: 
+
+Sphere Colliders,
+OnTriggerStay / OnTriggerEnter / OnTriggerLeave,
+OnCollisionEnter,
+
+and the ability to track Collisions and Colliders.
+
+Most likely, our characters will be using a capsule collider for their bodies. We should use a Sphere Collider (circular shape) to 
+represent the ability of Ki to spread evenly in every direction. Also we cannot have multiple colliders of the same type on one object
+anyways. The Collider will have Trigger capabilities, so that any Colliders touching them set of a Trigger. Since all ki sphereColliders
+will be Triggers, both parties will know when their ki force fields have touched and will be able to read the same kind of data from each
+other.
+
+We will use the OnTrigger-- functions to keep track of whose Ki force fields we are interacting with, and to get a reading of how strong 
+they are, how far away they are, and their point of origin in world space. These readings will also be used for players to mentally watch
+fights from far away, in a similar sense when the Z fighters are on Kami's lookout and yet seem to know how the battle is faring. They are 
+mentally watching where the energy signatures are moving around to, how the power levels are rising and dropping, etc.
+
+We will use the OnCollison-- functions to control how rigidbodies react to our ki force fields. If our power levels are high, objects like
+rocks and lose materials with rigidbodies should react to the AddForce physics applied to them. This will give a very realistic cause of 
+objects near the player being thrown violently away while objects further away feel less of the power as it diminishes over distance. 
+Anything that collides with the ki's SphereCollider should react accordingly.
