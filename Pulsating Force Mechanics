@@ -1,0 +1,7 @@
+My original version of Pulsating Force had a specific goal: to emulate the effects of a powering up player affecting their environment.
+
+The script tracks Force, which is used by the Physics engine for pushing rigidbodies (like in explosions). Rather than have a single frame
+Force applied to objects, I decided to use a continual frame-by-frame Force application.
+
+This will basically keep a constant force going in all directions away from the GameObject using the AddForce (which replicates explosive 
+force). It is the same as a player's aura constantly eminating and pushing dust and small objects away from the player in all directions.
