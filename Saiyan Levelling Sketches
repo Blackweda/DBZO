@@ -5,9 +5,9 @@ Therefore, unlike Namekians, Saiyans don't get stronger by using up ki and growi
 They grow by the degree of force they are opposing (like weightlifting).
 
 
-               Battle Power
-Ki Growth =   ------------------------
                Force / Second
+Ki Growth =   ------------------------
+               Battle Power
                
                
               
@@ -16,4 +16,44 @@ Example:
 Goku has gravity machine at 100x normal gravity.
 In Unity3D, gravity is about 9.98 F / second.
 At 100x, this number would be about 1000 / second.
+
+During Goku's fight with Captain Ginyu, he showed a 
+Power Level of about 180,000
+
+So if we take about 100,000 as the real power level...
+100,000 @ 100% -> Powered up all the way during training, full access to all Ki
+100,000 / 3 mins -> average Battle Power setting
+=  555 BP/sec.
+
+so clearly that's not enough to handle the force of gravity and stand up.. so GOku 
+would have to raise his battle power to match.
+so if Goku doubled his BP, he could train for about 1.5 minutes before using up all his power.
+
+So the equation would be:
+
+         1,000
+       ---------         = 0.9
+         1,110
+         
+Then take that number and multiply the BP used amount by it.
+
+1,110 x 0.9 = 999
+
+And now, the Total Ki is 100,999.
+
+
+I think this makes sense, so that Saiyans can't use really high Battle Power and cheat...
+
+Let's say gravity was still 1000 / second. But the saiyan was a lot stronger and used 3000 BP.
+
+The formula is :
+
+1000 divided by 3000 = 0.3333333....
+
+THen we do: 3000 x 0.33333 = 1000
+
+So the Total Ki is still roughly 101,000.... not much different.
+
+In this way, the Saiyan will constantly need greater amounts of Force to fight against to actually get stronger. Just wasting Ki won't
+help him at all.
 
