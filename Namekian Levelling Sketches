@@ -4,7 +4,7 @@ Assumptions:
 ============
 
 Namekian Train Periods    -> 3 times a day (every regrowth compounded on previous period)
-Ki Regrowth Rate          -> 101%
+Ki Regrowth Rate          -> 101% ( or Ki x 1.1)
 Ki Regen During Training  -> NONE
 
 Ki After 1 Year           -> 15,940,993
