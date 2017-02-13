@@ -32,9 +32,9 @@ so if Goku doubled his BP, he could train for about 1.5 minutes before using up 
 
 So the equation would be:
 
-         1,000
+         1,000 [force]
        ---------         = 0.9
-         1,110
+         1,110 [BP]
          
 Then take that number and multiply the BP used amount by it.
 
@@ -57,4 +57,7 @@ So the Total Ki is still roughly 101,000.... not much different.
 
 In this way, the Saiyan will constantly need greater amounts of Force to fight against to actually get stronger. Just wasting Ki won't
 help him at all.
+
+However, during his training, if he trains for a long period of time, say every 7 minutes, there is an extra bonus of Ki growth. This 
+is so that Saiyans can grow stronger while fighting and keep raising their BP.
 
