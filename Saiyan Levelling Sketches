@@ -1,0 +1,19 @@
+
+Saiyans getting stronger is ALWAYS a percentage/factor of the Resistance against the Opposing Force (gravity, attacks, etc).
+Therefore, unlike Namekians, Saiyans don't get stronger by using up ki and growing back more of it.
+
+They grow by the degree of force they are opposing (like weightlifting).
+
+
+               Battle Power
+Ki Growth =   ------------------------
+               Force / Second
+               
+               
+              
+Example:
+
+Goku has gravity machine at 100x normal gravity.
+In Unity3D, gravity is about 9.98 F / second.
+At 100x, this number would be about 1000 / second.
+
