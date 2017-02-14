@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 // http://forum.unity3d.com/threads/transform-lookat-or-quaternion-lookrotation-on-1-axis-only.36377/
 /*
-You want the collision-detection set to Continuous Dynamic for fast moving objects.  Continuous is used for static- or slow-moving objects that Continuous Dynamic objects collide with. See here.
-
+You want the collision-detection set to Continuous Dynamic for fast moving objects.  
+Continuous is used for static- or slow-moving objects that Continuous Dynamic objects collide with. See here.
 (Keep in mind that continuous collision detection is expensive, so use it sparingly)
 */
 
@@ -12,11 +12,9 @@ public class AttackBeam : MonoBehaviour {
 	public Transform target;
 	public float force;
 	public float speed = 0;
-	
 		
 	// Use this for initialization
 	void Start () {
-		
 		
 	}
 	
@@ -50,3 +48,11 @@ public class AttackBeam : MonoBehaviour {
 			
 	}
 }
+
+
+/*
+
+Currently this script works pretty well. What needs to be fixed is when the power of a ball is increased, the size of the ball
+should change and the distance from the other ball be adjusted so that they don't start to occupy the same space.
+
+*/
