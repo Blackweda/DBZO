@@ -9,20 +9,20 @@ Outline of the Game
 
 Playable Races:
   
-  1. Namekian  
-  ===========
+  Namekian  
+  ========
   
   ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/daP3O39.jpg)
   
   
-  2. Saiyan
-  =========
+  Saiyan
+  ======
   
   ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/maxresdefault.jpg)
   
   
-  3. Heran (race of Bojack)
-  =========================
+  Heran (race of Bojack)
+  ======================
   
   ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/ZangyaBido.png)
   
