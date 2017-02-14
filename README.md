@@ -14,7 +14,7 @@ Playable Races:
   2. Saiyan
   ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/daP3O39.jpg)
   3. Heran (race of Bojack)
-  ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/daP3O39.jpg)
+  ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/ZangyaBido.png)
   
   
 GamePlay:
