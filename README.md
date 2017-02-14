@@ -11,7 +11,7 @@ Playable Races:
   
   1. Namekian
   
-  ![alt tag](https://raw.github.com/Blackweda/Dragonball-Z-Online/ScreenShots/path/to/img.png)
+  <img>(https://raw.github.com/Blackweda/Dragonball-Z-Online/Screenshots/daP3O39.jpg)</img>
   
   2. Saiyan
   3. Heran (race of Bojack)
