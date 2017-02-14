@@ -63,3 +63,14 @@ D) Destructible Environment
   3. Desert Wastelands
   4. Planetary Destruction (Moons)
   
+
+
+
+ATTACK BEAM
+
+
+Correct Version:
+![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/perfect.png)
+
+Incorrect version:
+![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/wrong.png)
