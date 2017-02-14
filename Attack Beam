@@ -8,17 +8,3 @@
 7. Engage in pushing contest based on the difference in power between both balls.
 8. If either player increases the power of ball, which induces greater size, reform ball so that its radius still remains touching
    the outer shell of Enemy ball, do not simply increase size so that the smaller ball is now being eaten by bigger ball.
-   
-   
-   
-   
-   CORRECT REPRESENTATION
-   
-    ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/perfect.png)
-    
-    
-    
-    
-    WRONG REPRESENTATION
-    
-     ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/wrong.png)
