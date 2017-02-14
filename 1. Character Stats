@@ -8,6 +8,13 @@ Total Ki (TK) :
      
 
 
+Current Ki (CK) :
+     The amount of ki stored up currently. When a player has their power level below 100%, they have access to a 
+     fraction of their Total Ki. That is Current Ki. Once it has been depleted, the player must power up in order
+     to refill Current Ki with more energy out of their Total Ki pool.
+
+
+
 Power Level (PL) :
      An expression for how much potential a Player is using currently. This is equivalent to WoW levels. 
      In this analogy, a level 110 character can lower his level and play at level 70 stats.
@@ -23,13 +30,6 @@ Battle Power (BP) :
      The amount of ki per second (KPS) being used in Attack or Defense. This is equivalent to WoW DPS.
      Lowering the Power Level lowers the KPS potential so that the player can handicap their fighting skill
      and hide their true power.
-     
-     
-
-Current Ki (CK) :
-     The amount of ki stored up currently. When a player has their power level below 100%, they have access to a 
-     fraction of their Total Ki. That is Current Ki. Once it has been depleted, the player must power up in order
-     to refill Current Ki with more energy out of their Total Ki pool.
      
 ======================================================================
      
