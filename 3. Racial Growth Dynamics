@@ -10,24 +10,26 @@ fatigue level, the less growth happens when those ki points regen!
 
 Namekians
 
-[ The Namekian race does not have transformations like Super Saiyan or Full Power. However, I believe that the base form growth rate of 
-  Namekians are on par or perhaps even greater than Saiyans. This assumption comes from the fact that Piccolo is younger than Goku and 
-  Vegeta, and while Goku learned Kaio-Ken for Saiyan saga and Super Saiyan for Freiza saga, Piccolo was always able to grow in power 
-  enough   to beat those opponents a few years later, only in his base form. Piccolo was able to easily defeat Saibamen (Raditz power 
-  level) with incredible ease after only one year of training (rather meditating while training Gohan actually). He did not train at 10x 
-  gravity on King Kai's planet like Goku, nor did he have a multiplier technique to use. During the Android saga, Piccolo could easily 
-  defeat the Dr. Gero and Android 19 after 3 extra years of training, which took Vegeta and Goku fighting in Super Saiyan to beat. This 
-  means that Piccolo would have been able to defeat Frieza at this point, which means his base is at Goku Super Saiyan level (during 
-  Namek fight). After a certain point, Piccolo falls out of range of the Saiyans, only because their SSJ2 and SSJ3 power jumps are so 
-  huge, he can't keep up in base form, although I'd argue that Piccolo fighting GOku or Vegeta in base form would be a different story! 
-  
-  With this analysis, I'm giving a favourable advantage to Namekians for growing their Ki pool, which raises their base form at a much 
-  faster rate than Saiyans or Herans.  ]
+[ The Namekian race does not have transformations like Super Saiyan or Full Power. However, I believe that the base form growth 
+rate of Namekians are on par or perhaps even greater than Saiyans. This assumption comes from the fact that Piccolo is younger 
+than Goku and Vegeta, and while Goku learned Kaio-Ken for Saiyan saga and Super Saiyan for Freiza saga, Piccolo was always able 
+to grow in power enough to beat those opponents a few years later, only in his base form. Piccolo was able to easily defeat 
+Saibamen (Raditz power level) with incredible ease after only one year of training (rather meditating while training Gohan 
+actually). He did not train at 10x gravity on King Kai's planet like Goku, nor did he have a multiplier technique to use. 
+During the Android saga, Piccolo could easily defeat the Dr. Gero and Android 19 after 3 extra years of training, which took 
+Vegeta and Goku fighting in Super Saiyan to beat. This means that Piccolo would have been able to defeat Frieza at this point, 
+which means his base is at Goku Super Saiyan level (during Namek fight). After a certain point, Piccolo falls out of range of 
+the Saiyans, only because their SSJ2 and SSJ3 power jumps are so huge, he can't keep up in base form, although I'd argue that 
+Piccolo fighting GOku or Vegeta in base form would be a different story!   
+With this analysis, I'm giving a favourable advantage to Namekians for growing their Ki pool, which raises their base form at a 
+much faster rate than Saiyans or Herans. ]
 =========
 
 Total Ki Regen (during combat):
 
-  15% untrained every 3 mins        -> Only 75% can be regen of total Ki every training session or fight. Afterwards fighter must stop.
+  15% untrained every 3 mins        -> Only 75% can be regen of total Ki every training session or fight. Afterwards fighter 
+  must stop.
+  
   25% trained every 3 mins
 
 Total Ki Regen (after combat):
@@ -36,7 +38,7 @@ Total Ki Regen (after combat):
 
 Highest Power Level Threshold:
 
-  70 - 77.5 % of Total Ki
+  70 - 77.5 % of Total Ki  <- improper designation, must change!
 
 Total Ki Growth Algorithm (Total Ki Centric):
 
@@ -53,26 +55,26 @@ Total Ki Growth Algorithm (Total Ki Centric):
   Attack Balls = 1,111 Per Ball (without charging time)
   Attack Beam = 1,111 Per Second (without charging time)
   
-  This equates to a Namekian meditating and exerting 1,111 Ki per second for 1000 seconds (16 mins), including the Ki regen power,
-  which is 15% of 1M (150,000), 5 times(max 75%) ( 5 x 150,000 = 750,000)... 750,000 /1,111, which is about another 11 minutes.
-  So in 27 minutes, they have exerted all of their power. 
+  This equates to a Namekian meditating and exerting 1,111 Ki per second for 1000 seconds (16 mins), including the Ki regen 
+  power, which is 15% of 1M (150,000), 5 times(max 75%) ( 5 x 150,000 = 750,000)... 750,000 /1,111, which is about another 11 
+  minutes. So in 27 minutes, they have exerted all of their power. 
   
   They will regenerate in 9+ mins and have a base Ki pool of 1,010,000 (101%), but the rest period must be followed afterwards. 
-  Consecutive training should be prohibited. Allow interval of [ 5 ] hours between training sessions. [ We never see Piccolo or any 
-  Namekians sleeping! ]
+  Consecutive training should be prohibited. Allow interval of [ 5 ] hours between training sessions. [ We never see Piccolo or 
+  any Namekians sleeping! ]
 
 Saiyan
-[ The Saiyan race relies heavily on Transformations (Oozaru, SSJ forms) as well as their racial ability of Zenkai boosts. While the 
-Namekian's strategy will be to consume their Ki in whatever fashion, as fast and as often as possible, the Saiyans will rely heavily
-on receiving Zenkai boosts from near death battles or training that damages their body from 88% - 99%. This will happen if they receive 
-attacks that overpower their battle power, wiping out their defensive ki, and directly hitting them without any ki defenses. The other
-way that they grow is from actual battles or training that offers offers resistance against their own Ki. The best way to describe it 
-would be to use the analogy of weightlifting.A Namekian could stand there and flex their muscles, and this alone would cause them to 
-grow stronger. The saiyan would need to actually flex his muscles because he is lifting actual weight. The straining of his power 
-causes growth. Theredfore a saiyan needs to be using his ji to attack, defend against attacks, or be resistigg the effects of 
-gravity for example ( which is sort of liie pushing back against the ground - giving gravity a ki drain/second value that simulates 
-holding back an attack beam). A percentage difference in the power level of the saiyan and the opposing force will be a factor in 
-determining his growth.
+[ The Saiyan race relies heavily on Transformations (Oozaru, SSJ forms) as well as their racial ability of Zenkai boosts. While 
+the Namekian's strategy will be to consume their Ki in whatever fashion, as fast and as often as possible, the Saiyans will rely 
+heavily on receiving Zenkai boosts from near death battles or training that damages their body from 88% - 99%. This will happen 
+if they receive attacks that overpower their battle power, wiping out their defensive ki, and directly hitting them without any 
+ki defenses. The other way that they grow is from actual battles or training that offers offers resistance against their own Ki. 
+The best way to describe it would be to use the analogy of weightlifting.A Namekian could stand there and flex their muscles, and 
+this alone would cause them to grow stronger. The saiyan would need to actually flex his muscles because he is lifting actual 
+weight. The straining of his power causes growth. Theredfore a saiyan needs to be using his ji to attack, defend against attacks, 
+or be resisting the effects of gravity for example ( which is sort of liie pushing back against the ground - giving gravity a ki 
+drain/second value that simulates holding back an attack beam). A percentage difference in the power level of the saiyan and the 
+opposing force will be a factor in determining his growth.
 
 
 
@@ -84,17 +86,18 @@ Total Ki Regen (after combat):
 
 Highest Power Level Threshold:
 
-  75 - 82.5 % of Total Ki
+  75 - 82.5 % of Total Ki     <- improper designation, must change!
 
 Total Ki Growth Algorithm (Balanced):
 
-  Before we get into how Saiyans grow their base form, we must clear up a myth in Dragon Ball Z. The Super Saiyan transformation is NOT a
-  50x multiplier like many fans think. Akira Toriyama did not intend for Super Saiyan to be a multiplier. Goku's Kaio-ken was a 
-  multiplier technique, and a very volatile and body-damaging option. The Super Saiyan transformation was meant to replace it with 
-  something more reliable and permanent. When Goku went Super Saiyan for the first time against Frieza, his new power level was 50x his 
-  base form. What this actually means is that Super Saiyan transformations are a mutation that greatly increases the Ki of the fighter, 
-  thus giving them tons of extra power and ability to raise their power level. The Super Saiyan transformation is a huge Ki Boost, that 
-  happened to be 50x what Goku had the first time he got the transformation. Power Level stats show during Frieza fight:
+  Before we get into how Saiyans grow their base form, we must clear up a myth in Dragon Ball Z. The Super Saiyan transformation 
+  is NOT a 50x multiplier like many fans think. Akira Toriyama did not intend for Super Saiyan to be a multiplier. Goku's 
+  Kaio-ken was a multiplier technique, and a very volatile and body-damaging option. The Super Saiyan transformation was meant to 
+  replace it with something more reliable and permanent. When Goku went Super Saiyan for the first time against Frieza, his new 
+  power level was 50x his base form. What this actually means is that Super Saiyan transformations are a mutation that greatly 
+  increases the Ki of the fighter, thus giving them tons of extra power and ability to raise their power level. The Super Saiyan 
+  transformation is a huge Ki Boost, that happened to be 50x what Goku had the first time he got the transformation. Power Level 
+  stats show during Frieza fight:
   
 Goku	                                3,000,000	                             Daizenshuu 7
 
@@ -104,18 +107,20 @@ Goku (x20 Kaioken)	                 60,000,000	                             Calc
 
 Goku (Super Saiyan)	                150,000,000	                             Daizenshuu 7
 
-As we can see, 150M = 50 x 3M... which means that the Super Saiyan transformation gave Goku about 145,000,000 extra Ki. Therefore, for
-the DBZ Online game, we will NOT treat SSJ like a multiplier, but rather a huge Ki boost. The SSJ transformations can be trained to give
-more Ki boosts over time, and the training of increasing Battle Power within SSJ form will give rise to Ascended Super Saiyan and Ultra
-Super Saiyan forms. The practice of maintaining Super Saiyan form without fighting and spending hours in that form will allow a Saiyan
-to eventually master Full Power Super Saiyan, which reduces the waste of ki energy required to maintain the SSJ form. The Super Saiyan
-form and training within it will be the most complicated pursuit of the Dragon Ball Z Online Game.
+As we can see, 150M = 50 x 3M... which means that the Super Saiyan transformation gave Goku about 145,000,000 extra Ki. 
+Therefore, for the DBZ Online game, we will NOT treat SSJ like a multiplier, but rather a huge Ki boost. The SSJ transformations 
+can be trained to give more Ki boosts over time, and the training of increasing Battle Power within SSJ form will give rise to 
+Ascended Super Saiyan and Ultra Super Saiyan forms. The practice of maintaining Super Saiyan form without fighting and spending 
+hours in that form will allow a Saiyan to eventually master Full Power Super Saiyan, which reduces the waste of ki energy required 
+to maintain the SSJ form. The Super Saiyan form and training within it will be the most complicated pursuit of the Dragon Ball Z 
+Online Game.
 
 
 
 Therefore: *0.6*
 
-  SSJ transformation = 145,000,000 - 245,000,000            Base: at least 2,000,000 for SSJ and plateau at about 9,000,000 - 10,000,000
+  SSJ transformation = 145,000,000 - 245,000,000            Base: at least 2,000,000 for SSJ and plateau at about 
+  9,000,000 - 10,000,000 
   While in base form, gains go to base form, while in SSJ form, gains go to SSJ ki boost
   INcreasing BP increases ASSJ/USSJ.... the amount of times turning SSJ and powering up slowly increases Ki Boost
   
