@@ -2,35 +2,40 @@ Definitions of Character Stats
 ==============================
 
 Total Ki:
-     The raw amount of power within a Player. This is equivalent to World of WarCraft's <b>mana</b> pool.
+     The raw amount of power within a Player. This is equivalent to WoW mana pool.
+     
+     Total Ki =          1,000,000 / 1,000,000
+     
 
 
+Power Level:
+     An expression for how much potential a Player is using currently. This is equivalent to WoW levels. 
+     In this analogy, a level 110 character can lower his level and play at level 70 stats.
+     Power Levels are reprented either as [Amount of Ki] or [Factor of Ki].
+     
+     Amount of Ki =      500,000
+     
+     Factor of Ki =      5.555          Base of 5      Spread of .555
+     
+     
+
+Battle Power:
+     The amount of ki per second (KPS) being used in Attack or Defense. This is equivalent to WoW DPS.
+     Lowering the Power Level lowers the KPS potential so that the player can handicap their fighting skill
+     and hide their true power.
+     
+     
+
+Current Ki:
+     The amount of ki stored up currently. When a player has their power level below 100%, they have access to a 
+     fraction of their Total Ki. That is Current Ki. Once it has been depleted, the player must power up in order
+     to refill Current Ki with more energy out of their Total Ki pool.
+     
+======================================================================
+     
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+EXTENDED NOTES:
 
 In Dragonball Z, fighters can manipulate their power levels, which is essentially controlling how much output they are using.
 This is not saying that they are getting stronger, but rather unleashing the full power they already possess. Alternatively, 
@@ -52,13 +57,13 @@ but the pipeline and the pressure of water coming out is the Power Level.
 
 In representing these values, Total Ki is very much like mana, and can be represented simply as a large number that diminishes
 over time through using it up. Power Level is represented as the potential or capacity of strength a fighter has charged up. Its the 
-equivalent to levelling-games, where every level is a new power level and we can allow our fighters to go up and down in level freely. 
-However, the speed at which we power up will cause a drain of ki, so powering up slowly conserves more excess energy than a burst. 
-This will be important for managing power in long fights.
+equivalent to levelling-games, where every level is a new power level and we can allow our fighters to go up and down in level 
+freely. However, the speed at which we power up will cause a drain of ki, so powering up slowly conserves more excess energy 
+than a burst. This will be important for managing power in long fights.
 
 Once a fighter has stored up a reserve amount of energy (Current Ki), that energy will be consumed over time during a fight. 
-The amount of damage per second that the fighter unleashes is their Battle Power. The usage of ki over time will consume the Current Ki 
-that has already been put on reserve. 
+The amount of damage per second that the fighter unleashes is their Battle Power. The usage of ki over time will consume the 
+Current Ki that has already been put on reserve. 
 
 The definitions on their own are confusing, so a set of examples will help demonstrate them --->
 
@@ -99,13 +104,13 @@ Total Ki
 
 
 Power Level Representation
-     [ A number that represents the percentage of Ki potential being used. The number is itself is not a percentage (like 50%), but
+     [ A number that represents the Ki potential being used. The number is itself is not a percentage (like 50%), but
       represents the power of what the fighter's 50% potential is. ]:
       
-    When Frieza is at 50% capacity, his Power Level is 60 million Ki damage. This means that if he were to put all his energy into one
-    single punch or one single energy ball, the most power he could use up is 60 million, and you would see that he is exhausted. This
-    would result even though we know he still has another 60 million left in his body. The power level represents the self-imposed cap 
-    on energy usage.
+    When Frieza is at 50% capacity, his Power Level is 60 million Ki damage. This means that if he were to put all his energy 
+    into one single punch or one single energy ball, the most power he could use up is 60 million, and you would see that he is 
+    exhausted. This would result even though we know he still has another 60 million left in his body. The power level represents 
+    the self-imposed cap on energy usage.
     
     Frieza's power level at 50% could be represented in two ways:
     
