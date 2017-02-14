@@ -10,45 +10,34 @@ public class PulsatingForce : MonoBehaviour {
 	public float radius = 5.0f;
     public float force;
 	public float upwardsModifier = 0.0f;		// the force that knocks objects upwards into air from force
-	public ForceMode forceMode;
-
-	
-	
-	
+	public ForceMode forceMode;	
 	
 	// Vector3 variables remmeber xyz positions
 	// Quaternion variables remember xyz rotations
 	// Time.deltaTime refers to an action of value 1 happening in one second. Time.deltaTime * 10 means multiply by 10 in one second.
-	
-	
+		
 	//public AudioClip aura;
 	
 	// Input.GetButtonDown <-- will look for the button down once
 	// Input.GetButton <-- will look for the button down every frame that it finds it down
-	
-	
+		
 	/*
 	void FixedUpdate()
  {
      rb.AddForce(-Physics.gravity);
  }
-	*/
-	
-	
+	*/	
 	void Start () {
 	
 		radius = 20.0f;
 		force = 0.0f;
-		
-		
-    }
+	}
 	
 	
 	void FixedUpdate () {
 	
 		if(Input.GetKeyDown(KeyCode.F)){		// this button will increase power slightly
-			//PlayClipAtPoint(aura, transform.transform, 1.0F);
-			
+			//PlayClipAtPoint(aura, transform.transform, 1.0F);	
 		
 			force += 1f;
 			//upwardsModifier += 5.0f;
