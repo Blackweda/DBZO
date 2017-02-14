@@ -1,21 +1,10 @@
-Code Requirements:
+1. Focus on Enemy player Transform position
+2. Redirect rotation and direction of Self Player to face the x-coordinator (forward) directly at the torso of the Enemy Player
+3. Create Sphere Object directly in front of the torso of Self Player, extended enough that the edge of ball is about 1 unit away
+4. Charge the Ball with Power
+5. Launch ball at the torso location of Enemy Player
 
-Attack Beam represents sustained attacks like Final Flash or Kamehameha. 
-For the initial version, the representatiin will be a sphere object trailed by a visual stream. 
-All that matters is the sphere head of the beam.
-The sphere will originate in front of the fighter where their arms extend (at chest/upper abdomen level). 
-The act of starting a beam will angle the front body of the fighter towards the frontal chest upper abdomen of the other fighter.
-Next the visual ball is created and the attack beam is targeted at the transform of the other fighter. 
-The attack beam is charged and once released will lock on to the other fighter as long as they remain 
-within the 30 degree frontal view of our fighter if he has maintained the camera direction after the initial lock on.
-
-
-From experience in testing the code, creating Attack Spheres that are rigidbodies and moving by AddForce will NOT work. The balls, even 
-when perfectly aimed at each other, will become increasingly volatile as they try to push through one another. The visual is very glitchy
-loooking and eventually they fling off in random directions, out of control.
-
-By creating balls that are character-controlled, they move very smoothly by velocity. So you will see two balls touch each other and simply
-stop if their velocities are equal. One ball will move forward while the other will move backwards if one of the velocities are higher.
-While this action looks very clean and controlled, it lacks the sort of volatiliity that the first version had, both in visual and in 
-physics after-effects. A method to make the balls gittery while pushing each other is ideal, while maintaining the perfectness of where
-they are supposed to end up.
+6. If Enemy player also launches Attack Beam, redirect Self Player's attack ball to aim squarely with Enemy's attack ball
+7. Engage in pushing contest based on the difference in power between both balls.
+8. If either player increases the power of ball, which induces greater size, reform ball so that its radius still remains touching
+   the outer shell of Enemy ball, do not simply increase size so that the smaller ball is now being eaten by bigger ball.
