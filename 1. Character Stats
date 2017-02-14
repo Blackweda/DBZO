@@ -31,6 +31,12 @@ Battle Power (BP) :
      Lowering the Power Level lowers the KPS potential so that the player can handicap their fighting skill
      and hide their true power.
      
+     
+     
+Fatigue Level (FL) :
+     The amount of fatigue in the Player. This number will affect how fast the Total Ki regenerates its ki pool.
+     It will also determine how much growth the Player receives after training and every fight.
+     
 ======================================================================
      
 
