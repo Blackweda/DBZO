@@ -44,6 +44,9 @@ A) Fighting
   3. Attack Ball
   4. Defense 
   
+  
+  ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/kiBar.png)
+  
 B) Ki Sense
 ===========
 
