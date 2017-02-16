@@ -45,6 +45,9 @@ Highest Power Level Threshold:
 
 Total Ki Growth Algorithm (Total Ki Centric):
 
+  Ki Growth = kiUsed * 0.01
+  
+  
   For every point of Ki expended during training or meditating, it grows back at +1%.
   This means that a Namekian can power up to 20% of their total Ki and spend hours meditating and pulsing energy.
   They can use Ki regen dynamics to increase their training. Also they will not experience battle fatigue or injury from 
@@ -109,6 +112,17 @@ Highest Power Level Threshold:
 
 Total Ki Growth Algorithm (Balanced):
 
+                ( Force / Second )
+Ki Growth =   ------------------   x   Battle Power   -> Every 9 minutes of battle (Saiyans grow during fighting as well).
+              ( Battle Power   )
+  
+  This is the formula for training Base Form , or for training Super Saiyan Forms. Saiyans must use their ki in resistance to other
+  Forces (gravity or other attacks). By using almost all of their BP to oppose the opposite force, they can grow their ki about every
+  10 minutes, so that they get stronger the longer the fight continues.
+  
+  Example:
+  
+  
   Before we get into how Saiyans grow their base form, we must clear up a myth in Dragon Ball Z. The Super Saiyan transformation 
   is NOT a 50x multiplier like many fans think. Akira Toriyama did not intend for Super Saiyan to be a multiplier. Goku's 
   Kaio-ken was a multiplier technique, and a very volatile and body-damaging option. The Super Saiyan transformation was meant to 
