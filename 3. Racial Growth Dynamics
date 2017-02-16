@@ -276,3 +276,43 @@ Highest Power Level Threshold:
   80 - 87.5 % of Total Ki <- outdated model, please change!!
 
 Total Ki Growth Algorithm (Power Level Centric):
+
+                  Total Power Level % Over Normal - 100% %
+Ki Growth % =   --------------------------------------------
+                                   200
+
+
+Example:
+
+A Heran has a power level of 100,000.
+
+A full power transformation will give them a 3x multiplier, so 300,000.
+
+That's 300%.
+
+300% - 100% = 200%
+
+200% / 200 = 1 points.
+
+so 1% of 100,000 = 1,000
+
+New Power Level: 101,000       -> therefore using Full POwer Transformation gives a relative increase to the othe two races.
+----------------------------------
+
+HOWEVER...
+
+If a Heran can find a way to add more power and then use Full power Transformation (FPT will stack onto ANY boost)
+
+Let's say a Heran learned Kaio-ken.
+
+100,000 x 10 = 1,000,000      (Kaio-ken x10)
+
+1,000,000 x 3 = 3,000,000     (Full Power Transformation x3)
+
+3,000,000 / 100,000 = 30 ... or 3000%
+
+3000% - 100% = 2900%
+
+2900% / 200 = 14.5
+
+so... 14.5% of 100,000 = 14,500  -> therefore, new power level is 114,500. 
