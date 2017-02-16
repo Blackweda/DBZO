@@ -45,11 +45,11 @@ Highest Power Level Threshold:
 
 Total Ki Growth Algorithm (Total Ki Centric):
 
-  For every point of Ki expended during training or meditating, it grows back at 101%.
+  For every point of Ki expended during training or meditating, it grows back at +1%.
   This means that a Namekian can power up to 20% of their total Ki and spend hours meditating and pulsing energy.
   They can use Ki regen dynamics to increase their training. Also they will not experience battle fatigue or injury from 
-  meditation.
-  
+  meditation. Ki regrowth from fatigued ki grows back at +0.5%.
+ 
   Example:
   
   A Namekian has 1,000,000 Total Ki.
