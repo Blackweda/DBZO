@@ -37,7 +37,7 @@ Total Ki Regen (during combat):
 
 Total Ki Regen (after combat):
 
-  20% every hour
+  20% every hour of fresh energy (5 hours to recuperate)
 
 Highest Power Level Threshold:
 
@@ -104,7 +104,7 @@ Total Ki Regen (during combat):
 
 Total Ki Regen (after combat):
 
-15% every hour
+12.5% every hour of fresh energy (8 hours to recuperate)
 
 Highest Power Level Threshold:
 
@@ -177,11 +177,11 @@ Therefore:
   
   SSJ2 +175,000,000 - 225,000,000                  SSJ2 stacks on SSJ1 gains:   245M(SSJ) + 225M(SSJ2) = 470M max
   
-      Base form plateau of 15 million removed and raised up to about 45 million. (max power is 500 million)
+      Base form plateau of 15 million removed and raised up to about 45 million. (max power is 515 million)
   
   SSJ3 +250,000,000 - 275,000,000                  SSJ3 stacks on SSJ2/SSJ1 gains:    245M(SSJ) + 225M(SSJ2) + 275M(SSJ3) = 745M max
   
-      Base form plateau of 45 million removed and raised up to about 80 million. (max power is 805 million)
+      Base form plateau of 45 million removed and raised up to about 80 million. (max power is 825 million)
   
   At This Point, the Saiyan must learn to use Super Saiyan Blue or learn Super Saiyan 4.
   
@@ -246,10 +246,33 @@ Ki.
 
 Total Ki Regen (during combat):
 
+8% untrained
+13% trained
+
 Total Ki Regen (after combat):
+
+Normal (without multipliers):   10% per hour of fresh energy (10 hours to recuperate)
+
+Multipliers: For every 10% of extra BP or current Ki given, add an extra 30 mins to the time it takes to recuperate 10%/hour.
+
+    Example:
+    
+    A Heran gets a 500% BP/CK from maxed out FPT.
+    That is 400% extra points.
+    400 / 10 = 40
+    40 x 30 mins = 1200 mins or another 20 hours. The total comes out to 10 hours + 20 hours = 30 hours  or 1.25 days to recuperate fully.
+    
+    In the case of a Heran using 10x multiplier with a FPT on top for 30x, that equals 3000%.
+    
+    2900 / 10 = 290
+    290 x 30 mins = 8700 mins or another 145 hours. The total comes out to 10 hours + 145 hours = 155 hours or 6.45 days.
+
+   
+    
+    
 
 Highest Power Level Threshold:
 
-  80 - 87.5 % of Total Ki
+  80 - 87.5 % of Total Ki <- outdated model, please change!!
 
 Total Ki Growth Algorithm (Power Level Centric):
