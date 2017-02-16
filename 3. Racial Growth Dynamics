@@ -122,14 +122,30 @@ Ki Growth =   ------------------   x   Battle Power   -> Every 9 minutes of batt
   
   Example:
   
+  Goku's power level is at 100,000.
+  Goku is in a gravity room at 100x Earth's gravity. That's about 1000 Force being applied every second. If Goku raises his BP to 1,110:
   
-  Before we get into how Saiyans grow their base form, we must clear up a myth in Dragon Ball Z. The Super Saiyan transformation 
+  So the equation would be:
+
+         1,000 [force]
+       ---------         = 0.9
+         1,110 [BP]
+         
+Then take that number and multiply the BP used amount by it.
+
+1,110 x 0.9 = 999
+
+And now, the Total Ki is 100,999.
+
+The same idea applies to being in Super Saiyan Form as well.
+  
+  We also must clear up a myth in Dragon Ball Z. The Super Saiyan transformation 
   is NOT a 50x multiplier like many fans think. Akira Toriyama did not intend for Super Saiyan to be a multiplier. Goku's 
   Kaio-ken was a multiplier technique, and a very volatile and body-damaging option. The Super Saiyan transformation was meant to 
-  replace it with something more reliable and permanent. When Goku went Super Saiyan for the first time against Frieza, his new 
+  replace it with something safer, more reliable and permanent. When Goku went Super Saiyan for the first time against Frieza, his new 
   power level at the time was 50x his base form. What this actually means is that Super Saiyan transformations are a mutation that 
   greatly increases the Ki of the fighter, thus giving them tons of extra power and ability to raise their power level. The Super Saiyan 
-  transformation is a huge Ki Boost, that happened to be 50x what Goku had the first time he got the transformation. Power Level 
+  transformation is a huge Ki Boost, that just happened to be 50x of Goku's base form the first time he got the transformation. Power Level 
   stats show during Frieza fight:
   
 Goku	                                3,000,000	                             Daizenshuu 7
@@ -140,7 +156,7 @@ Goku (x20 Kaioken)	                 60,000,000	                             Calc
 
 Goku (Super Saiyan)	                150,000,000	                             Daizenshuu 7
 
-As we can see, 150M = 50 x 3M... which means that the Super Saiyan transformation gave Goku about 145,000,000 extra Ki. 
+As we can see, 150M = 3 million times 50... which means that the Super Saiyan transformation gave Goku about 145,000,000 extra Ki. 
 Therefore, for the DBZ Online game, we will NOT treat SSJ like a multiplier, but rather a huge Ki boost. The SSJ transformations 
 can be trained to give more Ki boosts over time, and the training of increasing Battle Power within SSJ form will give rise to 
 Ascended Super Saiyan and Ultra Super Saiyan forms. The practice of maintaining Super Saiyan form without fighting and spending 
@@ -152,19 +168,20 @@ Online Game.
 
 Therefore:  
 
-  SSJ transformation = 145,000,000 - 245,000,000            Base: at least 2,000,000 for SSJ and plateau at about 
-                                                                  9,000,000 - 10,000,000 
+  SSJ transformation = 145,000,000 (untrained) - 245,000,000 (trained)     
+  
+  Base Form: at least 2,000,000 for SSJ activation & plateau at about 15,000,000 
                                                                   
   While in base form, gains go to base form, while in SSJ form, gains go to SSJ ki boost
-  INcreasing BP increases ASSJ/USSJ.... the amount of times turning SSJ and powering up slowly increases Ki Boost
+  Increasing BP during training increases ASSJ/USSJ.... also the amount of times turning SSJ and powering up slowly increases Ki Boost
   
-  SSJ2 +175,000,000 - 225,000,000              245M(SSJ) + 225M(SSJ2) = 470M max
+  SSJ2 +175,000,000 - 225,000,000                  SSJ2 stacks on SSJ1 gains:   245M(SSJ) + 225M(SSJ2) = 470M max
   
-  Base form plateau of 10M removed and raised up to about 30 million. (max power is 500 million)
+      Base form plateau of 15 million removed and raised up to about 45 million. (max power is 500 million)
   
-  SSJ3 +250,000,000 - 275,000,000              245M(SSJ) + 225M(SSJ2) + 275M(SSJ3) = 745M max
+  SSJ3 +250,000,000 - 275,000,000                  SSJ3 stacks on SSJ2/SSJ1 gains:    245M(SSJ) + 225M(SSJ2) + 275M(SSJ3) = 745M max
   
-  Base form plateur of 30M removed and raised up to about 60 million. (max power is 805 million)
+      Base form plateau of 45 million removed and raised up to about 80 million. (max power is 805 million)
   
   At This Point, the Saiyan must learn to use Super Saiyan Blue or learn Super Saiyan 4.
   
