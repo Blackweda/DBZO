@@ -30,14 +30,14 @@ Namekians have no plateaus for now unless we find a reason to give them one.
 
 Total Ki Regen (during combat):
 
-  15% untrained every 3 mins        -> Only 75% can be regen of total Ki every training session or fight. Afterwards fighter 
+  10% untrained every 3 mins        -> Only 75% can be regen of total Ki every training session or fight. Afterwards fighter 
   must stop.
   
-  25% trained every 3 mins
+  15% trained every 3 mins
 
 Total Ki Regen (after combat):
 
-  30% every 3 mins
+  20% every hour
 
 Highest Power Level Threshold:
 
@@ -59,7 +59,7 @@ Total Ki Growth Algorithm (Total Ki Centric):
   Attack Beam = 1,111 Per Second (without charging time)
   
   This equates to a Namekian meditating and exerting 1,111 Ki per second for 1000 seconds (16 mins), including the Ki regen 
-  power, which is 15% of 1M (150,000), 5 times(max 75%) ( 5 x 150,000 = 750,000)... 750,000 /1,111, which is about another 11 
+  power, which is 10% of 1M (150,000), 5 times(max 75%) ( 5 x 150,000 = 750,000)... 750,000 /1,111, which is about another 11 
   minutes. So in 27 minutes, they have exerted all of their power. 
   
   They will regenerate in 9+ mins and have a base Ki pool of 1,010,000 (101%), but the rest period must be followed afterwards. 
