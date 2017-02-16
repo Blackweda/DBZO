@@ -202,7 +202,12 @@ Therefore:
   (
 ***
 
+Ki Regrowth from Fatigue Energy:
 
+
+                ( Force / Second )
+Ki Growth =   ------------------   x   Battle Power x 0.5  -> Every 9 minutes of battle (Saiyans grow during fighting as well).
+              ( Battle Power   )
 
 
 
@@ -316,3 +321,12 @@ Let's say a Heran learned Kaio-ken.
 2900% / 200 = 14.5
 
 so... 14.5% of 100,000 = 14,500  -> therefore, new power level is 114,500. 
+
+
+
+Ki Regrowth from Fatigue Energy:
+
+
+                  Total Power Level % Over Normal - 100% %
+Ki Growth % =   --------------------------------------------  x 0.5
+                                   200
