@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections;
-// http://forum.unity3d.com/threads/transform-lookat-or-quaternion-lookrotation-on-1-axis-only.36377/
+
 /*
-You want the collision-detection set to Continuous Dynamic for fast moving objects.  
-Continuous is used for static- or slow-moving objects that Continuous Dynamic objects collide with. See here.
-(Keep in mind that continuous collision detection is expensive, so use it sparingly)
+The Attack Ball must be a rigidbody, yet UseGravity = false, and isKinematic = false
+We do not want the ball being pulled down by gravity nor do we want the ball bouncing off objects, it should explode on impact of any
+thing that is not another energy ball or beam.
 */
 
 public class AttackBeam : MonoBehaviour {
@@ -24,8 +24,14 @@ public class AttackBeam : MonoBehaviour {
 		transform.LookAt(target);
 		Debug.DrawLine(target.position, transform.position, Color.yellow);
 		transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-		if(Input.GetButtonDown("3")){
+		if(Input.GetButtonDown("1")){
 			speed += 1;
+			// rigidbody.AddForce(Vector3.forward * force);		// AddForce will apply force in WORLD SPACE, NOT LOCAL!!
+			//rigidbody.AddRelativeForce(Vector3.forward * force);
+			//rigidbody.AddRelativeForce(-transform.forward * force);
+		}
+		if(Input.GetButtonDown("2")){
+			speed += 0.25f;
 			// rigidbody.AddForce(Vector3.forward * force);		// AddForce will apply force in WORLD SPACE, NOT LOCAL!!
 			//rigidbody.AddRelativeForce(Vector3.forward * force);
 			//rigidbody.AddRelativeForce(-transform.forward * force);
@@ -40,10 +46,16 @@ public class AttackBeam : MonoBehaviour {
 		transform.LookAt(target);
 		Debug.DrawLine(target.position, transform.position, Color.yellow);
 		transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-		if(Input.GetButtonDown("3")){
+		if(Input.GetButtonDown("1")){
 			speed += 1;
 			// rigidbody.AddForce(Vector3.forward * force);		// AddForce will apply force in WORLD SPACE, NOT LOCAL!!
 			//rigidbody.AddRelativeForce(Vector3.forward * force);
+		}
+		if(Input.GetButtonDown("2")){
+			speed += 0.25f;
+			// rigidbody.AddForce(Vector3.forward * force);		// AddForce will apply force in WORLD SPACE, NOT LOCAL!!
+			//rigidbody.AddRelativeForce(Vector3.forward * force);
+			//rigidbody.AddRelativeForce(-transform.forward * force);
 		}
 			
 	}
