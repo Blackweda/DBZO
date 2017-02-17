@@ -41,7 +41,7 @@ Total Ki Regen (after combat):
 
 Highest Power Level Threshold:
 
-  70 - 77.5 % of Total Ki  <- improper designation, must change!
+    
 
 Total Ki Growth Algorithm (Total Ki Centric):
 
@@ -108,7 +108,7 @@ Total Ki Regen (after combat):
 
 Highest Power Level Threshold:
 
-  75 - 82.5 % of Total Ki     <- improper designation, must change!
+
 
 Total Ki Growth Algorithm (Balanced):
 
@@ -278,11 +278,10 @@ Multipliers: For every 10% of extra BP or current Ki given, add an extra 30 mins
 
 Highest Power Level Threshold:
 
-  80 - 87.5 % of Total Ki <- outdated model, please change!!
 
 Total Ki Growth Algorithm (Power Level Centric):
 
-                  Total Power Level % Over Normal - 100% %
+                  Total Power Level % Over Normal - 100% 
 Ki Growth % =   --------------------------------------------
                                    200
 
@@ -327,6 +326,6 @@ so... 14.5% of 100,000 = 14,500  -> therefore, new power level is 114,500.
 Ki Regrowth from Fatigue Energy:
 
 
-                  Total Power Level % Over Normal - 100% %
+                  Total Power Level % Over Normal - 100% 
 Ki Growth % =   --------------------------------------------  x 0.5
                                    200
