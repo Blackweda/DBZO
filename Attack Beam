@@ -8,3 +8,13 @@
 7. Engage in pushing contest based on the difference in power between both balls.
 8. If either player increases the power of ball, which induces greater size, reform ball so that its radius still remains touching
    the outer shell of Enemy ball, do not simply increase size so that the smaller ball is now being eaten by bigger ball.
+
+
+
+
+Currently, the balls are touching, then suddenly they shoot past each other... Two possible reasons:
+
+Both Update() and FIxedUpdate() are running at the same time, possibly the frame per second timing is confused and one moves before the 
+other one..
+
+Or Update() is consistent enough for both balls.. perhaps FIxedUpdate is more accurate for syncing movements??
