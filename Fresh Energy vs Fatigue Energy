@@ -1,16 +1,25 @@
 The fighter can train multiple times a day, with diminishing returns on gains.
 
+100,000
 
 
-Green Energy regenerates at 25% per hour (4 hours to get back 100% Green Energy)
 
-Yellow Energy gives 50% gains of Green Energy
+Green Energy regenerates at 10% per hour (10 hours to get back 100% Green Energy)                10,000 per hour
+Yellow Energy regenerates at 2.5% per minute.                                                   2,500 per minute
+Yellow Energy gives 30% gains of Green Energy
 
-Yellow Energy regenerates at 10% per hour (10 hours to get back 100% Yellow Energy)
 
-Yellow Energy left alone for 10 hours becomes Green Energy.
+| G R E E N   E N E R G Y |
 
-Therefore, the first hour of yellow energy (left alone) converts back to Green after 9 hours.
+| G R E E y e l l         |
+
+| y e l l o w w w         |               after some rested time
+
+|G y e l l o w            |
+
+
+
+
 
 
 
@@ -19,7 +28,7 @@ Therefore, the first hour of yellow energy (left alone) converts back to Green a
 Start of Day:                                                             9 AM
 100% Green Energy
 
-      Train Session One (4 hour wait)    15 min training                 1:15 PM
+      Train Session One    15 min training                 1:15 PM
       
 100% Bright Yellow Energy
 
