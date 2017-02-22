@@ -2,16 +2,17 @@ The fighter can train multiple times a day, with diminishing returns on gains.
 
 
 
-Yellow Energy regerates at 25% per hour (4 hours to get back 100% Yellow Energy)
+Green Energy regenerates at 25% per hour (4 hours to get back 100% Green Energy)
 
 Yellow Energy gives 50% gains of Green Energy
 
-Red Energy regenerates at 10% per hour (10 hours to get back 100% Red Energy)
+Yellow Energy regenerates at 10% per hour (10 hours to get back 100% Yellow Energy)
 
-
-
-Red Energy left alone for 5 hours becomes Yellow Energy.
 Yellow Energy left alone for 10 hours becomes Green Energy.
+
+Therefore, the first hour of yellow energy (left alone) converts back to Green after 9 hours.
+
+
 
 =============================
 
