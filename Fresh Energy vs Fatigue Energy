@@ -1,5 +1,7 @@
 The fighter can train multiple times a day, with diminishing returns on gains.
 
+To prevent people maxing out PL all the time, anything over 65% PL starts to drain energy over time, shortening the fight.
+
 100,000
 
 
