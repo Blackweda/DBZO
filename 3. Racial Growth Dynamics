@@ -258,14 +258,14 @@ Total Ki Regen (after combat):
 
 Normal (without multipliers):   10% per hour of fresh energy (10 hours to recuperate)
 
-Multipliers: For every 10% of extra BP or current Ki given, add an extra 30 mins to the time it takes to recuperate 10%/hour.
+Multipliers: For every 10% of extra BP or current Ki given, add an extra 15 mins to the time it takes to recuperate 10%/hour.
 
     Example:
     
     A Heran gets a 500% BP/CK from Kaio-ken multiplier.
     That is 400% extra points.
     400 / 10 = 40
-    40 x 30 mins = 1200 mins or another 20 hours. The total comes out to 10 hours + 20 hours = 30 hours  or 1.25 days to recuperate fully.
+    40 x 15 mins = 600 mins or another 10 hours. The total comes out to 10 hours + 10 hours = 20 hours  or 0.83 days to recuperate fully.
     
     In the case of a Heran using 10x multiplier with a FPT on top for 30x, that equals 3000%.
     
