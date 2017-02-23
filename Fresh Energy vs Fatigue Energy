@@ -1,8 +1,74 @@
+Having Yellow Energy regenerate based on the hour also prevents players from spamming a boss. If everyone tired themselves out in 15 mins,
+the boss would obliterate them all because his base total ki is so high.. Rather, one or two players should fight while th eothers wait,
+and then by tag teaming, they can rest a bit and regain yellow energy.
+
+
 The fighter can train multiple times a day, with diminishing returns on gains.
 
 To prevent people maxing out PL all the time, anything over 65% PL starts to drain energy over time, shortening the fight.
 
 100,000
+
+The beginning of fight or training, fighter has 100% green energy.
+Powered up to 100% PL,
+
+20% Current Ki -> 20,000
+BP is CK/3 mins = 110
+
+After 3 mins, they have used 20,000 ki, but gained 7500 in yellow energy.
+
+80% Green Energy,
+13% Yellow Energy,
+7% Empty
+
+They refresh CK with another 20,000
+
+Fight for another 3 mins
+
+Green Energy 60%
+Yellow Energy 26%
+14% Nothing
+
+Refresh
+
+3 min fight
+
+40% Green Energy
+39% Yellow
+21% NOthing
+
+3 mins
+
+20% G, 52% Yellow, 28% Nothing
+
+3 mins
+
+65% Yellow, 35% Nothing
+
+3 mins
+
+45% Yellow + 7.5 Yellow = 52.5 Yellow
+
+3 mins
+
+32.5 Yellow + 7.5 = 40% Yellow
+
+3 mins
+
+20% yellow + 7.5 = 27.5
+
+3 mins
+
+7.5 + 7.5 = 15
+
+2 mins -> All energy exhausted, if below 10%, regenerated energy is RED energy.
+
+Total time = about 29 minutes fight time, with another 2 mins of charging up time (if non-stop fighting / training.)
+
+This equals 100% Green Energy Used and 95% Yellow Energy Used.
+
+
+
 
 
 
