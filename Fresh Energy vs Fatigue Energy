@@ -80,7 +80,10 @@ A Namekian meditating at max could improve his grwoth 5x.
 
 
 
-Green Energy regenerates at 10% per hour (10 hours to get back 100% Green Energy)                10,000 per hour
+Green Energy regenerates at 20% per 2 hours (10 hours to get back 100% Green Energy)                10,000 per hour
+if player has completely stopped fighting/training
+
+
 Yellow Energy regenerates at 2.5% per minute.                                                   2,500 per minute
 Yellow Energy gives 30% gains of Green Energy
 
