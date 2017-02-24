@@ -16,6 +16,7 @@ Ki Growth =   ------------------   x   Battle Power   -> Every 9 minutes of batt
 Second Possibility:
 
 Ki Growth += BP * 0.015 -> every 9 mins
+BP += BP * 0.015 -> every 9 mins during fight
                
                
               
