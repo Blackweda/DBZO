@@ -6,9 +6,16 @@ Therefore, unlike Namekians, Saiyans don't get stronger by using up ki and growi
 They grow by the degree of force they are opposing (like weightlifting).
 
 
+First Possibility:
+
               ( Force / Second )
 Ki Growth =   ------------------   x   Battle Power   -> Every 9 minutes of battle (Saiyans grow during fighting as well).
               ( Battle Power   )
+              
+              
+Second Possibility:
+
+Ki Growth += BP * 0.015 -> every 9 mins
                
                
               
