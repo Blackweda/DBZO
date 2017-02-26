@@ -29,7 +29,7 @@ BP = 110
 
 100,000 is tier 5:
 
-so tier 5 gains plus extra 10% of tier 5 gains.
+so tier 5 gains (1,000) plus extra 1x normal BP (110).
 
 TK = 100,000
 CK = 20,000
@@ -47,7 +47,7 @@ TK = 50,000
 CK = 20,000
 BP = 110
 
-tier 5 gains + 1300 - 100       = 60% of tier 5 gains.
+tier 5 gains + 1300 - 100       = 6x normal BP power (660).
                ----------
                    200
 
