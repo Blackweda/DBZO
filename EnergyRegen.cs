@@ -1,55 +1,80 @@
 
 float greenEnergyRegenRate;           // how fast Green Energy regenerates
 float yellowEnergyRegenRate;          // how fast Yellow Energy regenerates
-float darkYellowEnergyRegenRate;      // possibly secondary rating of Yellow Energy that has been exhausted fast
-float redEnergyRegenRate;             // Energy that is used to the maximum and worthless almost
+//float darkYellowEnergyRegenRate;      // possibly secondary rating of Yellow Energy that has been exhausted fast
+//float redEnergyRegenRate;             // Energy that is used to the maximum and worthless almost
 
-
-
-
-float restingTime;
+float restTime;
 bool restMode;
 
 float combatTime;
 bool combatMode;
 
-float trainingTime;
+float trainTime;
 bool trainMode;
 
 float greenEnergyPercent;
 float yellowEnergyPercent;
-float redEnergyPercent;
+//float redEnergyPercent;
 
-if(yellowEnergyPercent){
+if(yellowEnergyPercent){                  // IF PLAYER HAS BEEN TRAINING OR FIGHTING (NOT 100% GREEN ENERGY)
+      
+      yellowEnergyRegenRate = 2.5f;
+      greenEnergyRegenRate = 20.0f;
 
       if(combatMode){
+            
+            restTime = 0.0f;
+            trainTime = 0.0f;
+            
+            combatTime += 1.0f * Time.deltaTime;
+            if(combatTime >= 60){
+             
+                  yellowEnergyPercent += yellowEnergyRegenRate;
+                  combatTime = 0.0f;
+            }        
       
-        restingTime = 0.0f;
+      } // end of combatMode
       
-        if(combatTime <= 1.0f)
-              combatTime += 1 * Time.deltaTime;
-      
-      
-      }
       else if(trainMode){
       
-          restingTime = 0.0f;
+          restTime = 0.0f;
+          combatTime = 0.0f;
       
-            if(trainingTime <= 1.0f)
-              trainingTime += 1 * Time.deltaTime;
+          trainTime += 1.0f * Time.deltaTime;
+            if(trainTime >= 60){
+             
+                  yellowEnergyPercent += yellowEnergyRegenRate;
+                  trainTime = 0.0f;
+            }
       
       
-      }
+      } // end of trainMode
+      
       else if(restMode){
       
-            if(restingTime <= 1.0f)
-              restingTime += 1 * Time.deltaTime;
+            float yellowTime;
+            combatTime = trainTime = 0.0f;
+            
+            restTime += 1 * Time.deltaTime;
+            yellowTime += 1 * Time.deltaTime;
+            
+            if(yellowTime >= 60){
+                  
+                  yellowEnergyPercent += yellowEnergyRegenRate;
+                  yellowTime = 0.0f;
+            }
               
-            if(restingTime >= 7200)            
-                  greenEnergyPercent += 20;
+            if(restTime >= 7200){            
+                  greenEnergyPercent += greenEnergyRegenRate;
+                  restTime = 0.0f;
+            }
             
       
-      }
+      } // end of restMode
+      
+   if(yellowEnergyPercent >= 100)
+         yellowEnergyPercent = 100;
       
 
-}
+} // end of yellowEnergyPercent
