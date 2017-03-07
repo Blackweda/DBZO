@@ -77,3 +77,7 @@ Correct Version:
 
 Incorrect version:
 ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/wrong.png)
+
+
+Possible Game Look (Sepia Tone):
+ ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/dbzo_sepiatone_look.jpg)
