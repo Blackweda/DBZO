@@ -15,6 +15,7 @@ bool trainMode;
 
 float greenEnergyPercent;
 float yellowEnergyPercent;
+float totalEnergy;
 //float redEnergyPercent;
 
 if(yellowEnergyPercent){                  // IF PLAYER HAS BEEN TRAINING OR FIGHTING (NOT 100% GREEN ENERGY)
@@ -28,7 +29,7 @@ if(yellowEnergyPercent){                  // IF PLAYER HAS BEEN TRAINING OR FIGH
             trainTime = 0.0f;
             
             combatTime += 1.0f * Time.deltaTime;
-            if(combatTime >= 60){
+            if(combatTime >= 60 && totalEnergy < 100){
              
                   yellowEnergyPercent += yellowEnergyRegenRate;
                   combatTime = 0.0f;
@@ -42,7 +43,7 @@ if(yellowEnergyPercent){                  // IF PLAYER HAS BEEN TRAINING OR FIGH
           combatTime = 0.0f;
       
           trainTime += 1.0f * Time.deltaTime;
-            if(trainTime >= 60){
+            if(trainTime >= 60 && totalEnergy < 100){
              
                   yellowEnergyPercent += yellowEnergyRegenRate;
                   trainTime = 0.0f;
@@ -59,7 +60,7 @@ if(yellowEnergyPercent){                  // IF PLAYER HAS BEEN TRAINING OR FIGH
             restTime += 1 * Time.deltaTime;
             yellowTime += 1 * Time.deltaTime;
             
-            if(yellowTime >= 60){
+            if(yellowTime >= 60 && totalEnergy < 100){
                   
                   yellowEnergyPercent += yellowEnergyRegenRate;
                   yellowTime = 0.0f;
@@ -67,6 +68,7 @@ if(yellowEnergyPercent){                  // IF PLAYER HAS BEEN TRAINING OR FIGH
               
             if(restTime >= 7200){            
                   greenEnergyPercent += greenEnergyRegenRate;
+                  yellowEnergyPercent -= greenEnergyRegenRate;
                   restTime = 0.0f;
             }
             
@@ -75,6 +77,9 @@ if(yellowEnergyPercent){                  // IF PLAYER HAS BEEN TRAINING OR FIGH
       
    if(yellowEnergyPercent >= 100)
          yellowEnergyPercent = 100;
+      
+   if(totalEnergy >= 100)
+         totalEnergy = 100;
       
 
 } // end of yellowEnergyPercent
