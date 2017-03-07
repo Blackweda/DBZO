@@ -36,6 +36,11 @@ if(yellowEnergyPercent){                  // IF PLAYER HAS BEEN TRAINING OR FIGH
             }        
       
       } // end of combatMode
+      /*
+            While in combat mode, training mode and rest mode are disabled. If there has been energy used, there will be space
+            to regenerate more. If not, then no new energy should be added to a complete energy bar. Every minute there will be 
+            a regeneration based on the Rate.
+      */
       
       else if(trainMode){
       
