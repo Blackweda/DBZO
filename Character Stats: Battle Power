@@ -1,2 +1,4 @@
-
-Battle Power value represents the fighter's DPS (damage per second).
+Battle Power (BP) :
+     The amount of ki per second (KPS) being used in Attack or Defense. This is equivalent to WoW DPS.
+     Lowering the Power Level lowers the KPS potential so that the player can handicap their fighting skill
+     and hide their true power.
