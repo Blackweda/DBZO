@@ -1,3 +1,4 @@
-
-Total Ki is the value that represents the total amount of power that a fighter has.
-In World of WarCraft terminology, it would represent the total amount of mana that the player has.
+Total Ki (TK) :
+     The raw amount of power within a Player. This is equivalent to WoW mana pool.
+     
+     Total Ki = 1,000,000 / 1,000,000
