@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.holdings.siloaman.dbzo_leveller.MainActivity">
+
+    <TextView
+        android:text="Total Ki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/totalKiTextView" />
+
+    <TextView
+        android:text="Current Ki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/totalKiTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/currentKiTextView" />
+
+    <TextView
+        android:text="Defense Ki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/currentKiTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/defenseKiTextView" />
+
+    <TextView
+        android:text="Power Level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/defenseKiTextView"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/powerLevelTextView" />
+
+    <TextView
+        android:text="Battle Power"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/powerLevelTextView"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/battlePowerTextView" />
+
+    <TextView
+        android:text="Green Energy %"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/battlePowerTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/greenEnergyPercentTextView" />
+
+    <TextView
+        android:text="Yellow Energy %"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/greenEnergyPercentTextView"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/yellowEnergyPercentTextView" />
+
+    <Button
+        android:text="CK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/yellowEnergyPercentTextView"
+        android:layout_alignStart="@+id/yellowEnergyPercentTextView"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/currentKiButton" />
+
+    <Button
+        android:text="DK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/currentKiButton"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/defenseKiButton" />
+
+    <Button
+        android:text="ATTACK(3)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/defenseKiButton"
+        android:layout_toEndOf="@+id/defenseKiButton"
+        android:layout_marginStart="10dp"
+        android:id="@+id/attackButton" />
+
+    <Button
+        android:text="PL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/currentKiButton"
+        android:layout_alignStart="@+id/currentKiButton"
+        android:layout_marginTop="10dp"
+        android:id="@+id/powerLevelButton" />
+
+    <Button
+        android:text="BP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/powerLevelButton"
+        android:layout_alignStart="@+id/defenseKiButton"
+        android:id="@+id/battlePowerButton" />
+
+    <Button
+        android:text="UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/powerLevelButton"
+        android:layout_alignStart="@+id/powerLevelButton"
+        android:layout_marginTop="10dp"
+        android:id="@+id/upButton" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/defenseKiTextView"
+        android:layout_alignStart="@+id/TKValueTextView"
+        android:id="@+id/CKValueTextView" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/defenseKiTextView"
+        android:layout_alignStart="@+id/CKValueTextView"
+        android:id="@+id/DKValueTextView" />
+
+    <TextView
+        android:text="100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/powerLevelTextView"
+        android:layout_alignStart="@+id/DKValueTextView"
+        android:id="@+id/PLValueTextView" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/battlePowerTextView"
+        android:layout_alignStart="@+id/DKValueTextView"
+        android:id="@+id/BPValueTextView" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/yellowEnergyPercentTextView"
+        android:layout_alignStart="@+id/DKValueTextView"
+        android:id="@+id/YEPValueTextView" />
+
+    <TextView
+        android:text="100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/GEPValueTextView"
+        android:layout_above="@+id/yellowEnergyPercentTextView"
+        android:layout_alignStart="@+id/DKValueTextView" />
+
+    <TextView
+        android:text="100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TKValueTextView"
+        android:layout_above="@+id/currentKiTextView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/TKValueTextView"
+        android:layout_toEndOf="@+id/defenseKiButton"
+        android:id="@+id/TKValueTextView2" />
+
+    <Button
+        android:text="Training"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startStopButton"
+        android:layout_alignBaseline="@+id/battlePowerButton"
+        android:layout_alignBottom="@+id/battlePowerButton"
+        android:layout_alignStart="@+id/attackButton" />
+
+    <Button
+        android:text="DOWN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/downButton"
+        android:layout_alignBaseline="@+id/upButton"
+        android:layout_alignBottom="@+id/upButton"
+        android:layout_alignStart="@+id/startStopButton" />
+
+    <Button
+        android:text="LOAD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loadButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/upButton" />
+
+    <Button
+        android:text="SAVE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/saveButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/downButton" />
+
+
+</RelativeLayout>
