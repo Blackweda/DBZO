@@ -404,6 +404,45 @@ public class MainActivity extends Activity {
                     }
                     else if(CKNum != 0){
 
+                        if(CKNum <= TKDNum * 0.8){
+
+                            if(fillUp){
+
+                                CKNum += (TKDNum * 0.2);
+                                TKNNum -= (TKDNum * 0.2);
+                            }
+                            else if(!fillUp){
+
+                                CKNum += TKNNum;
+                                TKNNum -= TKNNum;
+                            }
+
+                        }
+                        else if(CKNum > TKDNum * 0.8){
+
+                            if(fillUp){
+
+                                TKNNum -= TKDNum - CKNum;
+                                CKNum += TKDNum - CKNum;
+                            }
+                            else if(!fillUp){
+
+                                if(TKNNum >= TKDNum - CKNum){
+
+                                    TKNNum -= TKDNum - CKNum;
+                                    CKNum += TKDNum - CKNum;
+                                }
+                                else if(TKNNum < TKDNum - CKNum){
+
+                                    CKNum += TKNNum;
+                                    TKNNum -= TKNNum;
+                                }
+                            }
+
+                        }
+
+
+                        /*
                         int addMissing = (int)(TKDNum * 0.2) - CKNum;
                         // could also make float and modulus % 0.5 = answer + 0.5 for perfect int
 
@@ -422,7 +461,7 @@ public class MainActivity extends Activity {
                                 CKNum += TKNNum;
                                 TKNNum -= TKNNum;
                             }
-                        }
+                        }*/
                     }
 
                     TKNValue.setText(TKNNum + "");
@@ -430,7 +469,7 @@ public class MainActivity extends Activity {
 
                 }
 
-                if(DKModifier) {
+                if(DKModifier) { // because DK is priority, if TKN empty, should be able to draw from CK in extreme cases.
                     int TKNNum = Integer.parseInt(TKNValue.getText().toString());
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                     int DKNum = Integer.parseInt(DKValue.getText().toString());
@@ -441,41 +480,25 @@ public class MainActivity extends Activity {
                     else
                         fillUp = false;
 
-                    if(DKNum == 0) {
+                    if(fillUp) {
 
+                        if (DKNum <= (TKDNum * 0.95)) {
 
-                        if (fillUp) {
-
-                            DKNum += (TKDNum * 0.050);
-                            TKNNum -= (TKDNum * 0.050);
+                            DKNum += TKDNum * 0.050;
+                            TKNNum -= TKDNum * 0.050;
                         }
-                        else if(!fillUp){
+                        else if(DKNum >= TKDNum * 0.95){
 
-                            DKNum += TKNNum;
-                            TKNNum -= TKNNum;
-                        }
-                    }
-                    else if(DKNum != 0){
-
-                        int addMissing = (int)(TKDNum * 0.050) - DKNum;
-
-                        if(fillUp){
-
-                            DKNum += addMissing;
-                            TKNNum -= addMissing;
-                        }
-                        else if(!fillUp){
-
-                            if(TKNNum >= addMissing){
-                                DKNum += addMissing;
-                                TKNNum -= addMissing;
-                            }
-                            else if(TKNNum <= addMissing){
-                                DKNum += TKNNum;
-                                TKNNum -= TKNNum;
-                            }
+                            TKNNum -= TKDNum - DKNum;
+                            DKNum += TKDNum - DKNum;
                         }
                     }
+                    else if(!fillUp){
+
+                        DKNum += TKNNum;
+                        TKNNum -= TKNNum;
+                    }
+
 
                     TKNValue.setText(TKNNum + "");
                     DKValue.setText(DKNum + "");
@@ -541,17 +564,35 @@ public class MainActivity extends Activity {
                     int TKNNum = Integer.parseInt(TKNValue.getText().toString());
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                     int CKNum = Integer.parseInt(CKValue.getText().toString());
-                    int addMissing;
 
-                    addMissing = TKDNum - TKNNum;
+                    if(TKNNum <= TKDNum * 0.8){
 
-                    if(addMissing >= CKNum){
-                        TKNNum += CKNum;
-                        CKNum -= CKNum;
+                        if(CKNum >= TKDNum * 0.2){
+
+                            CKNum -= TKDNum * 0.2;
+                            TKNNum += TKDNum * 0.2;
+                        }
+                        else if(CKNum < TKDNum * 0.2){
+
+                            TKNNum += CKNum;
+                            CKNum -= CKNum;
+                        }
+
+
                     }
-                    else if(addMissing <= CKNum){
-                        TKNNum += addMissing;
-                        CKNum -= addMissing;
+                    else if(TKNNum > TKDNum * 0.8){
+
+                        if(CKNum >= TKDNum - TKNNum){
+
+                            CKNum -= TKDNum - TKNNum;
+                            TKNNum += TKDNum - TKNNum;
+                        }
+                        else if(CKNum < TKDNum - TKNNum){
+
+                            TKNNum += CKNum;
+                            CKNum -= CKNum;
+                        }
+
                     }
 
                     TKNValue.setText(TKNNum + "");
@@ -564,17 +605,35 @@ public class MainActivity extends Activity {
                     int TKNNum = Integer.parseInt(TKNValue.getText().toString());
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                     int DKNum = Integer.parseInt(DKValue.getText().toString());
-                    int addMissing;
 
-                    addMissing = TKDNum - TKNNum;
+                    if(TKNNum <= TKDNum * 0.95){
 
-                    if(addMissing >= DKNum){
-                        TKNNum += DKNum;
-                        DKNum -= DKNum;
+                        if(DKNum >= TKDNum * 0.050){
+
+                            DKNum -= TKDNum * 0.050;
+                            TKNNum += TKDNum * 0.050;
+                        }
+                        else if(DKNum < TKDNum * 0.050){
+
+                            TKNNum += DKNum;
+                            DKNum -= DKNum;
+                        }
+
+
                     }
-                    else if(addMissing <= DKNum){
-                        TKNNum += addMissing;
-                        DKNum -= addMissing;
+                    else if(TKNNum > TKDNum * 0.95){
+
+                        if(DKNum >= TKDNum - TKNNum){
+
+                            DKNum -= TKDNum - TKNNum;
+                            TKNNum += TKDNum - TKNNum;
+                        }
+                        else if(DKNum < TKDNum - TKNNum){
+
+                            TKNNum += DKNum;
+                            DKNum -= DKNum;
+                        }
+
                     }
 
                     TKNValue.setText(TKNNum + "");
