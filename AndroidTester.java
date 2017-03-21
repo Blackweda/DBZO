@@ -272,9 +272,17 @@ public class MainActivity extends Activity {
 
                         }
 
+                        int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+
                         // every 3 mins use up 20% Green
-                        GEPValue.setText((int)GEPNum + "");     // try to mirror ck and tkn values
-                        YEPValue.setText((int)YEPNum + "");
+                        if(TKNNum <= 100) {
+                            GEPValue.setText((int) GEPNum + "");     // try to mirror ck and tkn values
+                            YEPValue.setText((int) YEPNum + "");
+                        }
+                        else if(TKNNum > 100){                      // allow for decimal values to show
+                            YEPValue.setText(YEPNum + "");
+                            GEPValue.setText(GEPNum + "");
+                        }
 
 
 
@@ -323,17 +331,21 @@ public class MainActivity extends Activity {
 
                         YEPNum = Float.parseFloat(YEPValue.getText().toString());
                         GEPNum = Float.parseFloat(GEPValue.getText().toString());
+                        TKNNum = Integer.parseInt(TKNValue.getText().toString());
 
                         YEPNum += 7.5;
 
                         if(GEPNum == 0 && YEPNum >= 100)
                             YEPNum = 100;
 
-                        YEPValue.setText((int)YEPNum + "");
+                        if(TKNNum <= 100)
+                            YEPValue.setText((int)YEPNum + "");
+                        else if(TKNNum > 100)
+                            YEPValue.setText(YEPNum + "");
 
                         int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                         int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
-                        int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+                        TKNNum = Integer.parseInt(TKNValue.getText().toString());
                         CKNum = Integer.parseInt(CKValue.getText().toString());
                         int DKNum = Integer.parseInt(DKValue.getText().toString());
 
@@ -370,8 +382,14 @@ public class MainActivity extends Activity {
                         if(GEPNum + YEPNum > 100)
                             YEPNum = 100 - GEPNum;
 
-                        YEPValue.setText((int)YEPNum + "");
-                        GEPValue.setText((int)GEPNum + "");
+                        if(TKNNum <= 100) {
+                            YEPValue.setText((int) YEPNum + "");
+                            GEPValue.setText((int) GEPNum + "");
+                        }
+                        else if(TKNNum > 100){
+                            YEPValue.setText( YEPNum + "");
+                            GEPValue.setText( GEPNum + "");
+                        }
 
                         break;
 
@@ -573,7 +591,7 @@ public class MainActivity extends Activity {
                     int BPNum = Integer.parseInt(BPValue.getText().toString());
                     int CKNum = Integer.parseInt(CKValue.getText().toString());
 
-                    if(CKNum <= 180)
+                    if(CKNum <= 180)            // represents 3 mins
                         BPNum = 1;
                     else if(CKNum > 180) {
                         BPNum += (int) (TKDNum * 0.01);
