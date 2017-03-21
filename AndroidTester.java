@@ -218,40 +218,87 @@ public class MainActivity extends Activity {
 
                     case 1:
                         // While attacking...
+                        
                         int CKNum = Integer.parseInt(CKValue.getText().toString());
-                        int BPNum = Integer.parseInt(BPValue.getText().toString());
                         float YEPNum = Float.parseFloat(YEPValue.getText().toString());
                         float GEPNum = Float.parseFloat(GEPValue.getText().toString());
+                        GEPValue.setText(GEPNum + "");
 
 
+                        if(CKNum > 0){
 
-                            if(CKNum != 0) {
+                            int CKAmount = CKNum;
+                            int TKDNum = Integer.parseInt(TKDValue.getText().toString());
+                            float powerPercent = (CKAmount * 100) / TKDNum;
+                            // if powerPercent is 0.4 or something, it equates to 0 and messes up function!!
 
-                                GEPNum -= 20;
-                                if (GEPNum <= 0)
-                                    GEPNum = 0;
-                                if (GEPNum <= 80 && (YEPNum + 7.5) <= 100)
-                                    YEPNum += 7.5;      // regen 7.5% yellow
-                                if (GEPNum <= 80 && (YEPNum + 7.5) >= 100)
-                                    YEPNum = 100 - GEPNum;
-                                if (GEPNum == 0 && YEPNum >= 20)
-                                    YEPNum -= 20;
+                            if(GEPNum >= powerPercent)
+                                GEPNum -= powerPercent ;
 
-                                // every 3 mins use up 20% Green
-                                GEPValue.setText(GEPNum + "");
-                                YEPValue.setText(YEPNum + "");
+                            else if(GEPNum < powerPercent && YEPNum >= powerPercent){
+                                powerPercent -= GEPNum;
+                                GEPNum -= GEPNum;
+                                YEPNum -= powerPercent;
+                                powerPercent -= powerPercent;
                             }
 
-                            CKNum = 0;
-                            CKValue.setText(CKNum + "");
+                            if(GEPNum <= 0)
+                                GEPNum = 0;
+                            if((GEPNum + YEPNum + 7.5) <= 100) {
+                                YEPNum += 7.5;
 
+                                TKDNum = Integer.parseInt(TKDValue.getText().toString());
+                                int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
+                                int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+
+                                TKDTemp *= 0.075;
+                                TKNNum += TKDTemp;
+                                if (TKNNum >= TKDNum)
+                                    TKNNum = TKDNum;
+
+                                TKNValue.setText(TKNNum + "");
+                            }
+                            else if((GEPNum + YEPNum + 7.5) > 100) {
+
+                                int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+
+                                YEPNum = 100 - GEPNum;
+                                TKNNum = TKDNum;
+                                if (TKNNum >= TKDNum)
+                                    TKNNum = TKDNum;
+
+                                TKNValue.setText(TKNNum + "");
+                            }
+
+
+                        }
+
+                        // every 3 mins use up 20% Green
+                        GEPValue.setText(GEPNum + "");
+                        YEPValue.setText(YEPNum + "");
+
+
+
+
+                        /*      ORIGINAL VERSION WORKS PERFECT WITH 20% INCREMENTS
+
+                        if(CKNum != 0) {
+
+                            GEPNum -= 20;
+                            if (GEPNum <= 0)
+                                GEPNum = 0;
+                            if (GEPNum <= 80 && (YEPNum + 7.5) <= 100)
+
+                                YEPNum += 7.5;      // regen 7.5% yellow
+                            if (GEPNum <= 80 && (YEPNum + 7.5) >= 100)
+                                YEPNum = 100 - GEPNum;
+                            if (GEPNum == 0 && YEPNum >= 20)
+                                YEPNum -= 20;
 
                             int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                             int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
                             int TKNNum = Integer.parseInt(TKNValue.getText().toString());
 
-
-                        // THIS CODE EXECUTES REGARDLESS OF IF CK IS ZERO AND NO ATTACK HAPPENED.
                             TKDTemp *= 0.075;
                             TKNNum += TKDTemp;
                             if (TKNNum >= TKDNum)
@@ -259,9 +306,15 @@ public class MainActivity extends Activity {
 
                             TKNValue.setText(TKNNum + "");
 
-                            yellowTimer = 0;
+                            // every 3 mins use up 20% Green
+                            GEPValue.setText(GEPNum + "");
+                            YEPValue.setText(YEPNum + "");
+                        }
+                        */
 
-
+                        CKNum = 0;
+                        CKValue.setText(CKNum + "");
+                        yellowTimer = 0;
 
                         break;
 
@@ -279,9 +332,10 @@ public class MainActivity extends Activity {
 
                         YEPValue.setText(YEPNum + "");
 
-                        TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                        TKDTemp = Integer.parseInt(TKDValue.getText().toString());
-                        TKNNum = Integer.parseInt(TKNValue.getText().toString());
+                        int TKDNum = Integer.parseInt(TKDValue.getText().toString());
+                        int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
+                        int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+
                         TKDTemp *= 0.075;
                         TKNNum += TKDTemp;
                         if(TKNNum  >= TKDNum)
@@ -441,27 +495,6 @@ public class MainActivity extends Activity {
 
                         }
 
-
-                        /*
-                        int addMissing = (int)(TKDNum * 0.2) - CKNum;
-                        // could also make float and modulus % 0.5 = answer + 0.5 for perfect int
-
-                        if(fillUp){
-
-                            CKNum += addMissing;
-                            TKNNum -= addMissing;
-                        }
-                        else if(!fillUp){
-
-                            if(TKNNum >= addMissing){
-                                CKNum += addMissing;
-                                TKNNum -= addMissing;
-                            }
-                            else if(TKNNum <= addMissing){
-                                CKNum += TKNNum;
-                                TKNNum -= TKNNum;
-                            }
-                        }*/
                     }
 
                     TKNValue.setText(TKNNum + "");
@@ -503,6 +536,10 @@ public class MainActivity extends Activity {
                     TKNValue.setText(TKNNum + "");
                     DKValue.setText(DKNum + "");
 
+                    /*
+                    Because DK is so important, it can also be used directly during battle. Rather than using CK for blocking,
+                    if DK is used, 1 point of DK blocks 1.5 points of CK from enemy.
+                     */
                 }
 
                 if(PLModifier) {
