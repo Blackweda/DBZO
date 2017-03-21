@@ -334,11 +334,26 @@ public class MainActivity extends Activity {
                         int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                         int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
                         int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+                        CKNum = Integer.parseInt(CKValue.getText().toString());
+                        int DKNum = Integer.parseInt(DKValue.getText().toString());
 
                         TKDTemp *= 0.075;
-                        TKNNum += TKDTemp;
-                        if(TKNNum  >= TKDNum)
-                            TKNNum = TKDNum;
+
+                        if(CKNum == 0 && DKNum == 0) {
+
+                            TKNNum += TKDTemp;
+                            if (TKNNum >= TKDNum)
+                                TKNNum = TKDNum;
+                        }
+                        else if(CKNum > 0 || DKNum > 0){
+
+                            if(TKDNum - CKNum - DKNum == TKNNum)
+                                TKNNum = TKNNum;
+                            if(TKDNum - CKNum - DKNum > TKNNum)
+                                TKNNum += TKDTemp;
+                            if(TKNNum >= TKDNum - CKNum - DKNum)
+                                TKNNum = TKDNum - CKNum - DKNum;
+                        }
 
                         TKNValue.setText(TKNNum + "");
 
