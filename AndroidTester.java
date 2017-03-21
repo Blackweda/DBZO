@@ -222,7 +222,6 @@ public class MainActivity extends Activity {
                         int CKNum = Integer.parseInt(CKValue.getText().toString());
                         float YEPNum = Float.parseFloat(YEPValue.getText().toString());
                         float GEPNum = Float.parseFloat(GEPValue.getText().toString());
-                        GEPValue.setText(GEPNum + "");
 
 
                         if(CKNum > 0){
@@ -274,8 +273,8 @@ public class MainActivity extends Activity {
                         }
 
                         // every 3 mins use up 20% Green
-                        GEPValue.setText(GEPNum + "");
-                        YEPValue.setText(YEPNum + "");
+                        GEPValue.setText((int)GEPNum + "");     // try to mirror ck and tkn values
+                        YEPValue.setText((int)YEPNum + "");
 
 
 
@@ -330,7 +329,7 @@ public class MainActivity extends Activity {
                         if(GEPNum == 0 && YEPNum >= 100)
                             YEPNum = 100;
 
-                        YEPValue.setText(YEPNum + "");
+                        YEPValue.setText((int)YEPNum + "");
 
                         int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                         int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
@@ -356,8 +355,8 @@ public class MainActivity extends Activity {
                         if(GEPNum + YEPNum > 100)
                             YEPNum = 100 - GEPNum;
 
-                        YEPValue.setText(YEPNum + "");
-                        GEPValue.setText(GEPNum + "");
+                        YEPValue.setText((int)YEPNum + "");
+                        GEPValue.setText((int)GEPNum + "");
 
                         break;
 
