@@ -573,10 +573,14 @@ public class MainActivity extends Activity {
                     int BPNum = Integer.parseInt(BPValue.getText().toString());
                     int CKNum = Integer.parseInt(CKValue.getText().toString());
 
-                    BPNum += (int)(TKDNum * 0.01);
-                    if(BPNum >= CKNum)
-                        BPNum = CKNum;
-                    BPValue.setText(BPNum + "");
+                    if(CKNum <= 180)
+                        BPNum = 1;
+                    else if(CKNum > 180) {
+                        BPNum += (int) (TKDNum * 0.01);
+                        if (BPNum >= CKNum/180)
+                            BPNum = CKNum/180;
+                        BPValue.setText(BPNum + "");
+                    }
                 }
 
             }
@@ -711,8 +715,8 @@ public class MainActivity extends Activity {
 
 
                     BPNum -= (int)(TKDNum * 0.01);
-                    if(BPNum <= 0)
-                        BPNum = 0;
+                    if(BPNum <= 1)
+                        BPNum = 1;
                     BPValue.setText(BPNum + "");
                 }
 
