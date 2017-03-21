@@ -320,6 +320,18 @@ public class MainActivity extends Activity {
                         */
 
                         CKNum = 0;
+                        
+                        int BPNum = Integer.parseInt(BPValue.getText().toString());
+
+                        if(CKNum <= 180)            // represents 3 mins
+                            BPNum = 1;
+                        else
+                            BPNum = CKNum/180;
+
+                        if(BPNum <= 1)
+                            BPNum = 1;
+                        BPValue.setText(BPNum + "");
+
                         CKValue.setText(CKNum + "");
                         yellowTimer = 0;
 
@@ -529,6 +541,17 @@ public class MainActivity extends Activity {
 
                     }
 
+                    int BPNum = Integer.parseInt(BPValue.getText().toString());
+
+                    if(CKNum <= 180)            // represents 3 mins
+                        BPNum = 1;
+                    else
+                        BPNum = CKNum/180;
+
+                    if(BPNum <= 1)
+                        BPNum = 1;
+                    BPValue.setText(BPNum + "");
+
                     TKNValue.setText(TKNNum + "");
                     CKValue.setText(CKNum + "");
 
@@ -587,6 +610,9 @@ public class MainActivity extends Activity {
                 }
 
                 if(BPModifier) {
+
+                    /* Temporarily Disable Changing Battle Power
+
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                     int BPNum = Integer.parseInt(BPValue.getText().toString());
                     int CKNum = Integer.parseInt(CKValue.getText().toString());
@@ -599,6 +625,7 @@ public class MainActivity extends Activity {
                             BPNum = CKNum/180;
                         BPValue.setText(BPNum + "");
                     }
+                    */
                 }
 
             }
@@ -668,6 +695,17 @@ public class MainActivity extends Activity {
 
                     }
 
+                    int BPNum = Integer.parseInt(BPValue.getText().toString());
+
+                    if(CKNum <= 180)            // represents 3 mins
+                        BPNum = 1;
+                    else
+                        BPNum = CKNum/180;
+
+                    if(BPNum <= 1)
+                        BPNum = 1;
+                    BPValue.setText(BPNum + "");
+
                     TKNValue.setText(TKNNum + "");
                     CKValue.setText(CKNum + "");
 
@@ -728,6 +766,8 @@ public class MainActivity extends Activity {
 
                 if(BPModifier) {
 
+                    /* Temporarily Disable Changing Battle Power
+
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                     int BPNum = Integer.parseInt(BPValue.getText().toString());
 
@@ -736,6 +776,8 @@ public class MainActivity extends Activity {
                     if(BPNum <= 1)
                         BPNum = 1;
                     BPValue.setText(BPNum + "");
+
+                    */
                 }
 
             }
