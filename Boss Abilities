@@ -9,6 +9,9 @@ to teach special moves later on.. but they can be killed so that other players c
 4. Regeneration
 5. Ki Foam -> a barrage of ki blasts that stick to the player and weigh him down, collecting a mass of balls until the boss throws a big 
    trigger blast that detonates the entire group of balls. [Gohan attacks 2nd Form Frieza - https://youtu.be/C63FAU5JKyE]
+   
+6. *discovered during a bug in code* Rested Super Power -> charge up current ki out of total ki. However, instead of using it, 
+continue to rest up total ki with regen. Then add the extra regen energy to current ki to surpass 100%
 
 
 
