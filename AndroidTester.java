@@ -147,6 +147,12 @@ public class MainActivity extends Activity {
 
         DownButton.setBackgroundColor(Color.RED);
         DownButton.setTextColor(Color.YELLOW);
+
+        int PLNum = Integer.parseInt(PLValue.getText().toString());
+        int TKDNum = Integer.parseInt(TKDValue.getText().toString());
+
+        PLNum = TKDNum;
+        PLValue.setText(PLNum + "");
 		
 
         CKButton.setOnClickListener(new View.OnClickListener(){
@@ -320,7 +326,7 @@ public class MainActivity extends Activity {
                         */
 
                         CKNum = 0;
-                        
+
                         int BPNum = Integer.parseInt(BPValue.getText().toString());
 
                         if(CKNum <= 180)            // represents 3 mins
@@ -598,6 +604,8 @@ public class MainActivity extends Activity {
                 }
 
                 if(PLModifier) {
+
+                    /*
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                     int PLNum = Integer.parseInt(PLValue.getText().toString());
 
@@ -607,6 +615,7 @@ public class MainActivity extends Activity {
                         PLNum = TKDNum;
 
                     PLValue.setText(PLNum + "");
+                    */
                 }
 
                 if(BPModifier) {
@@ -753,6 +762,8 @@ public class MainActivity extends Activity {
                 }
 
                 if(PLModifier) {
+
+                    /*
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                     int PLNum = Integer.parseInt(PLValue.getText().toString());
 
@@ -762,6 +773,7 @@ public class MainActivity extends Activity {
                         PLNum = 0;
 
                     PLValue.setText(PLNum + "");
+                    */
                 }
 
                 if(BPModifier) {
