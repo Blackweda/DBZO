@@ -45,7 +45,7 @@ WITH BOOST (FPT at 3x)
                              200
 
 
-Using FPT will decrease ki regen speed by 2x possible (200% over 100%) so instead of yelow += 2.5 every min.. it will be 2.5 every 3 
+Using FPT will decrease ki regen speed by 2x possible (200% over 100%) so instead of yelow += 2.5 every min.. it will be 2.5 every 2 
 mins. Green energy is no longer 20% every 2 hours but 10% every 2 hours.
 
 The greatest growth comes from FPT with 100% green energy, then FPT with 100% yellow energy, then no FPT with 100 Yellow Energy, then 
