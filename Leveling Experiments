@@ -44,6 +44,16 @@ WITH BOOST (FPT at 3x)
                             ------              -> 205/200 = 1.025 * 100 = 102.5 / 3x = 34 for Green Energy
                              200
 
+
+Using FPT will decrease ki regen speed by 2x possible (200% over 100%) so instead of yelow += 2.5 every min.. it will be 2.5 every 3 
+mins. Green energy is no longer 20% every 2 hours but 10% every 2 hours.
+
+The greatest growth comes from FPT with 100% green energy, then FPT with 100% yellow energy, then no FPT with 100 Yellow Energy, then 
+no FPT with 100 green energy.
+
+
+
+
             Since there is no regen during FPT, no yellow energy is built up during FPT using Green Energy reserves.
             THe amount of gains from not using all 300% Green Energy is:
             
