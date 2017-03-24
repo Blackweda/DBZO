@@ -26,12 +26,32 @@ Heran:
 Get very little growth out of Green Energy (95%+ for any small gains)
 Yellow Energy must be Multiplied to receive bonus energy on top of the 25% gains of Green energy.
 
-Ki Growth = PL over 95%
-            -----------       ->     100-95        -> 0.025 * 100 = 2.5 from Green Energy
-                200                    200
+NO BOOST
 
-Ki Growth = PL over 35%
-            -----------       ->     100-35        -> 0.325 * 100 = 32.5 * 30% for Yellow Energy = 9.75
-               200                    200
+            Ki Growth = PL over 95%
+                        -----------       ->     100-95        -> 0.025 * 100 = 2.5 from Green Energy
+                           200                    200
 
-9.75 + 2.5 = 12.25 - > 112
+            Ki Growth = PL over 35%
+                        -----------       ->     100-35        -> 0.325 * 100 = 32.5 * 30% for Yellow Energy = 9.75
+                            200                    200
+
+                                                                        9.75 + 2.5 = 12.25 - > 112
+                                                   
+WITH BOOST (FPT at 3x)
+
+            Ki Growth =     300-95
+                            ------              -> 205/200 = 1.025 * 100 = 102.5 / 3x = 34 for Green Energy
+                             200
+
+            Since there is no regen during FPT, no yellow energy is built up during FPT using Green Energy reserves.
+            THe amount of gains from not using all 300% Green Energy is:
+            
+                        example 50%:                        150 -> 150-95 = 55/200 = 0.275 * 100 = 27.5 / 3x = 9.17
+                        
+                        
+            Ki Growth = 300-95
+                        ------                  -> 205/200 = 1.025 * 100 = 102.5 * 30% for Yellow Energy = 30.75 / 3x = 10.25  
+                         200 
+                         
+                                                -> 9.17 + 10.25 = 19.42   -> 119.42
