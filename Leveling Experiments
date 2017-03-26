@@ -24,6 +24,13 @@ Saiyan:
 
 Force of 1G is 10 per second. DK at 10% of 100 PL is 10.
 
+Ratio of:               FORCE(10/sec) : POWER LEVEL (10%)
+
+            if PL is 100, Force is 1G, gain PL100/10 = 10 ki every 9 mins
+            if PL is 1000, Force is 1G, gain PL1000/10 = 100 ki every 9 mins
+            
+            if PL is 100, Force is 3G, use 30% DK, gain PL100/10 x DK%/3 = 30 ki every 9 mins
+
 
 
 Ratio of 1:1 
