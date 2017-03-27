@@ -97,6 +97,16 @@ public class MainActivity extends Activity {
     int startStopModifier = 1;
     int yellowTimer = 0;
 
+    float namekianGreenTimer = 0;
+    float namekianYellowTimer = 0;
+
+    int saiyanTimer = 0;
+
+    float heranGreenTimer = 0;
+    float heranYellowTimer = 0;
+
+
+
 
 
 
@@ -112,10 +122,16 @@ public class MainActivity extends Activity {
         final TextView DKValue = (TextView)findViewById(R.id.DKValueTextView);
         final TextView PLValue = (TextView)findViewById(R.id.PLValueTextView);
         final TextView BPValue = (TextView)findViewById(R.id.BPValueTextView);
+
         final TextView YEPValue = (TextView)findViewById(R.id.YEPValueTextView);
         final TextView GEPValue = (TextView)findViewById(R.id.GEPValueTextView);
+
         final TextView TKNValue = (TextView)findViewById(R.id.TKValueTextView);
         final TextView TKDValue = (TextView)findViewById(R.id.TKValueTextView2);
+
+        final TextView NPValue = (TextView)findViewById(R.id.namekianPowerTextView);
+        final TextView SPValue = (TextView)findViewById(R.id.saiyanPowerTextView);
+        final TextView HPValue = (TextView)findViewById(R.id.heranPowerTextView);
 
         final Button CKButton = (Button)findViewById(R.id.currentKiButton);
         final Button DKButton = (Button)findViewById(R.id.defenseKiButton);
@@ -153,6 +169,10 @@ public class MainActivity extends Activity {
 
         PLNum = TKDNum;
         PLValue.setText(PLNum + "");
+
+        // Initialize Racial Power Levels
+
+
 		
 
         CKButton.setOnClickListener(new View.OnClickListener(){
@@ -229,6 +249,8 @@ public class MainActivity extends Activity {
                         float YEPNum = Float.parseFloat(YEPValue.getText().toString());
                         float GEPNum = Float.parseFloat(GEPValue.getText().toString());
 
+                        int SPNum = Integer.parseInt(SPValue.getText().toString());
+
 
                         if(CKNum > 0){
 
@@ -237,13 +259,22 @@ public class MainActivity extends Activity {
                             float powerPercent = (CKAmount * 100) / TKDNum;
                             // if powerPercent is 0.4 or something, it equates to 0 and messes up function!!
 
-                            if(GEPNum >= powerPercent)
-                                GEPNum -= powerPercent ;
+                            if(GEPNum >= powerPercent) {
+                                GEPNum -= powerPercent;             // Racial Specific Counters
+                                                                    namekianGreenTimer += powerPercent;
+                                                                    heranGreenTimer += powerPercent;
+                                                                    saiyanTimer += 3;                   // Should count full training session for Saiyans
+                            }
 
                             else if(GEPNum < powerPercent && YEPNum >= powerPercent){
                                 powerPercent -= GEPNum;
+                                                                    namekianGreenTimer += GEPNum;
+                                                                    heranGreenTimer += GEPNum;
                                 GEPNum -= GEPNum;
                                 YEPNum -= powerPercent;
+                                                                    namekianYellowTimer += powerPercent;
+                                                                    heranYellowTimer += powerPercent;
+                                                                    saiyanTimer += 3;
                                 powerPercent -= powerPercent;
                             }
 
@@ -341,6 +372,13 @@ public class MainActivity extends Activity {
                         CKValue.setText(CKNum + "");
                         yellowTimer = 0;
 
+                        if(saiyanTimer == 15){
+
+                            SPNum += 5;
+                            SPValue.setText(SPNum + "");
+                            saiyanTimer = 0;
+                        }
+
                         break;
 
                     case 0:
@@ -350,6 +388,10 @@ public class MainActivity extends Activity {
                         YEPNum = Float.parseFloat(YEPValue.getText().toString());
                         GEPNum = Float.parseFloat(GEPValue.getText().toString());
                         TKNNum = Integer.parseInt(TKNValue.getText().toString());
+
+                        int NPNum = Integer.parseInt(NPValue.getText().toString());
+                        int HPNum = Integer.parseInt(HPValue.getText().toString());
+
 
                         YEPNum += 7.5;
 
@@ -396,6 +438,29 @@ public class MainActivity extends Activity {
                                 GEPNum = 100;
 
                         }
+
+                                        // Namekian and Heran Regrowth
+                                        if(yellowTimer == 117 && GEPNum >= 80) {      // A resting period to full Green Energy has occurred
+
+                                            float namekGreen = namekianGreenTimer / 100;
+                                            float namekYellow = namekianYellowTimer / 100;
+                                            float heranGreen = heranGreenTimer / 100;
+                                            float heranYellow = heranYellowTimer / 100;
+
+                                            namekGreen *= 20;
+                                            namekYellow *= 5;
+
+                                            NPNum += namekGreen + namekYellow;
+                                            NPValue.setText(NPNum + "");
+
+                                            heranGreen *= 2.5;
+                                            heranYellow *= 8.125;
+
+                                            HPNum += heranGreen + heranYellow;
+                                            HPValue.setText(HPNum + "");
+
+                                            namekianGreenTimer = namekianYellowTimer = heranGreenTimer = heranYellowTimer = 0;
+                                        }
 
                         if(GEPNum + YEPNum > 100)
                             YEPNum = 100 - GEPNum;
@@ -798,3 +863,7 @@ public class MainActivity extends Activity {
     }
 
 }
+
+/*
+    
+*/
