@@ -155,7 +155,7 @@
         android:id="@+id/PLValueTextView" />
 
     <TextView
-        android:text="0"
+        android:text="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/battlePowerTextView"
@@ -179,7 +179,7 @@
         android:layout_alignStart="@+id/DKValueTextView" />
 
     <TextView
-        android:text="100"
+        android:text="10000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/TKValueTextView"
@@ -187,7 +187,7 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:text="100"
+        android:text="10000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/TKValueTextView"
@@ -227,6 +227,60 @@
         android:id="@+id/saveButton"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/downButton" />
+
+    <TextView
+        android:text="Namekian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/upButton"
+        android:layout_alignStart="@+id/upButton"
+        android:layout_marginTop="38dp"
+        android:id="@+id/namekianTextView" />
+
+    <TextView
+        android:text="Heran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/saiyanTextView"
+        android:layout_alignEnd="@+id/downButton"
+        android:layout_marginEnd="13dp"
+        android:id="@+id/heranTextView" />
+
+    <TextView
+        android:text="Saiyan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/saiyanTextView"
+        android:layout_alignBaseline="@+id/namekianTextView"
+        android:layout_alignBottom="@+id/namekianTextView"
+        android:layout_alignEnd="@+id/GEPValueTextView" />
+
+    <TextView
+        android:text="100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/namekianTextView"
+        android:layout_alignStart="@+id/namekianTextView"
+        android:layout_marginTop="8dp"
+        android:id="@+id/namekianPowerTextView" />
+
+    <TextView
+        android:text="100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/saiyanPowerTextView"
+        android:layout_alignBaseline="@+id/namekianPowerTextView"
+        android:layout_alignBottom="@+id/namekianPowerTextView"
+        android:layout_alignStart="@+id/saiyanTextView" />
+
+    <TextView
+        android:text="100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heranPowerTextView"
+        android:layout_alignBaseline="@+id/saiyanPowerTextView"
+        android:layout_alignBottom="@+id/saiyanPowerTextView"
+        android:layout_alignStart="@+id/heranTextView" />
 
 
 </RelativeLayout>
