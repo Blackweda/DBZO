@@ -256,6 +256,7 @@ public class MainActivity extends Activity {
 
                             int CKAmount = CKNum;
                             int TKDNum = Integer.parseInt(TKDValue.getText().toString());
+                            int TKNNum = Integer.parseInt(TKNValue.getText().toString());
                             float powerPercent = (CKAmount * 100) / TKDNum;
                             // if powerPercent is 0.4 or something, it equates to 0 and messes up function!!
 
@@ -278,14 +279,14 @@ public class MainActivity extends Activity {
                                 powerPercent -= powerPercent;
                             }
 
-                            if(GEPNum <= 0)
-                                GEPNum = 0;
+                            //if(GEPNum <= 0)
+                            //    GEPNum = 0;
                             if((GEPNum + YEPNum + 7.5) <= 100) {
                                 YEPNum += 7.5;
 
                                 TKDNum = Integer.parseInt(TKDValue.getText().toString());
                                 int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
-                                int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+                                TKNNum = Integer.parseInt(TKNValue.getText().toString());
 
                                 TKDTemp *= 0.075;
                                 TKNNum += TKDTemp;
@@ -296,7 +297,7 @@ public class MainActivity extends Activity {
                             }
                             else if((GEPNum + YEPNum + 7.5) > 100) {
 
-                                int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+                                TKNNum = Integer.parseInt(TKNValue.getText().toString());
 
                                 YEPNum = 100 - GEPNum;
                                 TKNNum = TKDNum;
@@ -309,16 +310,23 @@ public class MainActivity extends Activity {
 
                         }
 
-                        int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+                        int TKDNum = Integer.parseInt(TKDValue.getText().toString());
 
                         // every 3 mins use up 20% Green
-                        if(TKNNum <= 100) {
-                            GEPValue.setText((int) GEPNum + "");     // try to mirror ck and tkn values
-                            YEPValue.setText((int) YEPNum + "");
+                        if(TKDNum <= 100) {
+                            int GEP = (int)GEPNum;
+                            int YEP = (int)YEPNum;
+
+                            GEPValue.setText(GEP + "");     // try to mirror ck and tkn values
+                            YEPValue.setText(YEP + "");
                         }
-                        else if(TKNNum > 100){                      // allow for decimal values to show
-                            YEPValue.setText(YEPNum + "");
-                            GEPValue.setText(GEPNum + "");
+                        else if(TKDNum > 100){                      // allow for decimal values to show
+                            float GEP = GEPNum;
+                            float YEP = YEPNum;
+
+                            GEPValue.setText(GEP + "");
+                            YEPValue.setText(YEP + "");
+
                         }
 
 
@@ -387,7 +395,7 @@ public class MainActivity extends Activity {
 
                         YEPNum = Float.parseFloat(YEPValue.getText().toString());
                         GEPNum = Float.parseFloat(GEPValue.getText().toString());
-                        TKNNum = Integer.parseInt(TKNValue.getText().toString());
+                        int TKNNum = Integer.parseInt(TKNValue.getText().toString());
 
                         int NPNum = Integer.parseInt(NPValue.getText().toString());
                         int HPNum = Integer.parseInt(HPValue.getText().toString());
@@ -403,7 +411,7 @@ public class MainActivity extends Activity {
                         else if(TKNNum > 100)
                             YEPValue.setText(YEPNum + "");
 
-                        int TKDNum = Integer.parseInt(TKDValue.getText().toString());
+                        TKDNum = Integer.parseInt(TKDValue.getText().toString());
                         int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
                         TKNNum = Integer.parseInt(TKNValue.getText().toString());
                         CKNum = Integer.parseInt(CKValue.getText().toString());
@@ -465,13 +473,13 @@ public class MainActivity extends Activity {
                         if(GEPNum + YEPNum > 100)
                             YEPNum = 100 - GEPNum;
 
-                        if(TKNNum <= 100) {
+                        if(TKDNum <= 100){
                             YEPValue.setText((int) YEPNum + "");
                             GEPValue.setText((int) GEPNum + "");
                         }
-                        else if(TKNNum > 100){
-                            YEPValue.setText( YEPNum + "");
-                            GEPValue.setText( GEPNum + "");
+                        else if(TKDNum > 100){
+                            YEPValue.setText((float)YEPNum + "");
+                            GEPValue.setText((float)GEPNum + "");
                         }
 
                         break;
