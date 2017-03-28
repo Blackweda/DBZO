@@ -268,7 +268,7 @@ public class MainActivity extends Activity {
                             }
 
                             else if(GEPNum < powerPercent && YEPNum >= powerPercent){
-                                powerPercent -= GEPNum;
+                                powerPercent -= GEPNum;		// is it possible GEPNum is not empty (like 0.5)??
                                                                     namekianGreenTimer += GEPNum;
                                                                     heranGreenTimer += GEPNum;
                                 GEPNum -= GEPNum;
