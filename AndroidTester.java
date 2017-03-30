@@ -5,12 +5,16 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -251,13 +255,12 @@ public class MainActivity extends Activity {
 
                         int SPNum = Integer.parseInt(SPValue.getText().toString());
 
-
                         if(CKNum > 0){
 
                             int CKAmount = CKNum;
                             int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                             int TKNNum = Integer.parseInt(TKNValue.getText().toString());
-                            float powerPercent = (CKAmount * 100) / TKDNum;
+                            float powerPercent = ((float)CKAmount * 100) / TKDNum;
                             // if powerPercent is 0.4 or something, it equates to 0 and messes up function!!
 
                             if(GEPNum >= powerPercent) {
@@ -265,10 +268,13 @@ public class MainActivity extends Activity {
                                                                     namekianGreenTimer += powerPercent;
                                                                     heranGreenTimer += powerPercent;
                                                                     saiyanTimer += 3;                   // Should count full training session for Saiyans
+
                             }
 
                             else if(GEPNum < powerPercent && YEPNum >= powerPercent){
-                                powerPercent -= GEPNum;		// is it possible GEPNum is not empty (like 0.5)??
+
+                                powerPercent -= GEPNum;
+
                                                                     namekianGreenTimer += GEPNum;
                                                                     heranGreenTimer += GEPNum;
                                 GEPNum -= GEPNum;
@@ -277,10 +283,11 @@ public class MainActivity extends Activity {
                                                                     heranYellowTimer += powerPercent;
                                                                     saiyanTimer += 3;
                                 powerPercent -= powerPercent;
+
                             }
 
-                            //if(GEPNum <= 0)
-                            //    GEPNum = 0;
+                            if(GEPNum <= 0)
+                                GEPNum = 0;
                             if((GEPNum + YEPNum + 7.5) <= 100) {
                                 YEPNum += 7.5;
 
