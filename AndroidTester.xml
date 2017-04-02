@@ -179,7 +179,7 @@
         android:layout_alignStart="@+id/DKValueTextView" />
 
     <TextView
-        android:text="10000"
+        android:text="100"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/TKValueTextView"
@@ -187,7 +187,7 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:text="10000"
+        android:text="100"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/TKValueTextView"
