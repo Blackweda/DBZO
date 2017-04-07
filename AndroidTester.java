@@ -88,10 +88,8 @@ public class MainActivity extends Activity {
     //declare the preferences file name as a constant string for easy use elsewhere in code
     //choose a cool file name
     public static final String PREF_FILE_NAME = "MySenecaPrefs";
-
-
-
-
+	
+	
 
     boolean CKModifier = false;
     boolean DKModifier = false;
@@ -108,13 +106,8 @@ public class MainActivity extends Activity {
 
     float heranGreenTimer = 0;
     float heranYellowTimer = 0;
-
-
-
-
-
-
-
+	
+	
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -335,41 +328,6 @@ public class MainActivity extends Activity {
                             YEPValue.setText(YEP + "");
 
                         }
-
-
-
-
-                        /*      ORIGINAL VERSION WORKS PERFECT WITH 20% INCREMENTS
-
-                        if(CKNum != 0) {
-
-                            GEPNum -= 20;
-                            if (GEPNum <= 0)
-                                GEPNum = 0;
-                            if (GEPNum <= 80 && (YEPNum + 7.5) <= 100)
-
-                                YEPNum += 7.5;      // regen 7.5% yellow
-                            if (GEPNum <= 80 && (YEPNum + 7.5) >= 100)
-                                YEPNum = 100 - GEPNum;
-                            if (GEPNum == 0 && YEPNum >= 20)
-                                YEPNum -= 20;
-
-                            int TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                            int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
-                            int TKNNum = Integer.parseInt(TKNValue.getText().toString());
-
-                            TKDTemp *= 0.075;
-                            TKNNum += TKDTemp;
-                            if (TKNNum >= TKDNum)
-                                TKNNum = TKDNum;
-
-                            TKNValue.setText(TKNNum + "");
-
-                            // every 3 mins use up 20% Green
-                            GEPValue.setText(GEPNum + "");
-                            YEPValue.setText(YEPNum + "");
-                        }
-                        */
 
                         CKNum = 0;
 
