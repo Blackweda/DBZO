@@ -88,8 +88,10 @@ public class MainActivity extends Activity {
     //declare the preferences file name as a constant string for easy use elsewhere in code
     //choose a cool file name
     public static final String PREF_FILE_NAME = "MySenecaPrefs";
-	
-	
+
+
+
+
 
     boolean CKModifier = false;
     boolean DKModifier = false;
@@ -106,8 +108,15 @@ public class MainActivity extends Activity {
 
     float heranGreenTimer = 0;
     float heranYellowTimer = 0;
-	
-	
+
+    static float TKNRF = 0;
+    static float CKRF = 0;
+    static float DKRF = 0;
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,41 +172,44 @@ public class MainActivity extends Activity {
 
         int PLNum = Integer.parseInt(PLValue.getText().toString());
         int TKDNum = Integer.parseInt(TKDValue.getText().toString());
+        TKNRF = (float)TKDNum;
 
         PLNum = TKDNum;
         PLValue.setText(PLNum + "");
 
+
+
         // Initialize Racial Power Levels
 
 
-		
+
 
         CKButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
-            if(CKModifier == false){
+                if(CKModifier == false){
 
-                CKModifier = true;
+                    CKModifier = true;
                     CKButton.setBackgroundColor(Color.BLACK);
                     CKButton.setTextColor(Color.GRAY);
-                DKModifier = false;
+                    DKModifier = false;
                     DKButton.setBackgroundColor(Color.GRAY);
                     DKButton.setTextColor(Color.BLACK);
-                PLModifier = false;
+                    PLModifier = false;
                     PLButton.setBackgroundColor(Color.GRAY);
                     PLButton.setTextColor(Color.BLACK);
-                BPModifier = false;
+                    BPModifier = false;
                     BPButton.setBackgroundColor(Color.GRAY);
                     BPButton.setTextColor(Color.BLACK);
 
 
-            }
-            else if(CKModifier == true) {
-                CKModifier = false;
+                }
+                else if(CKModifier == true) {
+                    CKModifier = false;
 
-                CKButton.setBackgroundColor(Color.GRAY);
-                CKButton.setTextColor(Color.BLACK);
-            }
+                    CKButton.setBackgroundColor(Color.GRAY);
+                    CKButton.setTextColor(Color.BLACK);
+                }
 
             }
         });
@@ -208,17 +220,17 @@ public class MainActivity extends Activity {
                 if(DKModifier == false){
 
                     DKModifier = true;
-                        DKButton.setBackgroundColor(Color.BLACK);
-                        DKButton.setTextColor(Color.GRAY);
+                    DKButton.setBackgroundColor(Color.BLACK);
+                    DKButton.setTextColor(Color.GRAY);
                     CKModifier = false;
-                        CKButton.setBackgroundColor(Color.GRAY);
-                        CKButton.setTextColor(Color.BLACK);
+                    CKButton.setBackgroundColor(Color.GRAY);
+                    CKButton.setTextColor(Color.BLACK);
                     PLModifier = false;
-                        PLButton.setBackgroundColor(Color.GRAY);
-                        PLButton.setTextColor(Color.BLACK);
+                    PLButton.setBackgroundColor(Color.GRAY);
+                    PLButton.setTextColor(Color.BLACK);
                     BPModifier = false;
-                        BPButton.setBackgroundColor(Color.GRAY);
-                        BPButton.setTextColor(Color.BLACK);
+                    BPButton.setBackgroundColor(Color.GRAY);
+                    BPButton.setTextColor(Color.BLACK);
 
 
                 }
@@ -235,46 +247,58 @@ public class MainActivity extends Activity {
         AttackButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_LONG;
+
+
 
 
                 switch(startStopModifier) {
 
                     case 1:
                         // While attacking...
-                        
+
                         int CKNum = Integer.parseInt(CKValue.getText().toString());
                         float YEPNum = Float.parseFloat(YEPValue.getText().toString());
                         float GEPNum = Float.parseFloat(GEPValue.getText().toString());
 
                         int SPNum = Integer.parseInt(SPValue.getText().toString());
 
-                        if(CKNum > 0){
+                        if(CKRF > 0){
 
-                            int CKAmount = CKNum;
                             int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                             int TKNNum = Integer.parseInt(TKNValue.getText().toString());
-                            float powerPercent = ((float)CKAmount * 100) / TKDNum;
-                            // if powerPercent is 0.4 or something, it equates to 0 and messes up function!!
+                            float powerPercent = (CKRF * 100) / TKDNum;
+
 
                             if(GEPNum >= powerPercent) {
                                 GEPNum -= powerPercent;             // Racial Specific Counters
-                                                                    namekianGreenTimer += powerPercent;
-                                                                    heranGreenTimer += powerPercent;
-                                                                    saiyanTimer += 3;                   // Should count full training session for Saiyans
+                                namekianGreenTimer += powerPercent;
+                                heranGreenTimer += powerPercent;
+                                saiyanTimer += 3;                   // Should count full training session for Saiyans
 
                             }
 
-                            else if(GEPNum < powerPercent && YEPNum >= powerPercent){
+                            else if(GEPNum < powerPercent && YEPNum /*>= powerPercent*/){
 
                                 powerPercent -= GEPNum;
 
-                                                                    namekianGreenTimer += GEPNum;
-                                                                    heranGreenTimer += GEPNum;
+                                namekianGreenTimer += GEPNum;
+                                heranGreenTimer += GEPNum;
+
                                 GEPNum -= GEPNum;
+                                String text = "YEPNum before: " + YEPNum + " and powerPercent before: " + powerPercent;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
                                 YEPNum -= powerPercent;
-                                                                    namekianYellowTimer += powerPercent;
-                                                                    heranYellowTimer += powerPercent;
-                                                                    saiyanTimer += 3;
+                                text = "YEPNum after: " + YEPNum + " and powerPercent after: " + powerPercent;
+                                toast = Toast.makeText(context, text, duration);
+                                toast.show();
+
+                                namekianYellowTimer += powerPercent;
+                                heranYellowTimer += powerPercent;
+                                saiyanTimer += 3;
+
                                 powerPercent -= powerPercent;
 
                             }
@@ -285,25 +309,23 @@ public class MainActivity extends Activity {
                                 YEPNum += 7.5;
 
                                 TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                                int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
+                                float TKDTemp = Float.parseFloat(TKDValue.getText().toString());
                                 TKNNum = Integer.parseInt(TKNValue.getText().toString());
 
-                                TKDTemp *= 0.075;
-                                TKNNum += TKDTemp;
-                                if (TKNNum >= TKDNum)
-                                    TKNNum = TKDNum;
+                                TKDTemp *= 0.075;				// 437 * 7.5% = 32.775
+                                TKNRF += TKDTemp;				// 349.6 + 32.775 = 382.375
+                                if (TKNRF >= (float)TKDNum)
+                                    TKNRF = (float)TKDNum;
 
+                                TKNNum = Math.round(TKNRF);		// 382
                                 TKNValue.setText(TKNNum + "");
                             }
                             else if((GEPNum + YEPNum + 7.5) > 100) {
 
-                                TKNNum = Integer.parseInt(TKNValue.getText().toString());
-
                                 YEPNum = 100 - GEPNum;
-                                TKNNum = TKDNum;
-                                if (TKNNum >= TKDNum)
-                                    TKNNum = TKDNum;
+                                TKNRF = (float)TKDNum;
 
+                                TKNNum = Math.round(TKNRF);
                                 TKNValue.setText(TKNNum + "");
                             }
 
@@ -328,8 +350,11 @@ public class MainActivity extends Activity {
                             YEPValue.setText(YEP + "");
 
                         }
+				
+			/* Clean Up Values */	
 
-                        CKNum = 0;
+                        CKRF = 0.0f;
+                        CKNum = Math.round(CKRF);
 
                         int BPNum = Integer.parseInt(BPValue.getText().toString());
 
@@ -338,9 +363,9 @@ public class MainActivity extends Activity {
                         else
                             BPNum = CKNum/180;
 
-                        if(BPNum <= 1)
-                            BPNum = 1;
                         BPValue.setText(BPNum + "");
+
+
 
                         CKValue.setText(CKNum + "");
                         yellowTimer = 0;
@@ -355,52 +380,48 @@ public class MainActivity extends Activity {
                         break;
 
                     case 0:
+
                         // While resting...
                         yellowTimer += 3;
 
                         YEPNum = Float.parseFloat(YEPValue.getText().toString());
                         GEPNum = Float.parseFloat(GEPValue.getText().toString());
-                        int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+                        TKDNum = Integer.parseInt(TKDValue.getText().toString());
 
                         int NPNum = Integer.parseInt(NPValue.getText().toString());
                         int HPNum = Integer.parseInt(HPValue.getText().toString());
 
-
-                        YEPNum += 7.5;
-
-                        if(GEPNum == 0 && YEPNum >= 100)
-                            YEPNum = 100;
-
-                        if(TKNNum <= 100)
-                            YEPValue.setText((int)YEPNum + "");
-                        else if(TKNNum > 100)
-                            YEPValue.setText(YEPNum + "");
-
-                        TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                        int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
-                        TKNNum = Integer.parseInt(TKNValue.getText().toString());
-                        CKNum = Integer.parseInt(CKValue.getText().toString());
-                        int DKNum = Integer.parseInt(DKValue.getText().toString());
-
+                        float TKDTemp = Float.parseFloat(TKDValue.getText().toString());
                         TKDTemp *= 0.075;
 
-                        if(CKNum == 0 && DKNum == 0) {
-
-                            TKNNum += TKDTemp;
-                            if (TKNNum >= TKDNum)
-                                TKNNum = TKDNum;
+                        if(CKRF == 0 && DKRF == 0 && TKNRF + TKDTemp <= (float)TKDNum) {
+                            TKNRF += TKDTemp;
+                            if(GEPNum + YEPNum + 7.5 <= 100)
+                                YEPNum += 7.5;
                         }
-                        else if(CKNum > 0 || DKNum > 0){
+                        else if(CKRF > 0 || DKRF > 0){
 
-                            if(TKDNum - CKNum - DKNum == TKNNum)
-                                TKNNum = TKNNum;
-                            if(TKDNum - CKNum - DKNum > TKNNum)
-                                TKNNum += TKDTemp;
-                            if(TKNNum >= TKDNum - CKNum - DKNum)
-                                TKNNum = TKDNum - CKNum - DKNum;
+                            if((float)TKDNum - CKRF - DKRF - TKNRF >= TKDTemp){
+                                TKNRF += TKDTemp;
+                                if(GEPNum + YEPNum + 7.5 <= 100)
+                                    YEPNum += 7.5;
+                            }
+                            else if((float)TKDNum - CKRF - DKRF - TKNRF < TKDTemp){
+                                TKNRF += (float)TKDNum - TKDTemp;
+                                if(GEPNum + YEPNum + 7.5 > 100)
+                                    YEPNum = 100 - GEPNum;
+                            }
+
                         }
 
+
+                        int TKNNum = Math.round(TKNRF);
                         TKNValue.setText(TKNNum + "");
+
+                        if(TKDNum <= 100)
+                            YEPValue.setText((int)YEPNum + "");
+                        else if(TKDNum > 100)
+                            YEPValue.setText(YEPNum + "");
 
                         if(yellowTimer >= 120 && GEPNum != 100) {
                             YEPNum -= 20;
@@ -412,28 +433,28 @@ public class MainActivity extends Activity {
 
                         }
 
-                                        // Namekian and Heran Regrowth
-                                        if(yellowTimer == 117 && GEPNum >= 80) {      // A resting period to full Green Energy has occurred
+                        // Namekian and Heran Regrowth
+                        if(yellowTimer == 117 && GEPNum >= 80) {      // A resting period to full Green Energy has occurred
 
-                                            float namekGreen = namekianGreenTimer / 100;
-                                            float namekYellow = namekianYellowTimer / 100;
-                                            float heranGreen = heranGreenTimer / 100;
-                                            float heranYellow = heranYellowTimer / 100;
+                            float namekGreen = namekianGreenTimer / 100;
+                            float namekYellow = namekianYellowTimer / 100;
+                            float heranGreen = heranGreenTimer / 100;
+                            float heranYellow = heranYellowTimer / 100;
 
-                                            namekGreen *= 20;
-                                            namekYellow *= 5;
+                            namekGreen *= 20;
+                            namekYellow *= 5;
 
-                                            NPNum += namekGreen + namekYellow;
-                                            NPValue.setText(NPNum + "");
+                            NPNum += Math.round(namekGreen) + Math.round(namekYellow);
+                            NPValue.setText(NPNum + "");
 
-                                            heranGreen *= 2.5;
-                                            heranYellow *= 8.125;
+                            heranGreen *= 2.5;
+                            heranYellow *= 8.125;
 
-                                            HPNum += heranGreen + heranYellow;
-                                            HPValue.setText(HPNum + "");
+                            HPNum += Math.round(heranGreen) + Math.round(heranYellow);
+                            HPValue.setText(HPNum + "");
 
-                                            namekianGreenTimer = namekianYellowTimer = heranGreenTimer = heranYellowTimer = 0;
-                                        }
+                            namekianGreenTimer = namekianYellowTimer = heranGreenTimer = heranYellowTimer = 0;
+                        }
 
                         if(GEPNum + YEPNum > 100)
                             YEPNum = 100 - GEPNum;
@@ -462,17 +483,17 @@ public class MainActivity extends Activity {
                 if(PLModifier == false){
 
                     PLModifier = true;
-                        PLButton.setBackgroundColor(Color.BLACK);
-                        PLButton.setTextColor(Color.GRAY);
+                    PLButton.setBackgroundColor(Color.BLACK);
+                    PLButton.setTextColor(Color.GRAY);
                     DKModifier = false;
-                        DKButton.setBackgroundColor(Color.GRAY);
-                        DKButton.setTextColor(Color.BLACK);
+                    DKButton.setBackgroundColor(Color.GRAY);
+                    DKButton.setTextColor(Color.BLACK);
                     CKModifier = false;
-                        CKButton.setBackgroundColor(Color.GRAY);
-                        CKButton.setTextColor(Color.BLACK);
+                    CKButton.setBackgroundColor(Color.GRAY);
+                    CKButton.setTextColor(Color.BLACK);
                     BPModifier = false;
-                        BPButton.setBackgroundColor(Color.GRAY);
-                        BPButton.setTextColor(Color.BLACK);
+                    BPButton.setBackgroundColor(Color.GRAY);
+                    BPButton.setTextColor(Color.BLACK);
 
 
                 }
@@ -492,17 +513,17 @@ public class MainActivity extends Activity {
                 if(BPModifier == false){
 
                     BPModifier = true;
-                        BPButton.setBackgroundColor(Color.BLACK);
-                        BPButton.setTextColor(Color.GRAY);
+                    BPButton.setBackgroundColor(Color.BLACK);
+                    BPButton.setTextColor(Color.GRAY);
                     DKModifier = false;
-                        DKButton.setBackgroundColor(Color.GRAY);
-                        DKButton.setTextColor(Color.BLACK);
+                    DKButton.setBackgroundColor(Color.GRAY);
+                    DKButton.setTextColor(Color.BLACK);
                     PLModifier = false;
-                        PLButton.setBackgroundColor(Color.GRAY);
-                        PLButton.setTextColor(Color.BLACK);
+                    PLButton.setBackgroundColor(Color.GRAY);
+                    PLButton.setTextColor(Color.BLACK);
                     CKModifier = false;
-                        CKButton.setBackgroundColor(Color.GRAY);
-                        CKButton.setTextColor(Color.BLACK);
+                    CKButton.setBackgroundColor(Color.GRAY);
+                    CKButton.setTextColor(Color.BLACK);
 
 
                 }
@@ -520,64 +541,64 @@ public class MainActivity extends Activity {
             public void onClick(View v){
 
                 if(CKModifier) {
-                    int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                    int CKNum = Integer.parseInt(CKValue.getText().toString());
+
                     boolean fillUp;
 
-                    if(TKNNum >= TKDNum * 0.2)
+                    if(TKNRF >= (float)TKDNum * 0.2)					// if (437 >= 437 * 0.2 				[87.4]
                         fillUp = true;
                     else
                         fillUp = false;
 
-                    if(CKNum == 0) {
+                    if(CKRF == 0) {
 
 
                         if(fillUp){
 
-                            CKNum += (TKDNum * 0.2);
-                            TKNNum -= (TKDNum * 0.2);
+                            CKRF += (float)TKDNum * 0.2;				// 0 + 87.4 					[87.4]
+                            TKNRF -= (float)TKDNum * 0.2;				// 437.0 - 87.4					[349.6]
                         }
                         else if(!fillUp){
 
-                            CKNum += TKNNum;
-                            TKNNum -= TKNNum;
+                            CKRF += TKNRF;
+                            TKNRF -= TKNRF;
                         }
                     }
-                    else if(CKNum != 0){
+                    else if(CKRF != 0){
 
-                        if(CKNum <= TKDNum * 0.8){
+                        if(CKRF <= (float)TKDNum * 0.8){				// if CKRF was like 23 <= 349.6
 
                             if(fillUp){
 
-                                CKNum += (TKDNum * 0.2);
-                                TKNNum -= (TKDNum * 0.2);
+                                CKRF += (float)TKDNum * 0.2;			// 23 + 87.4  					[110]
+                                TKNRF -= (float)TKDNum * 0.2;			//
                             }
                             else if(!fillUp){
 
-                                CKNum += TKNNum;
-                                TKNNum -= TKNNum;
+                                CKRF += TKNRF;
+                                TKNRF -= TKNRF;
                             }
 
                         }
-                        else if(CKNum > TKDNum * 0.8){
+                        else if(CKRF > (float)TKDNum * 0.8){			// 360 > 349.6
 
                             if(fillUp){
 
-                                TKNNum -= TKDNum - CKNum;
-                                CKNum += TKDNum - CKNum;
+                                TKNRF -= (float)TKDNum - CKRF;			// 437 - 360					[77]
+                                CKRF += (float)TKDNum - CKRF;			// 360 + 77                     [437]
                             }
                             else if(!fillUp){
 
-                                if(TKNNum >= TKDNum - CKNum){
+                                if(TKNRF >= (float)TKDNum - CKRF){		// I DON'T LIKE THIS PART!!!
 
-                                    TKNNum -= TKDNum - CKNum;
-                                    CKNum += TKDNum - CKNum;
+                                    TKNRF -= (float)TKDNum - CKRF;		//How can TKNRF be more than tkd - ck?
+                                    CKRF += (float)TKDNum - CKRF;
                                 }
-                                else if(TKNNum < TKDNum - CKNum){
+                                else if(TKNRF < (float)TKDNum - CKRF){
 
-                                    CKNum += TKNNum;
-                                    TKNNum -= TKNNum;
+                                    CKRF += TKNRF;
+                                    TKNRF -= TKNRF;
                                 }
                             }
 
@@ -587,14 +608,17 @@ public class MainActivity extends Activity {
 
                     int BPNum = Integer.parseInt(BPValue.getText().toString());
 
+                    int CKNum = Math.round(CKRF);
+
                     if(CKNum <= 180)            // represents 3 mins
                         BPNum = 1;
                     else
-                        BPNum = CKNum/180;
+                        BPNum = CKNum / 180;
 
-                    if(BPNum <= 1)
-                        BPNum = 1;
                     BPValue.setText(BPNum + "");
+
+                    int TKNNum = Math.round(TKNRF);
+
 
                     TKNValue.setText(TKNNum + "");
                     CKValue.setText(CKNum + "");
@@ -602,34 +626,51 @@ public class MainActivity extends Activity {
                 }
 
                 if(DKModifier) { // because DK is priority, if TKN empty, should be able to draw from CK in extreme cases.
-                    int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                    int DKNum = Integer.parseInt(DKValue.getText().toString());
                     boolean fillUp;
 
-                    if(TKNNum >= TKDNum * 0.050)
+                    if(TKNRF >= (float)TKDNum * 0.050)
                         fillUp = true;
                     else
                         fillUp = false;
 
                     if(fillUp) {
 
-                        if (DKNum <= (TKDNum * 0.95)) {
+                        if (DKRF <= (float)TKDNum * 0.95) {
 
-                            DKNum += TKDNum * 0.050;
-                            TKNNum -= TKDNum * 0.050;
+                            DKRF += (float)TKDNum * 0.050;
+                            TKNRF -= (float)TKDNum * 0.050;
                         }
-                        else if(DKNum >= TKDNum * 0.95){
+                        else if(DKRF > (float)TKDNum * 0.95){
 
-                            TKNNum -= TKDNum - DKNum;
-                            DKNum += TKDNum - DKNum;
+                            TKNRF -= (float)TKDNum - DKRF;
+                            DKRF += (float)TKDNum - DKRF;
                         }
                     }
                     else if(!fillUp){
 
-                        DKNum += TKNNum;
-                        TKNNum -= TKNNum;
+                        if (DKRF <= (float)TKDNum * 0.95) {
+                            DKRF += TKNRF;
+                            TKNRF -= TKNRF;
+                        }
+                        else if(DKRF > (float)TKDNum * 0.95){
+
+                            if(TKNRF >= (float)TKDNum - DKRF){
+                                float DKAmount = (float)TKDNum - DKRF;
+                                DKRF += (float)TKDNum - DKRF;
+                                TKNRF -= DKAmount;
+                            }
+                            else if(TKNRF < (float)TKDNum - DKRF){
+                                DKRF += TKNRF;
+                                TKNRF -= TKNRF;
+                            }
+
+                        }
                     }
+
+                    int TKNNum = Math.round(TKNRF);
+                    int DKNum = Math.round(DKRF);
 
 
                     TKNValue.setText(TKNNum + "");
@@ -708,41 +749,43 @@ public class MainActivity extends Activity {
 
                 if(CKModifier) {
 
-                    int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                    int CKNum = Integer.parseInt(CKValue.getText().toString());
 
-                    if(TKNNum <= TKDNum * 0.8){
 
-                        if(CKNum >= TKDNum * 0.2){
+                    if(TKNRF <= (float)TKDNum * 0.8){
 
-                            CKNum -= TKDNum * 0.2;
-                            TKNNum += TKDNum * 0.2;
+                        if(CKRF >= (float)TKDNum * 0.2){
+
+                            CKRF -= (float)TKDNum * 0.2;
+                            TKNRF += (float)TKDNum * 0.2;
                         }
-                        else if(CKNum < TKDNum * 0.2){
+                        else if(CKRF < (float)TKDNum * 0.2){
 
-                            TKNNum += CKNum;
-                            CKNum -= CKNum;
+                            TKNRF += CKRF;
+                            CKRF -= CKRF;
                         }
 
 
                     }
-                    else if(TKNNum > TKDNum * 0.8){
+                    else if(TKNRF > (float)TKDNum * 0.8){
 
-                        if(CKNum >= TKDNum - TKNNum){
+                        if(CKRF >= (float)TKDNum - TKNRF){
 
-                            CKNum -= TKDNum - TKNNum;
-                            TKNNum += TKDNum - TKNNum;
+                            CKRF -= (float)TKDNum - TKNRF;
+                            TKNRF += (float)TKDNum - TKNRF;
                         }
-                        else if(CKNum < TKDNum - TKNNum){
+                        else if(CKRF < (float)TKDNum - TKNRF){
 
-                            TKNNum += CKNum;
-                            CKNum -= CKNum;
+                            TKNRF += CKRF;
+                            CKRF -= CKRF;
                         }
 
                     }
 
                     int BPNum = Integer.parseInt(BPValue.getText().toString());
+
+                    int CKNum = Math.round(CKRF);
 
                     if(CKNum <= 180)            // represents 3 mins
                         BPNum = 1;
@@ -750,8 +793,11 @@ public class MainActivity extends Activity {
                         BPNum = CKNum/180;
 
                     if(BPNum <= 1)
-                        BPNum = 1;
+                        BPNum = 1;						// In case player tries to lower it manually
                     BPValue.setText(BPNum + "");
+
+                    int TKNNum = Math.round(TKNRF);
+
 
                     TKNValue.setText(TKNNum + "");
                     CKValue.setText(CKNum + "");
@@ -760,39 +806,42 @@ public class MainActivity extends Activity {
 
 
                 if(DKModifier) {
-                    int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+
                     int TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                    int DKNum = Integer.parseInt(DKValue.getText().toString());
 
-                    if(TKNNum <= TKDNum * 0.95){
 
-                        if(DKNum >= TKDNum * 0.050){
+                    if(TKNRF <= (float)TKDNum * 0.95){
 
-                            DKNum -= TKDNum * 0.050;
-                            TKNNum += TKDNum * 0.050;
+                        if(DKRF >= (float)TKDNum * 0.050){
+
+                            DKRF -= (float)TKDNum * 0.050;
+                            TKNRF += (float)TKDNum * 0.050;
                         }
-                        else if(DKNum < TKDNum * 0.050){
+                        else if(DKRF < (float)TKDNum * 0.050){
 
-                            TKNNum += DKNum;
-                            DKNum -= DKNum;
+                            TKNRF += DKRF;
+                            DKRF -= DKRF;
                         }
 
 
                     }
-                    else if(TKNNum > TKDNum * 0.95){
+                    else if(TKNRF > (float)TKDNum * 0.95){
 
-                        if(DKNum >= TKDNum - TKNNum){
+                        if(DKRF >= (float)TKDNum - TKNRF){
 
-                            DKNum -= TKDNum - TKNNum;
-                            TKNNum += TKDNum - TKNNum;
+                            DKRF -= (float)TKDNum - TKNRF;
+                            TKNRF += (float)TKDNum - TKNRF;
                         }
-                        else if(DKNum < TKDNum - TKNNum){
+                        else if(DKRF < (float)TKDNum - TKNRF){
 
-                            TKNNum += DKNum;
-                            DKNum -= DKNum;
+                            TKNRF += DKRF;
+                            DKRF -= DKRF;
                         }
 
                     }
+
+                    int TKNNum = Math.round(TKNRF);
+                    int DKNum = Math.round(DKRF);
 
                     TKNValue.setText(TKNNum + "");
                     DKValue.setText(DKNum + "");
@@ -838,5 +887,5 @@ public class MainActivity extends Activity {
 }
 
 /*
-    
+
 */
