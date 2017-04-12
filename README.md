@@ -24,7 +24,8 @@ Playable Races:
   3. Heran (race of Bojack)
   =========================
   
-  ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/ZangyaBido.png)
+  ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/avera.jpg)
+  ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/avera_.jpg)
   
   
 GamePlay:
