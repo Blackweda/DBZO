@@ -279,7 +279,7 @@ public class MainActivity extends Activity {
 
                             }
 
-                            else if(GEPNum < powerPercent && YEPNum /*>= powerPercent*/){
+                            else if(GEPNum < powerPercent && YEPNum != 0 /*>= powerPercent*/){
 
                                 powerPercent -= GEPNum;
 
@@ -305,8 +305,13 @@ public class MainActivity extends Activity {
 
                             if(GEPNum <= 0)
                                 GEPNum = 0;
+                            if(YEPNum <= 0)
+                                YEPNum = 0;
                             if((GEPNum + YEPNum + 7.5) <= 100) {
                                 YEPNum += 7.5;
+
+                                if(Math.round(YEPNum) == 8)         // prevent 7.500005
+                                    YEPNum = 7.5f;
 
                                 TKDNum = Integer.parseInt(TKDValue.getText().toString());
                                 float TKDTemp = Float.parseFloat(TKDValue.getText().toString());
@@ -350,8 +355,41 @@ public class MainActivity extends Activity {
                             YEPValue.setText(YEP + "");
 
                         }
-				
-			/* Clean Up Values */	
+
+
+
+
+                        /*      ORIGINAL VERSION WORKS PERFECT WITH 20% INCREMENTS
+
+                        if(CKNum != 0) {
+
+                            GEPNum -= 20;
+                            if (GEPNum <= 0)
+                                GEPNum = 0;
+                            if (GEPNum <= 80 && (YEPNum + 7.5) <= 100)
+
+                                YEPNum += 7.5;      // regen 7.5% yellow
+                            if (GEPNum <= 80 && (YEPNum + 7.5) >= 100)
+                                YEPNum = 100 - GEPNum;
+                            if (GEPNum == 0 && YEPNum >= 20)
+                                YEPNum -= 20;
+
+                            int TKDNum = Integer.parseInt(TKDValue.getText().toString());
+                            int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
+                            int TKNNum = Integer.parseInt(TKNValue.getText().toString());
+
+                            TKDTemp *= 0.075;
+                            TKNNum += TKDTemp;
+                            if (TKNNum >= TKDNum)
+                                TKNNum = TKDNum;
+
+                            TKNValue.setText(TKNNum + "");
+
+                            // every 3 mins use up 20% Green
+                            GEPValue.setText(GEPNum + "");
+                            YEPValue.setText(YEPNum + "");
+                        }
+                        */
 
                         CKRF = 0.0f;
                         CKNum = Math.round(CKRF);
@@ -398,6 +436,13 @@ public class MainActivity extends Activity {
                             TKNRF += TKDTemp;
                             if(GEPNum + YEPNum + 7.5 <= 100)
                                 YEPNum += 7.5;
+                        }
+                        else if(CKRF == 0 && DKRF == 0 && TKNRF + TKDTemp >= (float)TKDNum){
+                            TKNRF += (float)TKDNum - TKNRF;
+                            float YEPRemainder = 100 - GEPNum - YEPNum;
+                            YEPNum += YEPRemainder;
+                            if(YEPNum >= 100)
+                                YEPNum = 100;
                         }
                         else if(CKRF > 0 || DKRF > 0){
 
