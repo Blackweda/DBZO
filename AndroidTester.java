@@ -1,9 +1,10 @@
 package com.holdings.siloaman.dbzo_leveller;
 
 import android.app.Activity;
+
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -11,112 +12,45 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.BaseColumns;
+
 import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
 
-    public static class MyDataEntry implements BaseColumns {
-
-        public static final String TABLE_NAME = "DBZO_TABLE";
-        public static final String TOTAL_KI_NUMERATOR_COLUMN = "TKN_C";
-        public static final String TOTAL_KI_DENOMINATOR_COLUMN = "TKD_C";
-        public static final String CURRENT_KI_COLUMN = "CK_C";
-        public static final String DEFENSE_KI_COLUMN = "DK_C";
-        public static final String POWER_LEVEL_COLUMN = "PL_C";
-        public static final String BATTLE_POWER_COLUMN = "BP_C";
-        public static final String GREEN_ENERGY_PERCENT_COLUMN = "GEP_C";
-        public static final String YELLOW_ENERGY_PERCENT_COLUMN = "YEP_C";
-    }
-
-    /*
-    ANOTHER HELPER CLASS - is for managing database creating and version management
-     */
-    public class MyDBHelper extends SQLiteOpenHelper{
-        //some static variables to remember information about our database
-        //one is the database name
-        public static final String DB_NAME = "DBZO_DataBase.db";
-        //note: every time you change the database schema, you must increment this database version
-        //the other is the database version
-        public static final int DB_VERSION = 1;
-
-        private static final String SQL_CREATE_TABLE = "CREATE TABLE " + MyDataEntry.TABLE_NAME
-                + " (" + MyDataEntry._ID    // _ID inherited from BaseColumns
-                + " INTEGER PRIMARY KEY,"
-                + MyDataEntry.TOTAL_KI_NUMERATOR_COLUMN + " TEXT,"
-                + MyDataEntry.TOTAL_KI_DENOMINATOR_COLUMN + " TEXT )"
-                + MyDataEntry.CURRENT_KI_COLUMN + " TEXT )"
-                + MyDataEntry.DEFENSE_KI_COLUMN + " TEXT )"
-                + MyDataEntry.POWER_LEVEL_COLUMN + " TEXT )"
-                + MyDataEntry.BATTLE_POWER_COLUMN + " TEXT )"
-                + MyDataEntry.GREEN_ENERGY_PERCENT_COLUMN + " TEXT )"
-                + MyDataEntry.YELLOW_ENERGY_PERCENT_COLUMN + " TEXT )";
-
-
-        private static final String SQL_DELETE_QUERY = "DROP TABLE IF EXISTS" + MyDataEntry.TABLE_NAME;
-
-        public MyDBHelper(Context context){
-            super(context, DB_NAME, null, DB_VERSION);
-
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-
-            System.out.println("Executing Query: SQL_CREATE_TABLE " + SQL_CREATE_TABLE);     //DEBUGGING TIP
-            db.execSQL(SQL_CREATE_TABLE);
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-            //Shortcut: let's discard the table and start over.
-            db.execSQL(SQL_DELETE_QUERY);
-            onCreate(db);       // will re-create the database for us
-        }
-
-        @Override
-        public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            super.onDowngrade(db, oldVersion, newVersion);
-            onUpgrade(db, oldVersion, newVersion);
-        }
-    }
-
-    //declare the preferences file name as a constant string for easy use elsewhere in code
-    //choose a cool file name
-    public static final String PREF_FILE_NAME = "MySenecaPrefs";
-
-
-
-
-
+    // BUTTON MODIFIERS
     boolean CKModifier = false;
     boolean DKModifier = false;
     boolean PLModifier = false;
     boolean BPModifier = false;
 
     int startStopModifier = 1;
-    int yellowTimer = 0;
 
+    // TIMERS
+    int yellowTimer = 0;
     float namekianGreenTimer = 0;
     float namekianYellowTimer = 0;
-
     int saiyanTimer = 0;
-
     float heranGreenTimer = 0;
     float heranYellowTimer = 0;
 
+    static boolean init = false;
+    Avatar avatar;
+
+    // CHARACTER STATS
+    String playerName = "PLAYER";
+    String playerRace = "HUMAN";
     static float TKNRF = 0;
+    static int TKDRI = 0;
     static float CKRF = 0;
     static float DKRF = 0;
-
-
-
-
-
+    static int PLRI = 0;
+    static int BPRI = 0;
+    static float GEPRF = 0;
+    static float YEPRF = 0;
+    static int GETRI = 0;
+    static int YETRI = 0;
+    static int YTRI = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +58,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // BASE STAT TEXTVIEW ASSIGNMENT
         final TextView CKValue = (TextView)findViewById(R.id.CKValueTextView);
         final TextView DKValue = (TextView)findViewById(R.id.DKValueTextView);
         final TextView PLValue = (TextView)findViewById(R.id.PLValueTextView);
@@ -135,10 +70,12 @@ public class MainActivity extends Activity {
         final TextView TKNValue = (TextView)findViewById(R.id.TKValueTextView);
         final TextView TKDValue = (TextView)findViewById(R.id.TKValueTextView2);
 
+        // RACIAL POWER LEVEL TEXTVIEW ASSIGNMENT
         final TextView NPValue = (TextView)findViewById(R.id.namekianPowerTextView);
         final TextView SPValue = (TextView)findViewById(R.id.saiyanPowerTextView);
         final TextView HPValue = (TextView)findViewById(R.id.heranPowerTextView);
 
+        // BUTTON ASSIGNMENT
         final Button CKButton = (Button)findViewById(R.id.currentKiButton);
         final Button DKButton = (Button)findViewById(R.id.defenseKiButton);
         final Button AttackButton = (Button)findViewById(R.id.attackButton);
@@ -147,10 +84,11 @@ public class MainActivity extends Activity {
         final Button UpButton = (Button)findViewById(R.id.upButton);
         final Button StartStopButton = (Button)findViewById(R.id.startStopButton);
         final Button DownButton = (Button)findViewById(R.id.downButton);
-        final Button LoadButton = (Button)findViewById(R.id.loadButton);
-        final Button SaveButton = (Button)findViewById(R.id.saveButton);
+        //final Button LoadButton = (Button)findViewById(R.id.loadButton);
+        //final Button SaveButton = (Button)findViewById(R.id.saveButton);
 
-        // Set Button Colors
+
+        /* Set Button Colors */
 
         CKButton.setBackgroundColor(Color.GRAY);
         CKButton.setTextColor(Color.BLACK);
@@ -170,19 +108,50 @@ public class MainActivity extends Activity {
         DownButton.setBackgroundColor(Color.RED);
         DownButton.setTextColor(Color.YELLOW);
 
-        int PLNum = Integer.parseInt(PLValue.getText().toString());
-        int TKDNum = Integer.parseInt(TKDValue.getText().toString());
-        TKNRF = (float)TKDNum;
+        // INITIALIZE SCREEN TEXTVIEW VALUES
 
-        PLNum = TKDNum;
-        PLValue.setText(PLNum + "");
+        if(init == false) {
+            avatar = new Avatar();
 
+            playerName = avatar.getAvatarName();
+            playerRace = avatar.getAvatarRace();
+            TKNRF = avatar.getAvatarTotalKiNumerator();
+            TKDRI = avatar.getAvatarTotalKiDenominator();
+            CKRF = avatar.getAvatarCurrentKi();
+            DKRF = avatar.getAvatarDefenseKi();
+            PLRI = avatar.getAvatarPowerLevel();
+            BPRI = avatar.getAvatarBattlePower();
+            GEPRF = avatar.getAvatarGreenEnergyPercentage();
+            YEPRF = avatar.getAvatarYellowEnergyPercentage();
+            GETRI = avatar.getAvatarGreenEnergyTimer();
+            YETRI = avatar.getAvatarYellowEnergyTimer();
+            YTRI = avatar.getAvatarYellowTimer();
+            init = true;   // an avatar object is already running
+        }
 
+        // INITIALIZE SCREEN VIEW VALUES
+
+        int TKNNum = (int)TKNRF;
+            TKNValue.setText(TKNNum + "");
+        int TKDNum = TKDRI;
+            TKDValue.setText(TKDNum + "");
+        int CKNum = (int)CKRF;
+            CKValue.setText(CKNum + "");
+        int DKNum = (int)DKRF;
+            DKValue.setText(DKNum + "");
+        int PLNum = PLRI;
+            PLValue.setText(PLNum + "");
+        int BPNum = BPRI;
+            BPValue.setText(BPNum + "");
+        float GEPNum = GEPRF;
+            GEPValue.setText(GEPNum + "");
+        float YEPNum = YEPRF;
+            YEPValue.setText(YEPNum + "");
 
         // Initialize Racial Power Levels
 
 
-
+        // BUTTON LISTENERS
 
         CKButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -247,172 +216,131 @@ public class MainActivity extends Activity {
         AttackButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
+                // TOAST VALUES
                 Context context = getApplicationContext();
                 int duration = Toast.LENGTH_LONG;
-
-
-
 
                 switch(startStopModifier) {
 
                     case 1:
                         // While attacking...
 
-                        int CKNum = Integer.parseInt(CKValue.getText().toString());
-                        float YEPNum = Float.parseFloat(YEPValue.getText().toString());
-                        float GEPNum = Float.parseFloat(GEPValue.getText().toString());
+                        threeDigConv(CKRF);
+                        threeDigConv(GEPRF);
+                        threeDigConv(YEPRF);
 
                         int SPNum = Integer.parseInt(SPValue.getText().toString());
 
+                        // only attack if there's current ki available to use
                         if(CKRF > 0){
 
-                            int TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                            int TKNNum = Integer.parseInt(TKNValue.getText().toString());
-                            float powerPercent = (CKRF * 100) / TKDNum;
+                            float powerPercent = (CKRF * 100) / TKDRI;      // 20*100 / 100 = 20%
+                            threeDigConv(powerPercent);
 
-
-                            if(GEPNum >= powerPercent) {
-                                GEPNum -= powerPercent;             // Racial Specific Counters
+                            if(GEPRF >= powerPercent) {
+                                GEPRF -= powerPercent;
+                                // Racial Specific Counters
                                 namekianGreenTimer += powerPercent;
                                 heranGreenTimer += powerPercent;
+                                GETRI += (int)powerPercent;
+
                                 saiyanTimer += 3;                   // Should count full training session for Saiyans
 
                             }
 
-                            else if(GEPNum < powerPercent && YEPNum != 0 /*>= powerPercent*/){
+                            else if(GEPRF < powerPercent && YEPRF != 0 /*>= powerPercent*/){
 
-                                powerPercent -= GEPNum;
+                                powerPercent -= GEPRF;
 
-                                namekianGreenTimer += GEPNum;
-                                heranGreenTimer += GEPNum;
+                                namekianGreenTimer += GEPRF;
+                                heranGreenTimer += GEPRF;
+                                GETRI += (int)GEPRF;
 
-                                GEPNum -= GEPNum;
-                                String text = "YEPNum before: " + YEPNum + " and powerPercent before: " + powerPercent;
-                                Toast toast = Toast.makeText(context, text, duration);
-                                toast.show();
-                                YEPNum -= powerPercent;
-                                text = "YEPNum after: " + YEPNum + " and powerPercent after: " + powerPercent;
-                                toast = Toast.makeText(context, text, duration);
-                                toast.show();
+                                GEPRF -= GEPRF;
+                                //String text = "YEPNum before: " + YEPRF + " and powerPercent before: " + powerPercent;
+                                //Toast toast = Toast.makeText(context, text, duration);
+                                //toast.show();
+                                YEPRF -= powerPercent;
+                                //text = "YEPNum after: " + YEPRF + " and powerPercent after: " + powerPercent;
+                                //toast = Toast.makeText(context, text, duration);
+                                //toast.show();
 
                                 namekianYellowTimer += powerPercent;
                                 heranYellowTimer += powerPercent;
+                                YETRI += (int)powerPercent;
                                 saiyanTimer += 3;
 
                                 powerPercent -= powerPercent;
 
                             }
 
-                            if(GEPNum <= 0)
-                                GEPNum = 0;
-                            if(YEPNum <= 0)
-                                YEPNum = 0;
-                            if((GEPNum + YEPNum + 7.5) <= 100) {
-                                YEPNum += 7.5;
+                            if(GEPRF <= 0)
+                                GEPRF = 0;
+                            if(YEPRF <= 0)
+                                YEPRF = 0;
+                            if((GEPRF + YEPRF + 7.5) <= 100) {
+                                YEPRF += 7.5;
+                                threeDigConv(YEPRF);
 
-                                if(Math.round(YEPNum) == 8)         // prevent 7.500005
-                                    YEPNum = 7.5f;
+                                if(Math.round(YEPRF) == 8)         // prevent 7.500005
+                                    YEPRF = 7.5f;
 
-                                TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                                float TKDTemp = Float.parseFloat(TKDValue.getText().toString());
-                                TKNNum = Integer.parseInt(TKNValue.getText().toString());
+                                float TKDTemp = (float)TKDRI;
 
                                 TKDTemp *= 0.075;				// 437 * 7.5% = 32.775
+                                threeDigConv(TKDTemp);
                                 TKNRF += TKDTemp;				// 349.6 + 32.775 = 382.375
-                                if (TKNRF >= (float)TKDNum)
-                                    TKNRF = (float)TKDNum;
+                                if (TKNRF >= (float)TKDRI)
+                                    TKNRF = (float)TKDRI;
 
-                                TKNNum = Math.round(TKNRF);		// 382
+                                int TKNNum = Math.round(TKNRF);		// 382
                                 TKNValue.setText(TKNNum + "");
                             }
-                            else if((GEPNum + YEPNum + 7.5) > 100) {
+                            else if((GEPRF + YEPRF + 7.5) > 100) {
 
-                                YEPNum = 100 - GEPNum;
-                                TKNRF = (float)TKDNum;
+                                YEPRF = 100 - GEPRF;
+                                TKNRF = (float)TKDRI;
 
-                                TKNNum = Math.round(TKNRF);
+                                int TKNNum = Math.round(TKNRF);
                                 TKNValue.setText(TKNNum + "");
                             }
 
 
                         }
 
-                        int TKDNum = Integer.parseInt(TKDValue.getText().toString());
+                            GEPValue.setText(GEPRF + "");     // try to mirror ck and tkn values
+                            YEPValue.setText(YEPRF + "");
 
-                        // every 3 mins use up 20% Green
-                        if(TKDNum <= 100) {
-                            int GEP = (int)GEPNum;
-                            int YEP = (int)YEPNum;
-
-                            GEPValue.setText(GEP + "");     // try to mirror ck and tkn values
-                            YEPValue.setText(YEP + "");
-                        }
-                        else if(TKDNum > 100){                      // allow for decimal values to show
-                            float GEP = GEPNum;
-                            float YEP = YEPNum;
-
-                            GEPValue.setText(GEP + "");
-                            YEPValue.setText(YEP + "");
-
-                        }
-
-
-
-
-                        /*      ORIGINAL VERSION WORKS PERFECT WITH 20% INCREMENTS
-
-                        if(CKNum != 0) {
-
-                            GEPNum -= 20;
-                            if (GEPNum <= 0)
-                                GEPNum = 0;
-                            if (GEPNum <= 80 && (YEPNum + 7.5) <= 100)
-
-                                YEPNum += 7.5;      // regen 7.5% yellow
-                            if (GEPNum <= 80 && (YEPNum + 7.5) >= 100)
-                                YEPNum = 100 - GEPNum;
-                            if (GEPNum == 0 && YEPNum >= 20)
-                                YEPNum -= 20;
-
-                            int TKDNum = Integer.parseInt(TKDValue.getText().toString());
-                            int TKDTemp = Integer.parseInt(TKDValue.getText().toString());
-                            int TKNNum = Integer.parseInt(TKNValue.getText().toString());
-
-                            TKDTemp *= 0.075;
-                            TKNNum += TKDTemp;
-                            if (TKNNum >= TKDNum)
-                                TKNNum = TKDNum;
-
-                            TKNValue.setText(TKNNum + "");
-
-                            // every 3 mins use up 20% Green
-                            GEPValue.setText(GEPNum + "");
-                            YEPValue.setText(YEPNum + "");
-                        }
+                        /*
+                            BEGIN TO CLEAN UP VALUES FOR DISPLAY
                         */
 
                         CKRF = 0.0f;
-                        CKNum = Math.round(CKRF);
 
-                        int BPNum = Integer.parseInt(BPValue.getText().toString());
-
-                        if(CKNum <= 180)            // represents 3 mins
-                            BPNum = 1;
+                        if(CKRF <= 180)            // represents 3 mins
+                            BPRI = 1;
                         else
-                            BPNum = CKNum/180;
+                            BPRI = (int)CKRF/180;
 
+                        int BPNum = BPRI;
                         BPValue.setText(BPNum + "");
 
 
-
+                        int CKNum = Math.round(CKRF);
                         CKValue.setText(CKNum + "");
-                        yellowTimer = 0;
+                        YTRI = 0;
 
                         if(saiyanTimer == 15){
 
                             SPNum += 5;
                             SPValue.setText(SPNum + "");
                             saiyanTimer = 0;
+                            if(playerRace == "Saiyan"){
+                                TKDRI = SPNum;
+                                PLRI = TKDRI;                       // THIS WILL CAUSE GEP AND YEP PROBLEMS!!!!
+                                int TKDNum = TKDRI;
+                                TKDValue.setText(TKDNum + "");
+                            }
                         }
 
                         break;
@@ -420,41 +348,49 @@ public class MainActivity extends Activity {
                     case 0:
 
                         // While resting...
-                        yellowTimer += 3;
-
-                        YEPNum = Float.parseFloat(YEPValue.getText().toString());
-                        GEPNum = Float.parseFloat(GEPValue.getText().toString());
-                        TKDNum = Integer.parseInt(TKDValue.getText().toString());
+                        YTRI += 3;
 
                         int NPNum = Integer.parseInt(NPValue.getText().toString());
                         int HPNum = Integer.parseInt(HPValue.getText().toString());
 
-                        float TKDTemp = Float.parseFloat(TKDValue.getText().toString());
+                        float TKDTemp = (float)TKDRI;
                         TKDTemp *= 0.075;
+                        threeDigConv(TKDTemp);
 
-                        if(CKRF == 0 && DKRF == 0 && TKNRF + TKDTemp <= (float)TKDNum) {
+                        // simply resting up, no stored ki, and ki regen not yet close to full
+                        if(CKRF == 0 && DKRF == 0 && TKNRF + TKDTemp <= (float)TKDRI) {
                             TKNRF += TKDTemp;
-                            if(GEPNum + YEPNum + 7.5 <= 100)
-                                YEPNum += 7.5;
-                        }
-                        else if(CKRF == 0 && DKRF == 0 && TKNRF + TKDTemp >= (float)TKDNum){
-                            TKNRF += (float)TKDNum - TKNRF;
-                            float YEPRemainder = 100 - GEPNum - YEPNum;
-                            YEPNum += YEPRemainder;
-                            if(YEPNum >= 100)
-                                YEPNum = 100;
-                        }
+                            threeDigConv(TKNRF);
+                            if(GEPRF + YEPRF + 7.5 <= 100) {
+                                YEPRF += 7.5;
+                                threeDigConv(GEPRF);
+                                threeDigConv(YEPRF);
+                            }
+                        } // simply resting up, ki regen is close to complete
+                        else if(CKRF == 0 && DKRF == 0 && TKNRF + TKDTemp >= (float)TKDRI){
+                            TKNRF = (float)TKDRI;
+                            float YEPRemainder = 100 - GEPRF - YEPRF;
+                            YEPRF += YEPRemainder;
+
+                        }   // in case of some already stored up ki
                         else if(CKRF > 0 || DKRF > 0){
 
-                            if((float)TKDNum - CKRF - DKRF - TKNRF >= TKDTemp){
+                            if((float)TKDRI - CKRF - DKRF - TKNRF >= TKDTemp){      // 100 - 10 - 5 - 30 = 55 >= 7.5
                                 TKNRF += TKDTemp;
-                                if(GEPNum + YEPNum + 7.5 <= 100)
-                                    YEPNum += 7.5;
+                                threeDigConv(TKNRF);
+                                if(GEPRF + YEPRF + 7.5 <= 100) {
+                                    YEPRF += 7.5;
+                                    threeDigConv(GEPRF);
+                                    threeDigConv(YEPRF);
+                                }
                             }
-                            else if((float)TKDNum - CKRF - DKRF - TKNRF < TKDTemp){
-                                TKNRF += (float)TKDNum - TKDTemp;
-                                if(GEPNum + YEPNum + 7.5 > 100)
-                                    YEPNum = 100 - GEPNum;
+                            else if((float)TKDRI - CKRF - DKRF - TKNRF < TKDTemp && (float)TKDRI - CKRF - DKRF - TKNRF > 0){
+                                TKNRF = (float)TKDRI - CKRF - DKRF;           // 7.5 - (100-90-5) = 2.5
+                                if(GEPRF + YEPRF + 7.5 > 100) {
+                                    YEPRF = 100 - GEPRF;
+                                    threeDigConv(GEPRF);
+                                    threeDigConv(YEPRF);
+                                }
                             }
 
                         }
@@ -463,23 +399,18 @@ public class MainActivity extends Activity {
                         int TKNNum = Math.round(TKNRF);
                         TKNValue.setText(TKNNum + "");
 
-                        if(TKDNum <= 100)
-                            YEPValue.setText((int)YEPNum + "");
-                        else if(TKDNum > 100)
-                            YEPValue.setText(YEPNum + "");
+                        if(YTRI >= 120 && GEPRF != 100) {
+                            YEPRF -= 20;
+                            GEPRF += 20;
+                            YTRI = 0;
 
-                        if(yellowTimer >= 120 && GEPNum != 100) {
-                            YEPNum -= 20;
-                            GEPNum += 20;
-                            yellowTimer = 0;
-
-                            if(GEPNum >= 100)
-                                GEPNum = 100;
+                            if(GEPRF >= 100)
+                                GEPRF = 100;
 
                         }
 
                         // Namekian and Heran Regrowth
-                        if(yellowTimer == 117 && GEPNum >= 80) {      // A resting period to full Green Energy has occurred
+                        if(YTRI == 117 && GEPRF >= 80) {      // A resting period to full Green Energy has occurred
 
                             float namekGreen = namekianGreenTimer / 100;
                             float namekYellow = namekianYellowTimer / 100;
@@ -499,19 +430,36 @@ public class MainActivity extends Activity {
                             HPValue.setText(HPNum + "");
 
                             namekianGreenTimer = namekianYellowTimer = heranGreenTimer = heranYellowTimer = 0;
+
+
+                            if(playerRace == "Namekian") {
+                                TKDRI = NPNum;
+                                PLRI = TKDRI;
+                                if(DKRF > 0) {
+                                    DKRF = 0;
+                                    DKValue.setText((int)DKRF + "");
+                                }
+                                TKNRF = (float)TKDRI;
+                                TKDValue.setText(TKDRI + "");
+                            }
+                            if(playerRace == "Heran") {
+                                TKDRI = HPNum;
+                                PLRI = TKDRI;
+                                if(DKRF > 0) {
+                                    DKRF = 0;
+                                    DKValue.setText((int)DKRF + "");
+                                }
+                                TKNRF = (float)TKDRI;
+                                TKDValue.setText(TKDRI + "");
+                            }
                         }
 
-                        if(GEPNum + YEPNum > 100)
-                            YEPNum = 100 - GEPNum;
+                        if(GEPRF + YEPRF > 100)
+                            YEPRF = 100 - GEPRF;
 
-                        if(TKDNum <= 100){
-                            YEPValue.setText((int) YEPNum + "");
-                            GEPValue.setText((int) GEPNum + "");
-                        }
-                        else if(TKDNum > 100){
-                            YEPValue.setText((float)YEPNum + "");
-                            GEPValue.setText((float)GEPNum + "");
-                        }
+                            YEPValue.setText(YEPRF + "");
+                            GEPValue.setText(GEPRF + "");
+
 
                         break;
 
@@ -587,22 +535,20 @@ public class MainActivity extends Activity {
 
                 if(CKModifier) {
 
-                    int TKDNum = Integer.parseInt(TKDValue.getText().toString());
-
                     boolean fillUp;
 
-                    if(TKNRF >= (float)TKDNum * 0.2)					// if (437 >= 437 * 0.2 				[87.4]
+                    // determine if there is 20% or more available ki to fill up current ki (should be @string...)
+                    if(TKNRF >= (float)TKDRI * 0.2)					// if (437 >= 437 * 0.2 				[87.4]
                         fillUp = true;
                     else
                         fillUp = false;
 
                     if(CKRF == 0) {
 
-
                         if(fillUp){
 
-                            CKRF += (float)TKDNum * 0.2;				// 0 + 87.4 					[87.4]
-                            TKNRF -= (float)TKDNum * 0.2;				// 437.0 - 87.4					[349.6]
+                            CKRF += (float)TKDRI * 0.2;				// 0 + 87.4 					[87.4]
+                            TKNRF -= (float)TKDRI * 0.2;				// 437.0 - 87.4					[349.6]
                         }
                         else if(!fillUp){
 
@@ -611,13 +557,13 @@ public class MainActivity extends Activity {
                         }
                     }
                     else if(CKRF != 0){
-
-                        if(CKRF <= (float)TKDNum * 0.8){				// if CKRF was like 23 <= 349.6
+                        // determine if at least 20% room still available for full current ki fill up
+                        if(CKRF <= (float)TKDRI * 0.8){				// if CKRF was like 23 <= 349.6
 
                             if(fillUp){
 
-                                CKRF += (float)TKDNum * 0.2;			// 23 + 87.4  					[110]
-                                TKNRF -= (float)TKDNum * 0.2;			//
+                                CKRF += (float)TKDRI * 0.2;			// 23 + 87.4  					[110]
+                                TKNRF -= (float)TKDRI * 0.2;			//
                             }
                             else if(!fillUp){
 
@@ -625,101 +571,68 @@ public class MainActivity extends Activity {
                                 TKNRF -= TKNRF;
                             }
 
-                        }
-                        else if(CKRF > (float)TKDNum * 0.8){			// 360 > 349.6
+                        }   // current ki is more than 80% at the moment
+                        else if(CKRF > (float)TKDRI * 0.8){			// 360 > 349.6
 
-                            if(fillUp){
-
-                                TKNRF -= (float)TKDNum - CKRF;			// 437 - 360					[77]
-                                CKRF += (float)TKDNum - CKRF;			// 360 + 77                     [437]
-                            }
-                            else if(!fillUp){
-
-                                if(TKNRF >= (float)TKDNum - CKRF){		// I DON'T LIKE THIS PART!!!
-
-                                    TKNRF -= (float)TKDNum - CKRF;		//How can TKNRF be more than tkd - ck?
-                                    CKRF += (float)TKDNum - CKRF;
-                                }
-                                else if(TKNRF < (float)TKDNum - CKRF){
-
-                                    CKRF += TKNRF;
-                                    TKNRF -= TKNRF;
-                                }
-                            }
+                            CKRF += TKNRF;
+                            TKNRF -= TKNRF;
 
                         }
 
                     }
 
-                    int BPNum = Integer.parseInt(BPValue.getText().toString());
-
                     int CKNum = Math.round(CKRF);
 
-                    if(CKNum <= 180)            // represents 3 mins
-                        BPNum = 1;
+                    if(CKRF <= 180)            // represents 3 mins
+                        BPRI = 1;
                     else
-                        BPNum = CKNum / 180;
+                        BPRI = (int)CKRF / 180;
 
-                    BPValue.setText(BPNum + "");
+                    BPValue.setText(BPRI + "");
 
-                    int TKNNum = Math.round(TKNRF);
-
-
-                    TKNValue.setText(TKNNum + "");
-                    CKValue.setText(CKNum + "");
+                    TKNValue.setText((int)TKNRF + "");
+                    CKValue.setText((int)CKRF + "");
 
                 }
 
                 if(DKModifier) { // because DK is priority, if TKN empty, should be able to draw from CK in extreme cases.
 
-                    int TKDNum = Integer.parseInt(TKDValue.getText().toString());
                     boolean fillUp;
 
-                    if(TKNRF >= (float)TKDNum * 0.050)
+                    if(TKNRF >= (float)TKDRI * 0.050)
                         fillUp = true;
                     else
                         fillUp = false;
 
                     if(fillUp) {
 
-                        if (DKRF <= (float)TKDNum * 0.95) {
+                        if (DKRF <= (float)TKDRI * 0.95) {
 
-                            DKRF += (float)TKDNum * 0.050;
-                            TKNRF -= (float)TKDNum * 0.050;
+                            DKRF += (float)TKDRI * 0.050;
+                            TKNRF -= (float)TKDRI * 0.050;
                         }
-                        else if(DKRF > (float)TKDNum * 0.95){
+                        else if(DKRF > (float)TKDRI * 0.95){
 
-                            TKNRF -= (float)TKDNum - DKRF;
-                            DKRF += (float)TKDNum - DKRF;
+                            TKNRF -= (float)TKDRI - DKRF;
+                            DKRF += (float)TKDRI - DKRF;
                         }
                     }
                     else if(!fillUp){
-
-                        if (DKRF <= (float)TKDNum * 0.95) {
+                        // if there's hardly any ki left to spare but defense ki isn't close to full
+                        if (DKRF <= (float)TKDRI * 0.95) {
                             DKRF += TKNRF;
                             TKNRF -= TKNRF;
-                        }
-                        else if(DKRF > (float)TKDNum * 0.95){
+                        }   // if defense ki was, say 97% but available ki is less that 5%, we need max 3% of whatever we got
+                        else if(DKRF > (float)TKDRI * 0.95){
 
-                            if(TKNRF >= (float)TKDNum - DKRF){
-                                float DKAmount = (float)TKDNum - DKRF;
-                                DKRF += (float)TKDNum - DKRF;
-                                TKNRF -= DKAmount;
-                            }
-                            else if(TKNRF < (float)TKDNum - DKRF){
-                                DKRF += TKNRF;
-                                TKNRF -= TKNRF;
-                            }
+                            DKRF += TKNRF;
+                            TKNRF -= TKNRF;
 
                         }
                     }
 
-                    int TKNNum = Math.round(TKNRF);
-                    int DKNum = Math.round(DKRF);
-
-
-                    TKNValue.setText(TKNNum + "");
-                    DKValue.setText(DKNum + "");
+                    TKNValue.setText((int)TKNRF + "");
+                    DKValue.setText((int)DKRF + "");
 
                     /*
                     Because DK is so important, it can also be used directly during battle. Rather than using CK for blocking,
@@ -794,33 +707,30 @@ public class MainActivity extends Activity {
 
                 if(CKModifier) {
 
+                    // if current ki is 20% or more, can we put it all back into available ki (keeping DK in mind)
+                    if(TKNRF <= (float)TKDRI * 0.8){
 
-                    int TKDNum = Integer.parseInt(TKDValue.getText().toString());
+                        if(CKRF >= (float)TKDRI * 0.2){
 
-
-                    if(TKNRF <= (float)TKDNum * 0.8){
-
-                        if(CKRF >= (float)TKDNum * 0.2){
-
-                            CKRF -= (float)TKDNum * 0.2;
-                            TKNRF += (float)TKDNum * 0.2;
+                            CKRF -= (float)TKDRI * 0.2;
+                            TKNRF += (float)TKDRI * 0.2;
                         }
-                        else if(CKRF < (float)TKDNum * 0.2){
+                        else if(CKRF < (float)TKDRI * 0.2){
 
                             TKNRF += CKRF;
                             CKRF -= CKRF;
                         }
 
 
-                    }
-                    else if(TKNRF > (float)TKDNum * 0.8){
+                    }   // if available ki space is less than 20%
+                    else if(TKNRF > (float)TKDRI * 0.8){
+                        // if current ki is a lot
+                        if(CKRF >= (float)TKDRI - TKNRF){
 
-                        if(CKRF >= (float)TKDNum - TKNRF){
-
-                            CKRF -= (float)TKDNum - TKNRF;
-                            TKNRF += (float)TKDNum - TKNRF;
+                            CKRF -= (float)TKDRI - TKNRF;
+                            TKNRF += (float)TKDRI - TKNRF;
                         }
-                        else if(CKRF < (float)TKDNum - TKNRF){
+                        else if(CKRF < (float)TKDRI - TKNRF){
 
                             TKNRF += CKRF;
                             CKRF -= CKRF;
@@ -828,68 +738,48 @@ public class MainActivity extends Activity {
 
                     }
 
-                    int BPNum = Integer.parseInt(BPValue.getText().toString());
-
-                    int CKNum = Math.round(CKRF);
-
-                    if(CKNum <= 180)            // represents 3 mins
-                        BPNum = 1;
+                    if(CKRF <= 180)            // represents 3 mins
+                        BPRI = 1;
                     else
-                        BPNum = CKNum/180;
+                        BPRI = (int)CKRF/180;
 
-                    if(BPNum <= 1)
-                        BPNum = 1;						// In case player tries to lower it manually
-                    BPValue.setText(BPNum + "");
+                    if(BPRI <= 1)
+                        BPRI = 1;						// In case player tries to lower it manually
+                    BPValue.setText(BPRI + "");
 
-                    int TKNNum = Math.round(TKNRF);
-
-
-                    TKNValue.setText(TKNNum + "");
-                    CKValue.setText(CKNum + "");
+                    TKNValue.setText((int)TKNRF + "");
+                    CKValue.setText((int)CKRF + "");
 
                 }
 
 
                 if(DKModifier) {
 
-                    int TKDNum = Integer.parseInt(TKDValue.getText().toString());
+                    // if available ki can handle receiving a full %5 of defense ki
+                    if(TKNRF <= (float)TKDRI * 0.95){
 
+                        if(DKRF >= (float)TKDRI * 0.050){
 
-                    if(TKNRF <= (float)TKDNum * 0.95){
-
-                        if(DKRF >= (float)TKDNum * 0.050){
-
-                            DKRF -= (float)TKDNum * 0.050;
-                            TKNRF += (float)TKDNum * 0.050;
+                            DKRF -= (float)TKDRI * 0.050;
+                            TKNRF += (float)TKDRI * 0.050;
                         }
-                        else if(DKRF < (float)TKDNum * 0.050){
+                        else if(DKRF < (float)TKDRI * 0.050){
 
                             TKNRF += DKRF;
                             DKRF -= DKRF;
                         }
 
 
-                    }
-                    else if(TKNRF > (float)TKDNum * 0.95){
+                    }   // if available space is very limited
+                    else if(TKNRF > (float)TKDRI * 0.95){
 
-                        if(DKRF >= (float)TKDNum - TKNRF){
-
-                            DKRF -= (float)TKDNum - TKNRF;
-                            TKNRF += (float)TKDNum - TKNRF;
-                        }
-                        else if(DKRF < (float)TKDNum - TKNRF){
-
-                            TKNRF += DKRF;
-                            DKRF -= DKRF;
-                        }
+                        TKNRF += DKRF;
+                        DKRF -= DKRF;
 
                     }
 
-                    int TKNNum = Math.round(TKNRF);
-                    int DKNum = Math.round(DKRF);
-
-                    TKNValue.setText(TKNNum + "");
-                    DKValue.setText(DKNum + "");
+                    TKNValue.setText((int)TKNRF + "");
+                    DKValue.setText((int)DKRF + "");
 
                 }
 
@@ -927,6 +817,86 @@ public class MainActivity extends Activity {
             }
         });
 
+
+
+
+
+
+
+    }
+
+    public void loadMyAvatar(View view) {
+
+        DBHandler dbHandler = new DBHandler(this, null, null, 1);
+
+        Avatar avatar = dbHandler.loadAvatar(playerName);
+
+        if(avatar != null){
+
+            TKNRF  = avatar.getAvatarTotalKiNumerator();
+            TKDRI  = avatar.getAvatarTotalKiDenominator();
+            CKRF   = avatar.getAvatarCurrentKi();
+            DKRF   = avatar.getAvatarDefenseKi();
+            PLRI   = avatar.getAvatarPowerLevel();
+            BPRI   = avatar.getAvatarBattlePower();
+            GEPRF  = avatar.getAvatarGreenEnergyPercentage();
+            YEPRF  = avatar.getAvatarYellowEnergyPercentage();
+            GETRI  = avatar.getAvatarGreenEnergyTimer();
+            YETRI  = avatar.getAvatarYellowEnergyTimer();
+            YTRI   = avatar.getAvatarYellowTimer();
+        }
+        else{
+            Avatar newAvatar = new Avatar();
+
+            playerName = newAvatar.getAvatarName();
+            playerRace = newAvatar.getAvatarRace();
+            TKNRF  = newAvatar.getAvatarTotalKiNumerator();
+            TKDRI  = newAvatar.getAvatarTotalKiDenominator();
+            CKRF   = newAvatar.getAvatarCurrentKi();
+            DKRF   = newAvatar.getAvatarDefenseKi();
+            PLRI   = newAvatar.getAvatarPowerLevel();
+            BPRI   = newAvatar.getAvatarBattlePower();
+            GEPRF  = newAvatar.getAvatarGreenEnergyPercentage();
+            YEPRF  = newAvatar.getAvatarYellowEnergyPercentage();
+            GETRI  = newAvatar.getAvatarGreenEnergyTimer();
+            YETRI  = newAvatar.getAvatarYellowEnergyTimer();
+            YTRI   = newAvatar.getAvatarYellowTimer();
+
+        }
+    }
+
+    public void saveMyAvatar(View view){
+
+        DBHandler dbHandler = new DBHandler(this, null, null, 1);
+        dbHandler.deleteAvatar(playerName);
+        Avatar saveNewAvatar = new Avatar();
+
+        saveNewAvatar.setAvatarName(playerName);
+        saveNewAvatar.setAvatarRace(playerRace);
+        saveNewAvatar.setAvatarTotalKiNumerator(TKNRF);
+        saveNewAvatar.setAvatarTotalKiDenominator(TKDRI);
+        saveNewAvatar.setAvatarCurrentKi(CKRF);
+        saveNewAvatar.setAvatarDefenseKi(DKRF);
+        saveNewAvatar.setAvatarPowerLevel(PLRI);
+        saveNewAvatar.setAvatarBattlePower(BPRI);
+        saveNewAvatar.setAvatarGreenEnergyPercentage(GEPRF);
+        saveNewAvatar.setAvatarYellowEnergyPercentage(YEPRF);
+        saveNewAvatar.setAvatarGreenEnergyTimer(GETRI);
+        saveNewAvatar.setAvatarYellowEnergyTimer(YETRI);
+        saveNewAvatar.setAvatarYellowTimer(YTRI);
+
+        dbHandler.saveAvatar(saveNewAvatar);
+    }
+
+    public float threeDigConv(float number){
+
+        // Receive number, say: 7.500005        OR          32.775
+        number *= 1000;                          // = 7500.05        = 32775
+        number = (int)number;                    // = 7500           = 32775
+        //number = Math.round(number);           // = 7500            = 32775
+        number /= 1000;                          // = 7.5            = 32.775
+
+        return number;
     }
 
 }
