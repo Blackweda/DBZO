@@ -3,6 +3,8 @@ package com.holdings.siloaman.dbzo_leveller;
 import android.app.Activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 
 import android.os.Bundle;
@@ -14,6 +16,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import android.widget.Toast;
+
+/* SOURCES:
+
+    1. SQLITE HELP ->       http://www.tutorialspoint.com/android/android_sqlite_database.htm
+
+*/
 
 
 public class MainActivity extends Activity {
@@ -34,23 +42,24 @@ public class MainActivity extends Activity {
     float heranGreenTimer = 0;
     float heranYellowTimer = 0;
 
-    static boolean init = false;
-    Avatar avatar;
+    public static boolean init = false;
+    //Avatar avatar;
 
     // CHARACTER STATS
+    static int playerID = 1;
     String playerName = "PLAYER";
-    String playerRace = "HUMAN";
-    static float TKNRF = 0;
-    static int TKDRI = 0;
-    static float CKRF = 0;
-    static float DKRF = 0;
-    static int PLRI = 0;
-    static int BPRI = 0;
-    static float GEPRF = 0;
-    static float YEPRF = 0;
-    static int GETRI = 0;
-    static int YETRI = 0;
-    static int YTRI = 0;
+    String playerRace = "Namekian";
+    static float TKNRF;
+    static int TKDRI;
+    static float CKRF;
+    static float DKRF;
+    static int PLRI;
+    static int BPRI;
+    static float GEPRF;
+    static float YEPRF;
+    static int GETRI;
+    static int YETRI;
+    static int YTRI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +93,8 @@ public class MainActivity extends Activity {
         final Button UpButton = (Button)findViewById(R.id.upButton);
         final Button StartStopButton = (Button)findViewById(R.id.startStopButton);
         final Button DownButton = (Button)findViewById(R.id.downButton);
-        //final Button LoadButton = (Button)findViewById(R.id.loadButton);
-        //final Button SaveButton = (Button)findViewById(R.id.saveButton);
+        final Button LoadButton = (Button)findViewById(R.id.loadButton);
+        final Button SaveButton = (Button)findViewById(R.id.saveButton);
 
 
         /* Set Button Colors */
@@ -111,21 +120,38 @@ public class MainActivity extends Activity {
         // INITIALIZE SCREEN TEXTVIEW VALUES
 
         if(init == false) {
-            avatar = new Avatar();
 
-            playerName = avatar.getAvatarName();
-            playerRace = avatar.getAvatarRace();
-            TKNRF = avatar.getAvatarTotalKiNumerator();
-            TKDRI = avatar.getAvatarTotalKiDenominator();
-            CKRF = avatar.getAvatarCurrentKi();
-            DKRF = avatar.getAvatarDefenseKi();
-            PLRI = avatar.getAvatarPowerLevel();
-            BPRI = avatar.getAvatarBattlePower();
-            GEPRF = avatar.getAvatarGreenEnergyPercentage();
-            YEPRF = avatar.getAvatarYellowEnergyPercentage();
-            GETRI = avatar.getAvatarGreenEnergyTimer();
-            YETRI = avatar.getAvatarYellowEnergyTimer();
-            YTRI = avatar.getAvatarYellowTimer();
+            TKNRF = 100.0f;
+            TKDRI = 100;
+            CKRF = 0.0f;
+            DKRF = 0.0f;
+            PLRI = TKDRI;
+            BPRI = 1;
+            GEPRF = 100.0f;
+            YEPRF = 0.0f;
+            GETRI = 0;
+            YETRI = 0;
+            YTRI = 0;
+
+
+
+            /*
+                avatar = new Avatar();
+
+                playerName = avatar.getAvatarName();
+                playerRace = avatar.getAvatarRace();
+                TKNRF = avatar.getAvatarTotalKiNumerator();
+                TKDRI = avatar.getAvatarTotalKiDenominator();
+                CKRF = avatar.getAvatarCurrentKi();
+                DKRF = avatar.getAvatarDefenseKi();
+                PLRI = avatar.getAvatarPowerLevel();
+                BPRI = avatar.getAvatarBattlePower();
+                GEPRF = avatar.getAvatarGreenEnergyPercentage();
+                YEPRF = avatar.getAvatarYellowEnergyPercentage();
+                GETRI = avatar.getAvatarGreenEnergyTimer();
+                YETRI = avatar.getAvatarYellowEnergyTimer();
+                YTRI = avatar.getAvatarYellowTimer();
+            */
             init = true;   // an avatar object is already running
         }
 
@@ -239,6 +265,7 @@ public class MainActivity extends Activity {
 
                             if(GEPRF >= powerPercent) {
                                 GEPRF -= powerPercent;
+                                threeDigConv(GEPRF);
                                 // Racial Specific Counters
                                 namekianGreenTimer += powerPercent;
                                 heranGreenTimer += powerPercent;
@@ -251,16 +278,19 @@ public class MainActivity extends Activity {
                             else if(GEPRF < powerPercent && YEPRF != 0 /*>= powerPercent*/){
 
                                 powerPercent -= GEPRF;
+                                threeDigConv(powerPercent);
 
                                 namekianGreenTimer += GEPRF;
                                 heranGreenTimer += GEPRF;
                                 GETRI += (int)GEPRF;
 
                                 GEPRF -= GEPRF;
+
                                 //String text = "YEPNum before: " + YEPRF + " and powerPercent before: " + powerPercent;
                                 //Toast toast = Toast.makeText(context, text, duration);
                                 //toast.show();
                                 YEPRF -= powerPercent;
+                                threeDigConv(YEPRF);
                                 //text = "YEPNum after: " + YEPRF + " and powerPercent after: " + powerPercent;
                                 //toast = Toast.makeText(context, text, duration);
                                 //toast.show();
@@ -290,6 +320,7 @@ public class MainActivity extends Activity {
                                 TKDTemp *= 0.075;				// 437 * 7.5% = 32.775
                                 threeDigConv(TKDTemp);
                                 TKNRF += TKDTemp;				// 349.6 + 32.775 = 382.375
+                                threeDigConv(TKNRF);
                                 if (TKNRF >= (float)TKDRI)
                                     TKNRF = (float)TKDRI;
 
@@ -307,7 +338,10 @@ public class MainActivity extends Activity {
 
 
                         }
-
+						
+							
+							threeDigConv(GEPRF);
+							threeDigConv(YEPRF);
                             GEPValue.setText(GEPRF + "");     // try to mirror ck and tkn values
                             YEPValue.setText(YEPRF + "");
 
@@ -457,8 +491,10 @@ public class MainActivity extends Activity {
                         if(GEPRF + YEPRF > 100)
                             YEPRF = 100 - GEPRF;
 
+                            threeDigConv(GEPRF);
+							threeDigConv(YEPRF);
+							GEPValue.setText(GEPRF + "");
                             YEPValue.setText(YEPRF + "");
-                            GEPValue.setText(GEPRF + "");
 
 
                         break;
@@ -580,8 +616,6 @@ public class MainActivity extends Activity {
                         }
 
                     }
-
-                    int CKNum = Math.round(CKRF);
 
                     if(CKRF <= 180)            // represents 3 mins
                         BPRI = 1;
@@ -815,89 +849,79 @@ public class MainActivity extends Activity {
                 }
 
             }
+
+
         });
 
+        LoadButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                loadMyAvatar();
+            }
+        });
+
+        SaveButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                saveMyAvatar();
+            }
+        });
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        //when the activity stops, we want to save the data
+        saveMyAvatar();
+    }
 
 
+    public void loadMyAvatar() {
 
+        DBHandler dbHandler = new DBHandler(this);
+
+        Cursor cursor = dbHandler.loadAvatar(playerID);
+        cursor.moveToFirst();
+
+        TKNRF = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.TOTAL_KI_NUMERATOR_COLUMN));
+        TKDRI  = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.TOTAL_KI_DENOMINATOR_COLUMN));
+        CKRF   = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.CURRENT_KI_COLUMN));
+        DKRF   = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.DEFENSE_KI_COLUMN));
+        PLRI   = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.POWER_LEVEL_COLUMN));
+        BPRI   = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.BATTLE_POWER_COLUMN));
+        GEPRF  = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.GREEN_ENERGY_PERCENT_COLUMN));
+        YEPRF  = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.YELLOW_ENERGY_PERCENT_COLUMN));
+        GETRI  = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.GREEN_ENERGY_TIMER_COLUMN));
+        YETRI  = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.YELLOW_ENERGY_TIMER_COLUMN));
+        YTRI   = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.YELLOW_TIMER_COLUMN));
 
 
 
     }
 
-    public void loadMyAvatar(View view) {
+    public void saveMyAvatar(){
 
-        DBHandler dbHandler = new DBHandler(this, null, null, 1);
+        DBHandler dbHandler = new DBHandler(this);
+        dbHandler.deleteAvatar(playerID);
 
-        Avatar avatar = dbHandler.loadAvatar(playerName);
+        dbHandler.saveAvatar(playerID, playerName, playerRace, TKNRF, TKDRI, CKRF, DKRF, PLRI, BPRI, GEPRF,
+                             YEPRF, GETRI, YETRI, YTRI);
 
-        if(avatar != null){
-
-            TKNRF  = avatar.getAvatarTotalKiNumerator();
-            TKDRI  = avatar.getAvatarTotalKiDenominator();
-            CKRF   = avatar.getAvatarCurrentKi();
-            DKRF   = avatar.getAvatarDefenseKi();
-            PLRI   = avatar.getAvatarPowerLevel();
-            BPRI   = avatar.getAvatarBattlePower();
-            GEPRF  = avatar.getAvatarGreenEnergyPercentage();
-            YEPRF  = avatar.getAvatarYellowEnergyPercentage();
-            GETRI  = avatar.getAvatarGreenEnergyTimer();
-            YETRI  = avatar.getAvatarYellowEnergyTimer();
-            YTRI   = avatar.getAvatarYellowTimer();
-        }
-        else{
-            Avatar newAvatar = new Avatar();
-
-            playerName = newAvatar.getAvatarName();
-            playerRace = newAvatar.getAvatarRace();
-            TKNRF  = newAvatar.getAvatarTotalKiNumerator();
-            TKDRI  = newAvatar.getAvatarTotalKiDenominator();
-            CKRF   = newAvatar.getAvatarCurrentKi();
-            DKRF   = newAvatar.getAvatarDefenseKi();
-            PLRI   = newAvatar.getAvatarPowerLevel();
-            BPRI   = newAvatar.getAvatarBattlePower();
-            GEPRF  = newAvatar.getAvatarGreenEnergyPercentage();
-            YEPRF  = newAvatar.getAvatarYellowEnergyPercentage();
-            GETRI  = newAvatar.getAvatarGreenEnergyTimer();
-            YETRI  = newAvatar.getAvatarYellowEnergyTimer();
-            YTRI   = newAvatar.getAvatarYellowTimer();
-
-        }
-    }
-
-    public void saveMyAvatar(View view){
-
-        DBHandler dbHandler = new DBHandler(this, null, null, 1);
-        dbHandler.deleteAvatar(playerName);
-        Avatar saveNewAvatar = new Avatar();
-
-        saveNewAvatar.setAvatarName(playerName);
-        saveNewAvatar.setAvatarRace(playerRace);
-        saveNewAvatar.setAvatarTotalKiNumerator(TKNRF);
-        saveNewAvatar.setAvatarTotalKiDenominator(TKDRI);
-        saveNewAvatar.setAvatarCurrentKi(CKRF);
-        saveNewAvatar.setAvatarDefenseKi(DKRF);
-        saveNewAvatar.setAvatarPowerLevel(PLRI);
-        saveNewAvatar.setAvatarBattlePower(BPRI);
-        saveNewAvatar.setAvatarGreenEnergyPercentage(GEPRF);
-        saveNewAvatar.setAvatarYellowEnergyPercentage(YEPRF);
-        saveNewAvatar.setAvatarGreenEnergyTimer(GETRI);
-        saveNewAvatar.setAvatarYellowEnergyTimer(YETRI);
-        saveNewAvatar.setAvatarYellowTimer(YTRI);
-
-        dbHandler.saveAvatar(saveNewAvatar);
     }
 
     public float threeDigConv(float number){
 
         // Receive number, say: 7.500005        OR          32.775
         number *= 1000;                          // = 7500.05        = 32775
-        number = (int)number;                    // = 7500           = 32775
-        //number = Math.round(number);           // = 7500            = 32775
+        //number = (int)number;                    // = 7500           = 32775
+        number = Math.round(number);           // = 7500            = 32775
         number /= 1000;                          // = 7.5            = 32.775
 
         return number;
     }
+	
+	
+
 
 }
 
