@@ -4,31 +4,31 @@ POWERLEVEL           { BASE.SPREAD }
 Normal Training - The base ki growth applies to all 3 races without using any racial advantages.
 
 
-Tier 2 (100 - 1,000) 
+Tier 2 (100 - 999) 
 [ 2% ]
 50 Training Sessions To Reach 1,000 Total Ki
 +20 ki / session
 
 
-Tier 3 (1,000 - 10,000)
+Tier 3 (1,000 - 9,999)
 [ 1% ]
 100 Training Sessions to Reach 10,000 Total Ki
 +100 ki / session
 
 
-Tier 4 (10,000 - 100,000)
+Tier 4 (10,000 - 99,999)
 [ 0.5% ]
 200 Training Sessions to Reach 100,000 Total Ki
 +500 ki / session
 
 
-Tier 5 (100,000 - 1,000,000)
+Tier 5 (100,000 - 999,999)
 [ 0.1% ]
 1000 Training Sessions to Reach 1,000,000 Total Ki
 +1,000 ki / session
 
 
-Tier 6 (1,000,000 - 10,000,000)
+Tier 6 (1,000,000 - 9,999,999)
 [ 0.1% ]
 1000 Training Sessions to Reach 10,000,000 Total Ki
 +10,000 ki / session
