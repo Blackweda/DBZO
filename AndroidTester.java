@@ -55,6 +55,7 @@ public class MainActivity extends Activity {
     static float DKRF;
     static int PLRI;
     static int BPRI;
+    static int STRI;
     static float GEPRF;
     static float YEPRF;
     static int GETRI;
@@ -68,16 +69,20 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // BASE STAT TEXTVIEW ASSIGNMENT
+        final TextView TKNValue = (TextView)findViewById(R.id.TKValueTextView);
+        final TextView TKDValue = (TextView)findViewById(R.id.TKValueTextView2);
+
         final TextView CKValue = (TextView)findViewById(R.id.CKValueTextView);
         final TextView DKValue = (TextView)findViewById(R.id.DKValueTextView);
         final TextView PLValue = (TextView)findViewById(R.id.PLValueTextView);
         final TextView BPValue = (TextView)findViewById(R.id.BPValueTextView);
+        final TextView STValue = (TextView)findViewById(R.id.STValueTextView);
 
-        final TextView YEPValue = (TextView)findViewById(R.id.YEPValueTextView);
         final TextView GEPValue = (TextView)findViewById(R.id.GEPValueTextView);
+        final TextView YEPValue = (TextView)findViewById(R.id.YEPValueTextView);
 
-        final TextView TKNValue = (TextView)findViewById(R.id.TKValueTextView);
-        final TextView TKDValue = (TextView)findViewById(R.id.TKValueTextView2);
+
+
 
         // RACIAL POWER LEVEL TEXTVIEW ASSIGNMENT
         final TextView NPValue = (TextView)findViewById(R.id.namekianPowerTextView);
@@ -127,6 +132,7 @@ public class MainActivity extends Activity {
             DKRF = 0.0f;
             PLRI = TKDRI;
             BPRI = 1;
+            STRI = TKDRI;
             GEPRF = 100.0f;
             YEPRF = 0.0f;
             GETRI = 0;
@@ -169,6 +175,8 @@ public class MainActivity extends Activity {
             PLValue.setText(PLNum + "");
         int BPNum = BPRI;
             BPValue.setText(BPNum + "");
+        int STNum = STRI;
+            STValue.setText(STNum + "");
         float GEPNum = GEPRF;
             GEPValue.setText(GEPNum + "");
         float YEPNum = YEPRF;
@@ -469,22 +477,28 @@ public class MainActivity extends Activity {
                             if(playerRace == "Namekian") {
                                 TKDRI = NPNum;
                                 PLRI = TKDRI;
+                                STRI = TKDRI;           // need to check this later...
                                 if(DKRF > 0) {
                                     DKRF = 0;
                                     DKValue.setText((int)DKRF + "");
                                 }
                                 TKNRF = (float)TKDRI;
                                 TKDValue.setText(TKDRI + "");
+                                PLValue.setText(PLRI + "");
+                                STValue.setText(STRI + "");
                             }
                             if(playerRace == "Heran") {
                                 TKDRI = HPNum;
                                 PLRI = TKDRI;
+                                STRI = TKDRI;           // need to check this later...
                                 if(DKRF > 0) {
                                     DKRF = 0;
                                     DKValue.setText((int)DKRF + "");
                                 }
                                 TKNRF = (float)TKDRI;
                                 TKDValue.setText(TKDRI + "");
+                                PLValue.setText(PLRI + "");
+                                STValue.setText(STRI + "");
                             }
                         }
 
@@ -881,7 +895,7 @@ public class MainActivity extends Activity {
         DBHandler dbHandler = new DBHandler(this);
 
         Cursor cursor = dbHandler.loadAvatar(playerID);
-        cursor.moveToFirst();
+        cursor.moveToFirst(); // necessary or it crashes
 
         TKNRF = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.TOTAL_KI_NUMERATOR_COLUMN));
         TKDRI  = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.TOTAL_KI_DENOMINATOR_COLUMN));
@@ -889,13 +903,33 @@ public class MainActivity extends Activity {
         DKRF   = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.DEFENSE_KI_COLUMN));
         PLRI   = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.POWER_LEVEL_COLUMN));
         BPRI   = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.BATTLE_POWER_COLUMN));
+        STRI   = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.STAMINA_COLUMN));
         GEPRF  = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.GREEN_ENERGY_PERCENT_COLUMN));
         YEPRF  = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.YELLOW_ENERGY_PERCENT_COLUMN));
         GETRI  = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.GREEN_ENERGY_TIMER_COLUMN));
         YETRI  = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.YELLOW_ENERGY_TIMER_COLUMN));
         YTRI   = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.YELLOW_TIMER_COLUMN));
 
+        final TextView TKNValue = (TextView)findViewById(R.id.TKValueTextView);
+        final TextView TKDValue = (TextView)findViewById(R.id.TKValueTextView2);
+        final TextView CKValue = (TextView)findViewById(R.id.CKValueTextView);
+        final TextView DKValue = (TextView)findViewById(R.id.DKValueTextView);
+        final TextView PLValue = (TextView)findViewById(R.id.PLValueTextView);
+        final TextView BPValue = (TextView)findViewById(R.id.BPValueTextView);
+        final TextView STValue = (TextView)findViewById(R.id.STValueTextView);
+        final TextView GEPValue = (TextView)findViewById(R.id.GEPValueTextView);
+        final TextView YEPValue = (TextView)findViewById(R.id.YEPValueTextView);
 
+
+        TKNValue.setText((int)TKNRF + "");
+        TKDValue.setText(TKDRI + "");
+        CKValue.setText((int)CKRF + "");
+        DKValue.setText((int)DKRF + "");
+        PLValue.setText(PLRI + "");
+        BPValue.setText(BPRI + "");
+        STValue.setText(STRI + "");
+        GEPValue.setText(GEPRF + "");
+        YEPValue.setText(YEPRF + "");
 
     }
 
@@ -904,8 +938,8 @@ public class MainActivity extends Activity {
         DBHandler dbHandler = new DBHandler(this);
         dbHandler.deleteAvatar(playerID);
 
-        dbHandler.saveAvatar(playerID, playerName, playerRace, TKNRF, TKDRI, CKRF, DKRF, PLRI, BPRI, GEPRF,
-                             YEPRF, GETRI, YETRI, YTRI);
+        dbHandler.saveAvatar(playerID, playerName, playerRace, TKNRF, TKDRI, CKRF, DKRF, PLRI, BPRI,
+                STRI, GEPRF, YEPRF, GETRI, YETRI, YTRI);
 
     }
 
