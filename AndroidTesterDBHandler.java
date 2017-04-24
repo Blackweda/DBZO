@@ -32,6 +32,7 @@ public class DBHandler extends SQLiteOpenHelper {
         public static final String DEFENSE_KI_COLUMN = "Defense_Ki";
         public static final String POWER_LEVEL_COLUMN = "Power_Level";
         public static final String BATTLE_POWER_COLUMN = "Battle_Power";
+        public static final String STAMINA_COLUMN = "Stamina";
         public static final String GREEN_ENERGY_PERCENT_COLUMN = "Green_Energy_Percentage";
         public static final String YELLOW_ENERGY_PERCENT_COLUMN = "Yellow_Energy_Percentage";
         public static final String GREEN_ENERGY_TIMER_COLUMN = "Green_Energy_Timer";
@@ -50,6 +51,7 @@ public class DBHandler extends SQLiteOpenHelper {
             + MyDataEntry.DEFENSE_KI_COLUMN + " FLOAT,"
             + MyDataEntry.POWER_LEVEL_COLUMN + " INTEGER,"
             + MyDataEntry.BATTLE_POWER_COLUMN + " INTEGER,"
+            + MyDataEntry.STAMINA_COLUMN + " INTEGER,"
             + MyDataEntry.GREEN_ENERGY_PERCENT_COLUMN + " FLOAT,"
             + MyDataEntry.YELLOW_ENERGY_PERCENT_COLUMN + " FLOAT,"
             + MyDataEntry.GREEN_ENERGY_TIMER_COLUMN + " INTEGER,"
@@ -73,7 +75,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public boolean saveAvatar(int ID, String aName, String aRB, float aTKN, int aTKD, float aCK, float aDK,
-            int aPL, int aBP, float aGEP, float aYEP, int aGET, int aYET, int aYT) {
+            int aPL, int aBP, int aST, float aGEP, float aYEP, int aGET, int aYET, int aYT) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -87,6 +89,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(MyDataEntry.DEFENSE_KI_COLUMN, aDK);
         values.put(MyDataEntry.POWER_LEVEL_COLUMN, aPL);
         values.put(MyDataEntry.BATTLE_POWER_COLUMN, aBP);
+        values.put(MyDataEntry.STAMINA_COLUMN, aST);
         values.put(MyDataEntry.GREEN_ENERGY_PERCENT_COLUMN, aGEP);
         values.put(MyDataEntry.YELLOW_ENERGY_PERCENT_COLUMN, aYEP);
         values.put(MyDataEntry.GREEN_ENERGY_TIMER_COLUMN, aGET);
@@ -113,6 +116,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 MyDataEntry.DEFENSE_KI_COLUMN,
                 MyDataEntry.POWER_LEVEL_COLUMN,
                 MyDataEntry.BATTLE_POWER_COLUMN,
+                MyDataEntry.STAMINA_COLUMN,
                 MyDataEntry.GREEN_ENERGY_PERCENT_COLUMN,
                 MyDataEntry.YELLOW_ENERGY_PERCENT_COLUMN,
                 MyDataEntry.GREEN_ENERGY_TIMER_COLUMN,
@@ -120,7 +124,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 MyDataEntry.YELLOW_TIMER_COLUMN
         };
 
-        
+
 
 
         Cursor cursor = db.query(
