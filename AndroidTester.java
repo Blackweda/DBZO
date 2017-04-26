@@ -47,8 +47,8 @@ public class MainActivity extends Activity {
 
     // CHARACTER STATS
     static int playerID = 1;
-    String playerName = "PLAYER";
-    String playerRace = "Namekian";
+    String playerName;
+    String playerRace;
     static float TKNRF;
     static int TKDRI;
     static float CKRF;
@@ -69,6 +69,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // BASE STAT TEXTVIEW ASSIGNMENT
+        final TextView PNValue = (TextView)findViewById(R.id.playerNameTextView);
+        final TextView PRValue = (TextView)findViewById(R.id.playerRaceTextView);
+
         final TextView TKNValue = (TextView)findViewById(R.id.TKValueTextView);
         final TextView TKDValue = (TextView)findViewById(R.id.TKValueTextView2);
 
@@ -126,6 +129,8 @@ public class MainActivity extends Activity {
 
         if(init == false) {
 
+            playerName = "PICCOLO";             // CHOOSE ON GAME CREATION FOR FRIENDS
+            playerRace = "NAMEKIAN";            // CHOOSE ON GAME CREATION FOR FRIENDS
             TKNRF = 100.0f;
             TKDRI = 100;
             CKRF = 0.0f;
@@ -138,9 +143,6 @@ public class MainActivity extends Activity {
             GETRI = 0;
             YETRI = 0;
             YTRI = 0;
-
-
-
             /*
                 avatar = new Avatar();
 
@@ -163,6 +165,8 @@ public class MainActivity extends Activity {
 
         // INITIALIZE SCREEN VIEW VALUES
 
+        PNValue.setText(playerName);
+        PRValue.setText(playerRace);
         int TKNNum = (int)TKNRF;
             TKNValue.setText(TKNNum + "");
         int TKDNum = TKDRI;
@@ -259,6 +263,8 @@ public class MainActivity extends Activity {
                     case 1:
                         // While attacking...
 
+                        // http://effbot.org/pyfaq/why-are-floating-point-calculations-so-inaccurate.htm
+
                         threeDigConv(CKRF);
                         threeDigConv(GEPRF);
                         threeDigConv(YEPRF);
@@ -285,14 +291,25 @@ public class MainActivity extends Activity {
 
                             else if(GEPRF < powerPercent && YEPRF != 0 /*>= powerPercent*/){
 
-                                powerPercent -= GEPRF;
-                                threeDigConv(powerPercent);
+                                if(GEPRF != 0) {
+                                    powerPercent -= GEPRF;
+                                    threeDigConv(powerPercent);
+                                    namekianGreenTimer += GEPRF;
+                                    GETRI += (int) GEPRF;
+                                    //GEPRF -= GEPRF;
+                                    GEPRF = 0.0f;
+                                    threeDigConv(GEPRF);
+                                }
 
-                                namekianGreenTimer += GEPRF;
-                                heranGreenTimer += GEPRF;
-                                GETRI += (int)GEPRF;
+                                // PREVENT 7.444444444498 SCENARIO
+                                if(powerPercent > 7.40 && powerPercent < 7.60)
+                                    powerPercent = 7.5f;
+                                if(powerPercent > 12.40 && powerPercent < 12.60)
+                                    powerPercent = 12.5f;
 
-                                GEPRF -= GEPRF;
+
+
+
 
                                 //String text = "YEPNum before: " + YEPRF + " and powerPercent before: " + powerPercent;
                                 //Toast toast = Toast.makeText(context, text, duration);
@@ -308,7 +325,8 @@ public class MainActivity extends Activity {
                                 YETRI += (int)powerPercent;
                                 saiyanTimer += 3;
 
-                                powerPercent -= powerPercent;
+                                powerPercent = 0;
+                                threeDigConv(powerPercent);
 
                             }
 
@@ -320,8 +338,8 @@ public class MainActivity extends Activity {
                                 YEPRF += 7.5;
                                 threeDigConv(YEPRF);
 
-                                if(Math.round(YEPRF) == 8)         // prevent 7.500005
-                                    YEPRF = 7.5f;
+                                //if(Math.round(YEPRF) == 8)         // prevent 7.500005
+                                //    YEPRF = 7.5f;
 
                                 float TKDTemp = (float)TKDRI;
 
@@ -329,8 +347,10 @@ public class MainActivity extends Activity {
                                 threeDigConv(TKDTemp);
                                 TKNRF += TKDTemp;				// 349.6 + 32.775 = 382.375
                                 threeDigConv(TKNRF);
-                                if (TKNRF >= (float)TKDRI)
-                                    TKNRF = (float)TKDRI;
+                                if (TKNRF >= (float)TKDRI) {
+                                    TKNRF = (float) TKDRI;
+                                    threeDigConv(TKNRF);
+                                }
 
                                 int TKNNum = Math.round(TKNRF);		// 382
                                 TKNValue.setText(TKNNum + "");
@@ -338,7 +358,9 @@ public class MainActivity extends Activity {
                             else if((GEPRF + YEPRF + 7.5) > 100) {
 
                                 YEPRF = 100 - GEPRF;
+                                threeDigConv(YEPRF);
                                 TKNRF = (float)TKDRI;
+                                threeDigConv(TKNRF);
 
                                 int TKNNum = Math.round(TKNRF);
                                 TKNValue.setText(TKNNum + "");
@@ -390,6 +412,7 @@ public class MainActivity extends Activity {
                     case 0:
 
                         // While resting...
+
                         YTRI += 3;
 
                         int NPNum = Integer.parseInt(NPValue.getText().toString());
@@ -411,8 +434,10 @@ public class MainActivity extends Activity {
                         } // simply resting up, ki regen is close to complete
                         else if(CKRF == 0 && DKRF == 0 && TKNRF + TKDTemp >= (float)TKDRI){
                             TKNRF = (float)TKDRI;
+                            threeDigConv(TKNRF);
                             float YEPRemainder = 100 - GEPRF - YEPRF;
                             YEPRF += YEPRemainder;
+                            threeDigConv(YEPRF);
 
                         }   // in case of some already stored up ki
                         else if(CKRF > 0 || DKRF > 0){
@@ -428,6 +453,7 @@ public class MainActivity extends Activity {
                             }
                             else if((float)TKDRI - CKRF - DKRF - TKNRF < TKDTemp && (float)TKDRI - CKRF - DKRF - TKNRF > 0){
                                 TKNRF = (float)TKDRI - CKRF - DKRF;           // 7.5 - (100-90-5) = 2.5
+                                threeDigConv(TKNRF);
                                 if(GEPRF + YEPRF + 7.5 > 100) {
                                     YEPRF = 100 - GEPRF;
                                     threeDigConv(GEPRF);
@@ -448,6 +474,9 @@ public class MainActivity extends Activity {
 
                             if(GEPRF >= 100)
                                 GEPRF = 100;
+
+                            threeDigConv(GEPRF);
+                            threeDigConv(YEPRF);
 
                         }
 
@@ -483,6 +512,7 @@ public class MainActivity extends Activity {
                                     DKValue.setText((int)DKRF + "");
                                 }
                                 TKNRF = (float)TKDRI;
+                                threeDigConv(TKNRF);
                                 TKDValue.setText(TKDRI + "");
                                 PLValue.setText(PLRI + "");
                                 STValue.setText(STRI + "");
@@ -496,6 +526,7 @@ public class MainActivity extends Activity {
                                     DKValue.setText((int)DKRF + "");
                                 }
                                 TKNRF = (float)TKDRI;
+                                threeDigConv(TKNRF);
                                 TKDValue.setText(TKDRI + "");
                                 PLValue.setText(PLRI + "");
                                 STValue.setText(STRI + "");
@@ -897,6 +928,8 @@ public class MainActivity extends Activity {
         Cursor cursor = dbHandler.loadAvatar(playerID);
         cursor.moveToFirst(); // necessary or it crashes
 
+        playerName = cursor.getString(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.AVATAR_NAME_COLUMN));
+        playerRace = cursor.getString(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.AVATAR_RACE_COLUMN));
         TKNRF = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.TOTAL_KI_NUMERATOR_COLUMN));
         TKDRI  = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.TOTAL_KI_DENOMINATOR_COLUMN));
         CKRF   = cursor.getFloat(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.CURRENT_KI_COLUMN));
@@ -910,6 +943,8 @@ public class MainActivity extends Activity {
         YETRI  = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.YELLOW_ENERGY_TIMER_COLUMN));
         YTRI   = cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.MyDataEntry.YELLOW_TIMER_COLUMN));
 
+        final TextView PNValue = (TextView)findViewById(R.id.playerNameTextView);
+        final TextView PRValue = (TextView)findViewById(R.id.playerRaceTextView);
         final TextView TKNValue = (TextView)findViewById(R.id.TKValueTextView);
         final TextView TKDValue = (TextView)findViewById(R.id.TKValueTextView2);
         final TextView CKValue = (TextView)findViewById(R.id.CKValueTextView);
@@ -921,6 +956,8 @@ public class MainActivity extends Activity {
         final TextView YEPValue = (TextView)findViewById(R.id.YEPValueTextView);
 
 
+        PNValue.setText(playerName + "");
+        PRValue.setText(playerRace + "");
         TKNValue.setText((int)TKNRF + "");
         TKDValue.setText(TKDRI + "");
         CKValue.setText((int)CKRF + "");
