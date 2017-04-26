@@ -279,6 +279,18 @@ public class MainActivity extends Activity {
 
                             if(GEPRF >= powerPercent) {
                                 GEPRF -= powerPercent;
+
+                                if(GEPRF < 1.0)
+                                    GEPRF = 0;
+                                if(GEPRF > 19.0 && GEPRF < 21.0)    // PROBLEM 278
+                                    GEPRF = 20.0f;
+                                if(GEPRF > 39.0 && GEPRF < 41.0)
+                                    GEPRF = 40.0f;
+                                if(GEPRF > 59.0 && GEPRF < 61.0)
+                                    GEPRF = 60.0f;
+                                if(GEPRF > 79.0 && GEPRF < 81.0)
+                                    GEPRF = 80.0f;
+
                                 threeDigConv(GEPRF);
                                 // Racial Specific Counters
                                 namekianGreenTimer += powerPercent;
@@ -289,12 +301,13 @@ public class MainActivity extends Activity {
 
                             }
 
-                            else if(GEPRF < powerPercent && YEPRF != 0 /*>= powerPercent*/){
+                            else if(GEPRF < powerPercent && YEPRF != 0){
 
                                 if(GEPRF != 0) {
                                     powerPercent -= GEPRF;
                                     threeDigConv(powerPercent);
                                     namekianGreenTimer += GEPRF;
+                                    heranGreenTimer += GEPRF;
                                     GETRI += (int) GEPRF;
                                     //GEPRF -= GEPRF;
                                     GEPRF = 0.0f;
@@ -306,6 +319,8 @@ public class MainActivity extends Activity {
                                     powerPercent = 7.5f;
                                 if(powerPercent > 12.40 && powerPercent < 12.60)
                                     powerPercent = 12.5f;
+                                if(powerPercent > 24 && powerPercent < 26)              // PROBLEM 278
+                                    powerPercent = 25.0f;
 
 
 
@@ -315,6 +330,14 @@ public class MainActivity extends Activity {
                                 //Toast toast = Toast.makeText(context, text, duration);
                                 //toast.show();
                                 YEPRF -= powerPercent;
+
+                                if(YEPRF > 7.40 && YEPRF < 7.60)
+                                    YEPRF = 7.5f;
+                                if(YEPRF > 12.40 && YEPRF < 12.60)        // PROBLEM 123
+                                    YEPRF = 12.5f;
+                                if(YEPRF > 24 && YEPRF < 26)              // PROBLEM 278
+                                    YEPRF = 25.0f;
+
                                 threeDigConv(YEPRF);
                                 //text = "YEPNum after: " + YEPRF + " and powerPercent after: " + powerPercent;
                                 //toast = Toast.makeText(context, text, duration);
@@ -336,6 +359,14 @@ public class MainActivity extends Activity {
                                 YEPRF = 0;
                             if((GEPRF + YEPRF + 7.5) <= 100) {
                                 YEPRF += 7.5;
+
+                                if(YEPRF > 7.40 && YEPRF < 7.60)
+                                    YEPRF = 7.5f;
+                                if(YEPRF > 12.40 && YEPRF < 12.60)        // PROBLEM 123
+                                    YEPRF = 12.5f;
+                                if(YEPRF > 24 && YEPRF < 26)              // PROBLEM 278
+                                    YEPRF = 25.0f;
+
                                 threeDigConv(YEPRF);
 
                                 //if(Math.round(YEPRF) == 8)         // prevent 7.500005
