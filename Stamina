@@ -1,9 +1,51 @@
 This is an explanation and a logical working out of how stamina will work in the game.
 
-Stamina is the toughness of the body, or how much strain it can handle. Normal use of ki will not burden stamina too much, such as the 
-Namekians, who have not been seen to use multipliers or transformations. Their exhibition of strength is solely what they have achieved.
+Stamina is the body's ability to handle the ki pressure on itself, or how much strain it can handle. 
+Normal use of ki will not burden stamina too much, such as the Namekians, who have not been seen to use multipliers or transformations. 
+Their exhibition of strength is solely what they have achieved, for the most part.
 
 For Saiyans and Namekians, their SSJ and FPT will cause greater strain on the body, resulting in the need for more stamina.
 However, the FPT will be more practical for the Herans, whose bodies are more adjusted to using it, therefore small multipliers like 3x
 won't have the same effect that using a Kaio-Ken x3 would have, because this is a natural multiplier being used. The Heran can train their
 body to use Kaio-Ken multipliers alongside their FPT, which will lock in the benefits for an extended period of time!
+
+I think that there should be two elements at play here...
+
+Body Integrity and Stamina.
+
+When the body is healthy and whole, body integrity should be at 100%.
+When the stamina has not been taxed, it should match the base ki pool.
+
+However, using multipliers or transformations will begin to decrease stamina over time, resulting in the ki pressure building up more and 
+more as the body loses the ability to handle it. Users would need to get out of that transformtion, or result in serious injury/death. 
+Another option is to train their bodies to acclimate to that strain and cause the decrease of stamina to slow down with practice.
+
+Body integrity has to do with the actual body itself. Broken bones, lost limbs.. all decrease body integrity dramatically. Stamina strains
+and injuries during battle also decrease body integrity.
+
+KaioKen multipliers will give huge boosts in power at a cost: both body integrity AND stamina. By using up both, neither one or the other is
+used up unnecessarily fast. Increasing the stamina during training will allow the KaioKen to be used longer... but the body integrity factor
+is what controls the multiplier allowance.
+
+
+Integrity       KaioKen         Stamina Drain
+
+100%            x20            
+95%       
+90%             x18
+85%
+80%             x16
+75%
+70%             x14
+65%
+60%             x12
+55%
+50%             x10
+45%
+40%             x8
+35%
+30%             x6
+25%
+20%             x4
+15%
+10%             x2
