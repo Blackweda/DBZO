@@ -51,3 +51,29 @@ Integrity       KaioKen         Stamina Drain     Integrity Loss
 20%             x4              20%               10%
 15%
 10%             x2              20%               5%
+
+
+Normally, stamina should match the Total Ki.
+
+However, when transformations or power ups occur, the stamina normality initially matches the base normal ki. Therefore,
+going SSJ would increase the stamina 50x to match the new power, but the stamina would drain much more quickly because the user
+is not accustomed to it (STAMINA NORMALITY).
+In the case of KaioKen x 10, for example, the stamina would still only match the normal base ki, so it would be at 10% of the ki
+being used. The user must train their bodies to handle higher and higher degrees of stamina outbounds past their normal base ki
+limits.
+When Goku first learns KK, he goes as high as 4x against Vegeta. This put his body at 25% stamina normality, which affects his
+body integrity pretty rapidly. As he trained longer periods on his way to Namek, his stamina grew to be able to handle x20 
+eventually, because he had increased his ki and his training.
+
+Note: KK multiplies the Current Ki being used. When total ki is siphoned into Current Ki, it is also multiplied. Base ki levels
+don't change durin KK. Lowering the CK % will help during KK.
+Example:
+
+TKD is 100,000
+CK @ 20% is 20,000
+KK x 10 = 200,000
+= 2x stamina normality
+
+Lowering CK to 15%
+kk X 10 = 150,000 / 100,000 
+= 1.5x stamina normality
