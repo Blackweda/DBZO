@@ -1,0 +1,82 @@
+ADDWORD
+	Node* curr = root
+
+	for int i ....
+
+		char thisLetter...
+		int letterPlacemtn..
+
+		if(curr->letterArray[letterPlacemtn] == nullptr
+			curr->letterArray[letterPlacement] = new Node(thisLetter);
+
+		curr = curr->letterArray[letterPlacement];
+	}
+
+	curr->terminatingLetter = true;
+
+-------------------------------
+
+LOOKUP
+
+
+	bool wordFound = false;
+
+	Node* curr = root;
+
+	for (int i = 0; i < word.length(); i ++){
+
+		char thisLetter ....
+		int letterPlacemetn ....
+
+		if(curr->letterArray_[letterPlacement] == nullptr)
+			return false;
+		else
+			curr = curr->letterArray_[letterPlacement];
+	}
+
+	if(curr->terminatiringLetter == true)
+		wordFound = true;
+
+	return wordFound;
+
+-------------------------------------
+
+SUGGEST
+
+	Node* curr = root;
+	int wordswithPartial = 0;
+
+	for(int i = 0; i < partialWord.length(); i++){
+
+		char thisLetter....= partialWord.at(i);
+		int letterPlacemtn...
+	
+		if(curr->letterArray[letterPlacement] == nullptr)
+			return 0;
+
+		else
+			curr = curr->letterArray[letterplacemtn];
+
+
+	}
+
+
+	if(curr->terminatingLetter == true){
+
+		suggestions[wordWithPartial] = partialWord;
+		wordsWithPartial++;
+	}
+
+	for(int j = 0; j < 26; j++){
+
+		if(curr->letterArray[j] != nullptr){
+
+			char ctemp [2];
+			ctemp[0] = (j + 'a');
+			ctemp[1] = '\0';
+			string temp = partialWord + ctemp;
+			wordsWithPartial += suggest(temp, suggestions + wordsWithPartial);
+		}
+	}
+
+	return wordsWithPartial;
