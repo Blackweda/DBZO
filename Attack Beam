@@ -1,3 +1,6 @@
+If player is charging an attack within their current power level... the energy builds with no impact and efficiently... if they are charging
+a huge attack, they start burning into their reserve total ki, the effect on nature is seen (pushback) and it is massively less efficient.
+
 1. Focus on Enemy player Transform position
 2. Redirect rotation and direction of Self Player to face the x-coordinator (forward) directly at the torso of the Enemy Player
 3. Create Sphere Object directly in front of the torso of Self Player, extended enough that the edge of ball is about 1 unit away
