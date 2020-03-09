@@ -84,4 +84,4 @@ Possible Game Look (Sepia Tone):
  ![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/dbzo_sepiatone_look.jpg)
 
 Secret NPC who trades bodies with players:
-![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/Captain_Ginyu.jpg)
+![image](https://raw.github.com/Blackweda/Dragonball-Z-Online/master/Screenshots/Captain_Ginyu.png)
