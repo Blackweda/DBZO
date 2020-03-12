@@ -15,3 +15,23 @@ ShinLeft:
 Position:	-0.3012 / 0 / 0.541
 Rotation:	0 / -75 / 0
 Scale:		0.1 / 3.5 / 0.7
+
+------------------------------------------
+
+Calf Right:
+
+Position:	-0.886 / 0 / -0.436
+Rotation:	0 / 125 / 0
+Scale:		0.1 / 3.5 / 0.7
+
+Calf Left:
+
+Position:	-0.886 / 0 / 0.436
+Rotation:	0 / -125 / 0
+Scale: 		0.1 / 3.5 / 0.7
+
+Calf Frontal:
+
+Position:	-1.1508 / 0 / 0
+Rotation:	0 / 180 / 0
+Scale:		0.1 / 3.5 / 0.55
