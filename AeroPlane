@@ -1,0 +1,104 @@
+using UnityEngine;
+using System.Collections;
+
+public class AeroPlaneFlight : MonoBehaviour {
+	
+	/* Reference Links:
+	
+		https://www.youtube.com/watch?v=4Qq7d9elXNA
+		https://docs.unity3d.com/ScriptReference/Transform-eulerAngles.html
+		https://docs.unity3d.com/ScriptReference/Transform-forward.html
+		
+	*/	
+	
+	
+	[SerializeField]
+	private Rigidbody aeroplanebody;
+	
+	float rotationSpeed = 45;
+    Vector3 currentEulerAngles;		
+	Vector3 inputVector;
+    float x;
+    float y;
+    float z;
+	Camera cam;
+	
+	Transform target;
+
+	// Use this for initialization
+	void Start () {
+		
+		aeroplanebody = GetComponent<Rigidbody>();
+		aeroplanebody.tag = "Player";
+		cam = GameObject.Find("Aero_Camera").GetComponent<Camera>();
+		cam.enabled = true;
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+		/*
+		Input.GetAxisRaw("Horizontal") = 1  : right direction button
+		Input.GetAxisRaw("Horizontal") = -1 : left direction button
+		
+		Input.GetAxisRaw("Vertical")   = 1  : up direction button
+		Input.GetAxisRaw("Vertical")   = -1 : down direction button		
+		
+		EULER
+		----- 
+		Y = -1 : spin left
+		Y = 1  : spin right		
+		X = -1 : bank down
+		X =  1 : bank up		
+		Z = -1 : bank right
+		Z =  1 : bank left
+
+		DIRECTIONAL
+		-----------
+		
+		x = slide left or right
+		y = ascend/descend
+		z = go forward or backward
+		*/
+		
+		
+		// LEFT RIGHT KEYS TILT IN THAT DIRECTION
+		if (Input.GetAxisRaw("Horizontal") == 1 && Input.GetAxisRaw("Vertical") == 0)
+			z = -1;		
+		if(Input.GetAxisRaw("Horizontal") == -1 && Input.GetAxisRaw("Vertical") == 0)
+			z = 1;		
+		if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+			z = 0;
+		
+		// UP DOWN KEYS TILT IN THAT DIRECTION
+        if (Input.GetAxisRaw("Vertical") == 1 && Input.GetAxisRaw("Horizontal") == 0)
+			x = 1;		
+		if (Input.GetAxisRaw("Vertical") == -1 && Input.GetAxisRaw("Horizontal") == 0)
+			x = -1;		
+		if(Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Horizontal") == 0)
+			x = 0;
+		
+		// LEFT RIGHT KEYS TILT IN THAT DIRECTION
+		if (Input.GetAxisRaw("Horizontal") == 1 && Input.GetAxisRaw("Vertical") == -1)
+			y = 1;		
+		if(Input.GetAxisRaw("Horizontal") == -1 && Input.GetAxisRaw("Vertical") == -1)
+			y = -1;		
+		if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+			y = 0;
+		
+		
+		
+		
+        //if (Input.GetKeyDown(KeyCode.Z)) z = 1 - z;
+
+        //modifying the Vector3, based on input multiplied by speed and time
+        currentEulerAngles += new Vector3(x, y, z) * Time.deltaTime * rotationSpeed;
+
+        //apply the change to the gameObject
+        transform.eulerAngles = currentEulerAngles;
+		
+		aeroplanebody.velocity = transform.forward * 2;
+	
+	}
+}
