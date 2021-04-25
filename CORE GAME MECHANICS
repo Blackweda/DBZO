@@ -1,4 +1,37 @@
 Reserve Ki | Current Ki | Fresh Ki | Strained Ki
 ------------------------------------------------
 
+Every character in the game will be levelling up their total store of ki (Reserve Ki). This is the full amount allocated to the players and NPC's based on their
+training and level, and can be augmented in different ways. The total amount of Reserve Ki is private to the user and cannot be seen by anybody else, only 
+estimated by others through the course of battle.
 
+During battle and training, players and NPC's will dip into their reserve ki to store up Current Ki for attack and defense abilities. Without specialty training,
+players cannot instant use attacks or defense from their Reserve... they must build it up to be able to use it, therefore proper management and strategy is required.
+
+A player just beginning a fight or training course will have Fresh Energy, which has benefits of being drawn into Current Ki storage faster and ---
+Strained Ki is energy that comes anew during a fight or training but has lost speed as it is tired energy.
+
+The course of most battles, barring specialty moves, will have the following pattern:
+
+Two players engage in a battle.
+Both players power up (drawing Reserve Ki pool into their Current Ki pool).
+Strained Ki fills the Reserve Ki back up during the fight while Current Ki is charged into attacks and defense.
+Beam Attacks require summoning Current Ki to output a certain value of damage per second over a determined number of seconds/minutes.
+Example: a 50 ki/sec beam attack takes about 20 secs to charge up in order to gather 4,000 Current Ki(200/sec charge) and discharge 50 ki/sec over 25 seconds(1250 ki).
+
+A ball attack requires charging up 20 secs to gather 3000 current ki into a ball and using 1000 ki to maintain the ball during its passage into the other player.
+
+Both beam and ball attacks essentially require a player to draw energy and divide it between the actual attack and maintaining the attack.
+Further training can allow tapping into Reserve Ki to further maintain the attack but at a huge cost of Reserve Ki.
+
+Defense:
+
+A ball attack requries 150+% of the ball damage to implode it.
+During ball attack, with training, Reserve Ki can be summoned to increase strength of ball at huge cost
+A beam requires equal energy to hold it at bay and 125+% energy to repel it backwards.
+During beam attack with training, Reserve Ki cab be summoned to increase strenght of beam at huge cost.
+
+Ki Sense:
+
+Ki sense can only sense the current ki behind the ball, the beam or the Current Ki reserve of the player, never the Reserve Ki.
+The battle is always a sense of overwhelming the buildup of Current Ki (150%+) or just tiring out the other person of Reserve Ki (guessing)
